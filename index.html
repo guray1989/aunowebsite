@@ -11,8 +11,12 @@
 <body>
   <main class="page">
     <header class="top-bar">
-      <p class="top-bar__headline">Welcome to AUNO Pack</p>
+      <p class="top-bar__headline" data-i18n="welcome">Welcome to AUNO Pack</p>
       <nav class="top-bar__social">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
         <a href="#" aria-label="Instagram" class="social-link">IG</a>
         <a href="#" aria-label="LinkedIn" class="social-link">in</a>
         <a href="#" aria-label="X" class="social-link">X</a>
@@ -21,8 +25,8 @@
 
     <section class="hero">
       <h1 class="hero__title">AUNO Pack</h1>
-      <h2 class="hero__subtitle">AI-Powered Innovative Packaging Material Design</h2>
-      <p class="hero__description">
+      <h2 class="hero__subtitle" data-i18n="subtitle">AI-Powered Innovative Packaging Material Design</h2>
+      <p class="hero__description" data-i18n="description">
         We develop smart, sustainable material solutions for paper and flexible packaging. As a technology-driven startup,
         we combine AI insights with real-world packaging expertise to supply food brands with innovative and eco-friendly
         packaging materials that meet today's performance and sustainability standards.
@@ -31,55 +35,56 @@
 
     <section class="feature">
       <div class="feature__copy">
-        <h3>Paper Packaging</h3>
-        <p>High-quality, sustainable paper packaging designed to preserve food freshness and safety.</p>
+        <h3 data-i18n="paper-title">Paper Packaging</h3>
+        <p data-i18n="paper-desc">High-quality, sustainable paper packaging designed to preserve food freshness and safety.</p>
       </div>
       <div class="feature__media">
-        <img src="assets/images/paperpackaging.png" alt="Paper packaging illustration">
+        <img src="assets/images/paperpackaging.png" data-i18n-img="paperpackaging" alt="Paper packaging illustration">
       </div>
     </section>
 
     <section class="feature">
       <div class="feature__copy">
-        <h3>Flexible Packaging</h3>
-        <p>Versatile, durable pouches perfect for a variety of food products and convenient storage.</p>
+        <h3 data-i18n="flexible-title">Flexible Packaging</h3>
+        <p data-i18n="flexible-desc">Versatile, durable pouches perfect for a variety of food products and convenient storage.</p>
       </div>
       <div class="feature__media">
-        <img src="assets/images/flexible packaging.png" alt="Flexible packaging illustration">
+        <img src="assets/images/flexible packaging.png" data-i18n-img="flexible packaging" alt="Flexible packaging illustration">
       </div>
     </section>
 
     <section class="feature">
       <div class="feature__copy">
-        <h3>Sustainable Packaging</h3>
-        <p>Sustainability is at the core of everything we do; from material selection to production efficiency.</p>
+        <h3 data-i18n="sustainable-title">Sustainable Packaging</h3>
+        <p data-i18n="sustainable-desc">Sustainability is at the core of everything we do; from material selection to production efficiency.</p>
       </div>
       <div class="feature__media">
-        <img src="assets/images/sustainability.png" alt="Sustainable packaging illustration">
+        <img src="assets/images/sustainability.png" data-i18n-img="sustainability" alt="Sustainable packaging illustration">
       </div>
     </section>
 
     <section class="feature">
       <div class="feature__copy">
-        <h3>AI Packaging Solutions</h3>
-        <p>We develop smart and responsible solutions with AI.</p>
+        <h3 data-i18n="ai-title">AI Packaging Solutions</h3>
+        <p data-i18n="ai-desc">We develop smart and responsible solutions with AI.</p>
       </div>
       <div class="feature__media">
-        <img src="assets/images/aunoai.png" alt="AI packaging solutions workflow illustration">
+        <img src="assets/images/aunoai.png" data-i18n-img="aunoai" alt="AI packaging solutions workflow illustration">
       </div>
     </section>
 
     <section class="values">
-      <img src="assets/images/values.png" alt="Key values and benefits icons">
+      <img src="assets/images/values.png" data-i18n-img="values" alt="Key values and benefits icons">
     </section>
 
     <footer class="footer">
       <p>
-        Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.<br>
-        Email: info@hazirambalajim.com. For any inquiries or support, please feel free to contact us by email or visit our location.
+        <span data-i18n="address">Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.</span><br>
+        <span data-i18n="footer-text">Email: info@hazirambalajim.com. For any inquiries or support, please feel free to contact us by email or visit our location.</span>
       </p>
     </footer>
   </main>
+  <script src="i18n.js"></script>
 </body>
 </html>
 
