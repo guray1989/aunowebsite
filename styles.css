@@ -184,6 +184,18 @@ img {
   object-fit: contain;
 }
 
+.feature.feature--sustainability {
+  flex-direction: column !important;
+}
+
+.feature--sustainability .feature__media {
+  order: 1;
+}
+
+.feature--sustainability .feature__copy {
+  order: 2;
+}
+
 .values {
   background-color: var(--bg-dark);
   padding: 48px;
@@ -231,6 +243,22 @@ img {
   .top-bar__social {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .feature {
+    flex-direction: column;
+  }
+
+  .feature:nth-of-type(even) {
+    flex-direction: column;
+  }
+
+  .feature__media {
+    order: 1;
+  }
+
+  .feature__copy {
+    order: 2;
   }
 
   .hero__description {
