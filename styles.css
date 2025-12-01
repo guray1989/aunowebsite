@@ -196,6 +196,20 @@ img {
   order: 2;
 }
 
+@media (min-width: 901px) {
+  .feature.feature--sustainability {
+    flex-direction: row !important;
+  }
+
+  .feature--sustainability .feature__media {
+    order: 0;
+  }
+
+  .feature--sustainability .feature__copy {
+    order: 0;
+  }
+}
+
 .values {
   background-color: var(--bg-dark);
   padding: 48px;
