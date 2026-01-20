@@ -2,8 +2,10 @@
 const translations = {
   en: {
     welcome: 'Welcome to AUNO Pack',
-    subtitle: 'AI-Powered Innovative Packaging Material Design',
-    description: 'We develop smart, sustainable material solutions for paper and flexible packaging. As a technology-driven startup, we combine AI insights with real-world packaging expertise to supply food brands with innovative and eco-friendly packaging materials that meet today\'s performance and sustainability standards.',
+    subtitle: 'AI-Powered Innovative<br>Packaging Material Design',
+    description: 'We develop smart, sustainable material solutions for paper and flexible packaging. We provide food brands with packaging solutions that meet performance and sustainability standards, tailored to today\'s needs.',
+    'tagline-prefix': 'Why Aunopack',
+    tagline: 'Grow your sales targets<br>with the right packaging decisions.',
     'paper-title': 'Paper Packaging',
     'paper-desc': 'High-quality, sustainable paper packaging with <span class="highlight-yellow">customizable</span> <span class="highlight-yellow">printing options</span>, designed to preserve food freshness and safety.',
     'flexible-title': 'Flexible Packaging',
@@ -17,7 +19,7 @@ const translations = {
     address: 'Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.',
     'footer-text': 'Email: info@aunopack.com. For any inquiries or support, please feel free to contact us by email or visit our location.',
     // Navigation
-    logo: 'AUNO',
+    logo: 'AUNOPACK',
     'nav-products': 'Products',
     'nav-solutions': 'Solutions',
     'nav-case-studies': 'Case Studies',
@@ -52,8 +54,10 @@ const translations = {
   },
   tr: {
     welcome: 'AUNO Pack\'e Hoş Geldiniz',
-    subtitle: 'Yenilikçi Ambalaj Malzemeleri',
-    description: 'Kağıt ve esnek ambalaj için akıllı ve sürdürülebilir malzeme çözümleri geliştiriyoruz. Teknoloji odaklı bir startup olarak, yapay zekayı ambalaj uzmanlığıyla birleştiriyor; gıda markalarına performans ve sürdürülebilirlik standartlarını karşılayan, günümüz ihtiyaçlarına uygun ambalaj çözümleri sunuyor ve yenilikçi, sürdürülebilir malzemeler tedarik ediyoruz.',
+    subtitle: 'Yenilikçi Ambalaj<br>Malzemeleri',
+    description: 'Kağıt ve esnek ambalaj için akıllı ve sürdürülebilir malzeme çözümleri geliştiriyoruz. Gıda markalarına performans ve sürdürülebilirlik standartlarını karşılayan, günümüz ihtiyaçlarına uygun ambalaj çözümleri sunuyor ve tedarik ediyoruz.',
+    'tagline-prefix': 'Neden Aunopack',
+    tagline: 'Doğru ambalaj kararlarıyla<br>satış hedeflerinizi büyütün.',
     'paper-title': 'Kağıt Ambalaj',
     'paper-desc': 'Gıda tazeliğini ve güvenliğini korumak için tasarlanmış yüksek kaliteli, <span class="highlight-yellow">firmanıza özel baskılı</span>, sürdürülebilir kağıt ve karton ambalajlar',
     'flexible-title': 'Esnek Ambalaj',
@@ -67,7 +71,7 @@ const translations = {
     address: 'Adres: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Türkiye.',
     'footer-text': 'E-posta: info@aunopack.com. Herhangi bir soru veya destek için bizimle e-posta yoluyla iletişime geçebilir veya firmamızı ziyaret edebilirsiniz.',
     // Navigation
-    logo: 'AUNO',
+    logo: 'AUNOPACK',
     'nav-products': 'Ürünler',
     'nav-solutions': 'Çözümler',
     'nav-case-studies': 'Başarı Hikayeleri',
@@ -92,7 +96,7 @@ const translations = {
     'solution-shelf-performance-desc': 'Rafta stabil duran, düzgün dizilebilen satış odaklı yapılar.',
     'solution-small-batches-title': 'Küçük Seriler için Ambalaj Çözümleri',
     'solution-small-batches-desc': 'Butik ve özel seri ürünler için profesyonel ambalaj yapıları.',
-    'solution-aunoai-title': 'Veri Odaklı Tasarım',
+    'solution-aunoai-title': 'Veri Odaklı Ambalaj Tasarımı ve Malzeme Seçimi',
     'solution-aunoai-desc': 'AunoAI ile veri destekli ambalaj tasarım çözümleri.',
     'nav-who-we-are': 'Biz Kimiz?',
     'nav-how-we-work': 'Nasıl Çalışıyoruz?',

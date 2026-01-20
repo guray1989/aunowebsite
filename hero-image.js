@@ -1,7 +1,9 @@
 // Hero image configuration
 // Add your hero image URL here when ready
 const heroImage = {
-  url: null, // 'assets/images/hero.jpg'
+  // Place your hero image at this path (recommended): assets/images/hero-main.png
+  // Then it will automatically render in the hero image area next to the main text.
+  url: 'assets/images/hero-main.png',
   alt: {
     en: 'AUNO Pack - Innovative Packaging Solutions',
     tr: 'AUNO Pack - Yenilikçi Ambalaj Çözümleri'

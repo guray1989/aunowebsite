@@ -11,11 +11,10 @@
 <body>
   <header class="top-bar" role="banner">
       <div class="top-bar__container">
-        <!-- Left: Logo -->
-        <a href="index.html" class="top-bar__logo" data-i18n="logo">AUNO</a>
-
-        <!-- Center: Desktop Menu -->
+        <!-- Desktop Menu with Logo -->
         <nav class="top-bar__menu" role="navigation" aria-label="Main navigation">
+          <!-- Logo -->
+          <a href="index.html" class="top-bar__logo" data-i18n="logo">AUNOPACK</a>
           <!-- Products Mega Menu -->
           <div class="top-bar__item top-bar__item--mega" data-menu="products">
             <button class="top-bar__link" aria-expanded="false" aria-haspopup="true">
@@ -155,7 +154,7 @@
                         </div>
                       </div>
                       <div class="top-bar__solution-text">
-                        <span class="top-bar__solution-title" data-i18n="solution-aunoai-title">Veri Odaklı Tasarım</span>
+                        <span class="top-bar__solution-title" data-i18n="solution-aunoai-title">Veri Odaklı Ambalaj Tasarımı ve Malzeme Seçimi</span>
                         <span class="top-bar__solution-desc" data-i18n="solution-aunoai-desc">AunoAI ile veri destekli ambalaj tasarım çözümleri.</span>
                       </div>
                     </a>
@@ -204,15 +203,15 @@
           <a href="contact.html" class="top-bar__cta" data-i18n="nav-cta">Teklif Al</a>
           
           <!-- Language Switcher & Social -->
-          <nav class="top-bar__social">
-            <div class="language-switcher">
-              <button class="lang-btn active" data-lang="en">EN</button>
-              <button class="lang-btn" data-lang="tr">TR</button>
-            </div>
-            <a href="#" aria-label="Instagram" class="social-link">IG</a>
-            <a href="#" aria-label="LinkedIn" class="social-link">in</a>
-            <a href="#" aria-label="X" class="social-link">X</a>
-          </nav>
+      <nav class="top-bar__social">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
+        <a href="#" aria-label="Instagram" class="social-link">IG</a>
+        <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+        <a href="#" aria-label="X" class="social-link">X</a>
+      </nav>
 
           <!-- Mobile Menu Toggle -->
           <button class="top-bar__mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -233,17 +232,79 @@
       <!-- Hero Section -->
       <div class="top-bar__hero">
         <div class="top-bar__hero-content">
-          <h1 class="top-bar__hero-title">AUNO Pack</h1>
-          <h2 class="top-bar__hero-subtitle" data-i18n="subtitle">Yenilikçi Ambalaj Malzemeleri</h2>
+          <h2 class="top-bar__hero-subtitle" data-i18n="subtitle">Yenilikçi Ambalaj<br>Malzemeleri</h2>
           <p class="top-bar__hero-description" data-i18n="description">
-            Kağıt ve esnek ambalaj için akıllı ve sürdürülebilir malzeme çözümleri geliştiriyoruz. Teknoloji odaklı bir startup olarak, yapay zekayı ambalaj uzmanlığıyla birleştiriyor; gıda markalarına performans ve sürdürülebilirlik standartlarını karşılayan, günümüz ihtiyaçlarına uygun ambalaj çözümleri sunuyor ve yenilikçi, sürdürülebilir malzemeler tedarik ediyoruz.
+            Kağıt ve esnek ambalaj için akıllı ve sürdürülebilir malzeme çözümleri geliştiriyoruz. Gıda markalarına performans ve sürdürülebilirlik standartlarını karşılayan, günümüz ihtiyaçlarına uygun ambalaj çözümleri sunuyor ve tedarik ediyoruz.
           </p>
         </div>
         <div class="top-bar__hero-image">
-          <img src="" alt="" data-hero-img style="display: none;">
+          <img src="" alt="" data-hero-img>
         </div>
       </div>
     </header>
+
+  <!-- Tagline Section -->
+  <div class="tagline">
+    <p class="tagline-text"><span class="tagline-small" data-i18n="tagline-prefix">Neden Aunopack</span><br><span data-i18n="tagline">Doğru ambalaj kararlarıyla<br>satış hedeflerinizi büyütün.</span></p>
+  </div>
+
+  <!-- Why AunoPack Cards Section -->
+  <section class="why-aunopack">
+    <div class="why-aunopack__container">
+      <div class="why-aunopack__cards">
+        <div class="why-aunopack__card" data-card="1">
+          <div class="why-aunopack__circle">
+            <h3 class="why-aunopack__headline">Ambalaj Maliyetinizi Optimize Edin</h3>
+          </div>
+          <div class="why-aunopack__panel">
+            <div class="why-aunopack__content">
+              <p>Gereğinden fazla malzeme, yanlış yapı veya verimsiz üretim kaynaklı maliyetlerinizi azaltalım.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-aunopack__card" data-card="2">
+          <div class="why-aunopack__circle">
+            <h3 class="why-aunopack__headline">Ambalajı Satış Performansını Destekleyen Bir Araca Dönüştürmek</h3>
+          </div>
+          <div class="why-aunopack__panel">
+            <div class="why-aunopack__content">
+              <p>Ambalajın; rafta görünürlük, kullanım kolaylığı ve kategori uyumu ile ürün satışına katkı sağlamasını hedeflemek.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-aunopack__card" data-card="3">
+          <div class="why-aunopack__circle">
+            <h3 class="why-aunopack__headline">Ambalajları Daha Sürdürülebilir Hale Getirmek</h3>
+          </div>
+          <div class="why-aunopack__panel">
+            <div class="why-aunopack__content">
+              <p>Geri dönüştürülebilir, sadeleştirilmiş ve regülasyon uyumlu ambalaj yapılarını sistematik olarak desteklemek.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-aunopack__card" data-card="4">
+          <div class="why-aunopack__circle">
+            <h3 class="why-aunopack__headline">Kart 4</h3>
+          </div>
+          <div class="why-aunopack__panel">
+            <div class="why-aunopack__content">
+              <p>Kart 4 açıklama metni buraya gelecek.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-aunopack__card" data-card="5">
+          <div class="why-aunopack__circle">
+            <h3 class="why-aunopack__headline">Kart 5</h3>
+          </div>
+          <div class="why-aunopack__panel">
+            <div class="why-aunopack__content">
+              <p>Kart 5 açıklama metni buraya gelecek.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
 
   <main class="page">
     <!-- Features Grid - First Row -->
@@ -253,26 +314,26 @@
         <div class="feature__media">
           <img src="assets/images/paperpackaging.png" data-i18n-img="paperpackaging" alt="Paper packaging illustration">
         </div>
-        <div class="feature__copy">
-          <h3 data-i18n="paper-title">Paper Packaging</h3>
-          <p data-i18n="paper-desc">High-quality, sustainable paper packaging designed to preserve food freshness and safety.</p>
-        </div>
+      <div class="feature__copy">
+        <h3 data-i18n="paper-title">Paper Packaging</h3>
+        <p data-i18n="paper-desc">High-quality, sustainable paper packaging designed to preserve food freshness and safety.</p>
+      </div>
       </div>
 
       <!-- Feature 2: Flexible Packaging -->
       <div class="feature-item">
-        <div class="feature__media">
+      <div class="feature__media">
           <img src="assets/images/flexible packaging.png" data-i18n-img="flexible packaging" alt="Flexible packaging illustration">
-        </div>
-        <div class="feature__copy">
-          <h3 data-i18n="flexible-title">Flexible Packaging</h3>
-          <p data-i18n="flexible-desc">Versatile, durable pouches perfect for a variety of food products and convenient storage.</p>
-        </div>
+      </div>
+      <div class="feature__copy">
+        <h3 data-i18n="flexible-title">Flexible Packaging</h3>
+        <p data-i18n="flexible-desc">Versatile, durable pouches perfect for a variety of food products and convenient storage.</p>
+      </div>
       </div>
 
       <!-- Feature 3: Print -->
       <div class="feature-item">
-        <div class="feature__media">
+      <div class="feature__media">
           <img src="assets/images/print.png" data-i18n-img="print" alt="Print illustration">
         </div>
         <div class="feature__copy">
@@ -280,19 +341,19 @@
           <p data-i18n="print-desc">Custom printing solutions for your packaging needs.</p>
         </div>
       </div>
-    </div>
+      </div>
 
     <!-- Features Grid - Second Row -->
     <div class="features-grid features-grid--two">
       <!-- Feature 1: Sustainability -->
       <div class="feature-item">
-        <div class="feature__media">
-          <img src="assets/images/sustainability.png" data-i18n-img="sustainability" alt="Sustainable packaging illustration">
-        </div>
-        <div class="feature__copy">
-          <h3 data-i18n="sustainable-title">Sustainable Packaging</h3>
-          <p data-i18n="sustainable-desc">Sustainability is at the core of everything we do; from material selection to production efficiency.</p>
-        </div>
+      <div class="feature__media">
+        <img src="assets/images/sustainability.png" data-i18n-img="sustainability" alt="Sustainable packaging illustration">
+      </div>
+      <div class="feature__copy">
+        <h3 data-i18n="sustainable-title">Sustainable Packaging</h3>
+        <p data-i18n="sustainable-desc">Sustainability is at the core of everything we do; from material selection to production efficiency.</p>
+      </div>
       </div>
 
       <!-- Feature 2: AI Packaging Solutions -->
@@ -300,12 +361,12 @@
         <div class="feature__media">
           <img src="assets/images/aunoai.png" data-i18n-img="aunoai" alt="AI packaging solutions workflow illustration">
         </div>
-        <div class="feature__copy">
-          <h3 data-i18n="ai-title">AI Packaging Solutions</h3>
-          <p data-i18n="ai-desc">We develop smart and responsible solutions with AI.</p>
-        </div>
+      <div class="feature__copy">
+        <h3 data-i18n="ai-title">AI Packaging Solutions</h3>
+        <p data-i18n="ai-desc">We develop smart and responsible solutions with AI.</p>
       </div>
-    </div>
+      </div>
+      </div>
 
     <section class="values">
       <img src="assets/images/values.png" data-i18n-img="values" alt="Key values and benefits icons">
@@ -322,6 +383,7 @@
   <script src="navigation.js"></script>
   <script src="sector-images.js"></script>
   <script src="hero-image.js"></script>
+  <script src="why-aunopack-cards.js"></script>
 </body>
 </html>
 
