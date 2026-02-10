@@ -2,11 +2,9 @@
 // Automatic mapping: resimler aşağıdaki isimlerle kaydedilirse otomatik olarak ilgili sektöre bağlanır
 const sectorImageMapping = {
   sector_confectionery: 'sekerlemesektor', // sekerlemesektor.jpeg
-  sector_snacks: 'atistirmaliksektor', // atistirmaliksektor.jpg
   sector_meat_dairy: 'sarkuterisektor', // sarkuterisektor.jpg
   sector_ready_meals: 'haziryemeksektor', // haziryemeksektor.jpeg
   sector_premium: 'lukssektor', // lukssektor.jpg
-  sector_fresh_produce: 'tazesebzesektor', // tazesebzesektor.jpg
 };
 
 // Helper function to build image path
@@ -15,20 +13,17 @@ function getSectorImagePath(sectorKey) {
   const imageName = sectorImageMapping[sectorKey];
   if (!imageName) return null;
   
-  // Try .jpg first, then .jpeg, .png, .webp
-  // Browser will try to load and handle errors gracefully
-  return `assets/images/${imageName}.jpg`;
+  // Kök dizinden mutlak yol kullan: tüm sayfalarda çalışsın
+  return `/assets/images/${imageName}.jpg`;
 }
 
 // Sector images configuration
 // Images are automatically loaded based on naming convention
 const sectorImages = {
   sector_confectionery: getSectorImagePath('sector_confectionery'), // sekerlemesektor.jpeg
-  sector_snacks: getSectorImagePath('sector_snacks'), // atistirmaliksektor.jpg
   sector_meat_dairy: getSectorImagePath('sector_meat_dairy'), // sarkuterisektor.jpg
   sector_ready_meals: getSectorImagePath('sector_ready_meals'), // haziryemeksektor.jpeg
   sector_premium: getSectorImagePath('sector_premium'), // lukssektor.jpg
-  sector_fresh_produce: getSectorImagePath('sector_fresh_produce'), // tazesebzesektor.jpg
 };
 
 // Solution images mapping
@@ -36,7 +31,7 @@ const sectorImages = {
 const solutionImageMapping = {
   solution_shelf_life: 'rafomrucozum', // rafomrucozum.jpg
   solution_shelf_performance: 'raperformanscozum', // raperformanscozum.jpg
-  solution_small_batches: 'kucuksericozum', // kucuksericozum.jpg
+  solution_small_batches: 'butikcozum', // butikcozum.jpg
   solution_aunoai: 'aunoai', // aunoai.jpg
 };
 
@@ -44,7 +39,8 @@ const solutionImageMapping = {
 function getSolutionImagePath(solutionKey) {
   const imageName = solutionImageMapping[solutionKey];
   if (!imageName) return null;
-  return `assets/images/${imageName}.jpg`;
+  // Kök dizinden mutlak yol: tüm sayfalarda tutarlı
+  return `/assets/images/${imageName}.jpg`;
 }
 
 // Solution images configuration
@@ -52,7 +48,7 @@ function getSolutionImagePath(solutionKey) {
 const solutionImages = {
   solution_shelf_life: getSolutionImagePath('solution_shelf_life'), // rafomrucozum.jpg
   solution_shelf_performance: getSolutionImagePath('solution_shelf_performance'), // raperformanscozum.jpg
-  solution_small_batches: getSolutionImagePath('solution_small_batches'), // kucuksericozum.jpg
+  solution_small_batches: getSolutionImagePath('solution_small_batches'), // butikcozum.jpg
   solution_aunoai: getSolutionImagePath('solution_aunoai'), // aunoai.jpg
 };
 
@@ -78,7 +74,7 @@ function loadSectorImages() {
           return;
         }
         
-        const path = `assets/images/${imageName}.${extensions[extIndex]}`;
+        const path = `/assets/images/${imageName}.${extensions[extIndex]}`;
         
         img.onload = function() {
           this.style.display = 'block'; // Show image when loaded
@@ -129,7 +125,7 @@ function loadSolutionImages() {
           return;
         }
         
-        const path = `assets/images/${imageName}.${extensions[extIndex]}`;
+        const path = `/assets/images/${imageName}.${extensions[extIndex]}`;
         
         img.onload = function() {
           this.style.display = 'block'; // Show image when loaded

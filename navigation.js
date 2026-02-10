@@ -112,21 +112,14 @@
       
       mobileContent.innerHTML = '';
 
-      // Products
-      const productsItem = createMobileMenuItem('nav-products', 'products', [
-        { key: 'nav-pouches', href: 'products/pouches.html' },
-        { key: 'nav-sleeves', href: 'products/sleeves.html' },
-        { key: 'nav-envelope-cartons', href: 'products/envelope-cartons.html' },
-        { key: 'nav-paperboard', href: 'products/paperboard-packaging.html' },
-        { key: 'mega-sectors-title', isTitle: true },
+      // Sectors
+      const sectorsItem = createMobileMenuItem('nav-sectors', 'products', [
         { key: 'sector-confectionery', href: 'sectors/confectionery-chocolate.html' },
-        { key: 'sector-snacks', href: 'sectors/snacks.html' },
         { key: 'sector-meat-dairy', href: 'sectors/meat-dairy.html' },
         { key: 'sector-ready-meals', href: 'sectors/ready-meals.html' },
         { key: 'sector-premium', href: 'sectors/premium-products.html' },
-        { key: 'sector-fresh-produce', href: 'sectors/fresh-produce.html' }
       ]);
-      mobileContent.appendChild(productsItem);
+      mobileContent.appendChild(sectorsItem);
 
       // Solutions
       const solutionsItem = createMobileMenuItem('nav-solutions', 'solutions', [

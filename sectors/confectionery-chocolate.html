@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Şekerleme & Atıştırmalıklar | AUNOPACK</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page--white">
+  <header class="top-bar" role="banner">
+    <div class="top-bar__container">
+      <!-- Desktop Menu with Logo -->
+      <nav class="top-bar__menu" role="navigation" aria-label="Main navigation">
+        <!-- Logo -->
+        <a href="../index.html" class="top-bar__logo" data-i18n="logo">AUNOPACK</a>
+
+        <!-- Sectors Mega Menu -->
+        <div class="top-bar__item top-bar__item--mega" data-menu="products">
+          <button class="top-bar__link" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav-sectors">Sektörler</span>
+            <svg class="top-bar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="top-bar__mega-menu" role="menu">
+            <div class="top-bar__mega-content">
+              <!-- Sectors -->
+              <div class="top-bar__mega-column">
+                <h3 class="top-bar__mega-title" data-i18n="mega-sectors-title">Sektörler</h3>
+                <div class="top-bar__sectors-grid" role="list">
+                  <a href="../sectors/confectionery-chocolate.html" class="top-bar__sector-card" data-image="sector_confectionery" role="menuitem">
+                    <div class="top-bar__sector-placeholder">
+                      <img src="" alt="" data-sector-img="sector_confectionery" style="display: none;">
+                    </div>
+                    <div class="top-bar__sector-overlay">
+                      <span data-i18n="sector-confectionery">Şekerleme & Atıştırmalıklar</span>
+                    </div>
+                  </a>
+                  <a href="../sectors/meat-dairy.html" class="top-bar__sector-card" data-image="sector_meat_dairy" role="menuitem">
+                    <div class="top-bar__sector-placeholder">
+                      <img src="" alt="" data-sector-img="sector_meat_dairy" style="display: none;">
+                    </div>
+                    <div class="top-bar__sector-overlay">
+                      <span data-i18n="sector-meat-dairy">Et & Süt Ürünleri</span>
+                    </div>
+                  </a>
+                  <a href="../sectors/ready-meals.html" class="top-bar__sector-card" data-image="sector_ready_meals" role="menuitem">
+                    <div class="top-bar__sector-placeholder">
+                      <img src="" alt="" data-sector-img="sector_ready_meals" style="display: none;">
+                    </div>
+                    <div class="top-bar__sector-overlay">
+                      <span data-i18n="sector-ready-meals">Hazır Yemek & Meal Kit</span>
+                    </div>
+                  </a>
+                  <a href="../sectors/premium-products.html" class="top-bar__sector-card" data-image="sector_premium" role="menuitem">
+                    <div class="top-bar__sector-placeholder">
+                      <img src="" alt="" data-sector-img="sector_premium" style="display: none;">
+                    </div>
+                    <div class="top-bar__sector-overlay">
+                      <span data-i18n="sector-premium">Premium / Lüks Ürünler</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Dropdown -->
+        <div class="top-bar__item top-bar__item--mega" data-menu="solutions">
+          <button class="top-bar__link" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav-solutions">Çözümler</span>
+            <svg class="top-bar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="top-bar__mega-menu" role="menu">
+            <div class="top-bar__mega-content">
+              <div class="top-bar__mega-column" style="grid-column: 1 / -1;">
+                <h3 class="top-bar__mega-title" data-i18n="mega-solutions-title">Çözümler</h3>
+                <div class="top-bar__solutions-list" role="list">
+                  <a href="../solutions/shelf-life.html" class="top-bar__solution-item" data-image="solution_shelf_life" role="menuitem">
+                    <div class="top-bar__solution-image">
+                      <div class="top-bar__sector-placeholder">
+                        <img src="" alt="" data-solution-img="solution_shelf_life" style="display: none;">
+                      </div>
+                    </div>
+                    <div class="top-bar__solution-text">
+                      <span class="top-bar__solution-title" data-i18n="solution-shelf-life-title">Raf Ömrü Odaklı Ambalaj Çözümleri</span>
+                      <span class="top-bar__solution-desc" data-i18n="solution-shelf-life-desc">Uzun raf ömrü sağlayan ambalaj yapıları.</span>
+                    </div>
+                  </a>
+                  <a href="../solutions/shelf-performance.html" class="top-bar__solution-item" data-image="solution_shelf_performance" role="menuitem">
+                    <div class="top-bar__solution-image">
+                      <div class="top-bar__sector-placeholder">
+                        <img src="" alt="" data-solution-img="solution_shelf_performance" style="display: none;">
+                      </div>
+                    </div>
+                    <div class="top-bar__solution-text">
+                      <span class="top-bar__solution-title" data-i18n="solution-shelf-performance-title">Raf Performansı Odaklı Ambalaj Çözümleri</span>
+                      <span class="top-bar__solution-desc" data-i18n="solution-shelf-performance-desc">Rafta stabil duran, düzgün dizilebilen satış odaklı yapılar.</span>
+                    </div>
+                  </a>
+                  <a href="../solutions/small-batches.html" class="top-bar__solution-item" data-image="solution_small_batches" role="menuitem">
+                    <div class="top-bar__solution-image">
+                      <div class="top-bar__sector-placeholder">
+                        <img src="" alt="" data-solution-img="solution_small_batches" style="display: none;">
+                      </div>
+                    </div>
+                    <div class="top-bar__solution-text">
+                      <span class="top-bar__solution-title" data-i18n="solution-small-batches-title">Küçük Seriler için Ambalaj Çözümleri</span>
+                      <span class="top-bar__solution-desc" data-i18n="solution-small-batches-desc">Butik ve özel seri ürünler için profesyonel ambalaj yapıları.</span>
+                    </div>
+                  </a>
+                  <a href="../solutions/data-guided-design.html" class="top-bar__solution-item" data-image="solution_aunoai" role="menuitem">
+                    <div class="top-bar__solution-image">
+                      <div class="top-bar__sector-placeholder">
+                        <img src="" alt="" data-solution-img="solution_aunoai" style="display: none;">
+                      </div>
+                    </div>
+                    <div class="top-bar__solution-text">
+                      <span class="top-bar__solution-title" data-i18n="solution-aunoai-title">Veri Odaklı Ambalaj Tasarımı ve Malzeme Seçimi</span>
+                      <span class="top-bar__solution-desc" data-i18n="solution-aunoai-desc">AunoAI ile veri destekli ambalaj tasarım çözümleri.</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary navigation links -->
+        <a href="../case-studies.html" class="top-bar__link" data-i18n="nav-case-studies">Başarı Hikayeleri</a>
+
+        <div class="top-bar__item" data-menu="about">
+          <button class="top-bar__link" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav-about">Hakkımızda</span>
+            <svg class="top-bar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="top-bar__mega-menu" role="menu">
+            <div class="top-bar__mega-content">
+              <div class="top-bar__mega-column">
+                <h3 class="top-bar__mega-title" data-i18n="nav-about">Hakkımızda</h3>
+                <ul class="top-bar__mega-links" role="list">
+                  <li role="none"><a href="../about.html" class="top-bar__mega-link" data-i18n="nav-who-we-are" role="menuitem">Biz Kimiz</a></li>
+                  <li role="none"><a href="../how-we-work.html" class="top-bar__mega-link" data-i18n="nav-how-we-work" role="menuitem">Nasıl Çalışıyoruz</a></li>
+                  <li role="none"><a href="../sustainability.html" class="top-bar__mega-link" data-i18n="nav-sustainability" role="menuitem">Sürdürülebilirlik</a></li>
+                  <li role="none"><a href="../faq.html" class="top-bar__mega-link" data-i18n="nav-faq" role="menuitem">Sık Sorulan Sorular</a></li>
+                  <li role="none"><a href="../contact.html" class="top-bar__mega-link" data-i18n="nav-contact" role="menuitem">İletişim</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="../contact.html" class="top-bar__cta" data-i18n="nav-cta">Teklif Al</a>
+      </nav>
+
+      <!-- Mobile Header -->
+      <div class="top-bar__mobile">
+        <a href="../index.html" class="top-bar__logo" data-i18n="logo">AUNOPACK</a>
+        <button class="top-bar__mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="sr-only">Menüyü Aç/Kapat</span>
+          <span class="top-bar__mobile-line"></span>
+          <span class="top-bar__mobile-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- 1. Hero Section: Left text, right visual -->
+    <section class="hero hero--sector">
+      <div class="feature">
+        <div class="feature__copy">
+          <p class="hero__eyebrow">Sektörler</p>
+          <h1 class="hero__title">Şekerleme &amp; Çikolata İçin<br>Akıllı Ambalaj Çözümleri</h1>
+          <p class="hero__description">
+            Yüksek rekabetli şekerleme ve çikolata raflarında; tazelik, raf çekiciliği,
+            sürdürülebilirlik ve doğru malzeme seçimi karar gerektirir. AUNOPACK, sadece
+            ambalaj tedarik etmiyor, ambalaj karar süreçlerinizi de daha akıllı hale getiriyor.
+          </p>
+          <div style="margin-top: 16px;">
+            <a href="../contact.html" class="top-bar__cta">Çözümünü Keşfet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image slider area: image left, text right -->
+    <section class="sector-gallery">
+      <div class="sector-gallery__track">
+        <article class="sector-gallery__item">
+          <div class="sector-gallery__image">
+            <img src="../assets/images/sekerlemeanagorsel.png" alt="Çikolata için premium ambalaj mockup görseli">
+          </div>
+          <div class="sector-gallery__text">
+            <h3>Raf Önü Deneyim</h3>
+            <p>Şekerleme ve çikolata ürünlerinizin rafta nasıl göründüğünü, farklı renk ve format denemeleriyle birlikte değerlendirebilmenizi sağlarız.</p>
+          </div>
+        </article>
+
+        <article class="sector-gallery__item">
+          <div class="sector-gallery__image">
+            <img src="../assets/images/sekerlemeanagorsel.png" alt="Farklı formatlarda ambalaj denemeleri">
+          </div>
+          <div class="sector-gallery__text">
+            <h3>Farklı Format Senaryoları</h3>
+            <p>Doypack, kutu veya hibrit yapılar için; aynı ürünün farklı formatlarda raf etkisini karşılaştırmalı olarak çalışırız.</p>
+          </div>
+        </article>
+
+        <article class="sector-gallery__item">
+          <div class="sector-gallery__image">
+            <img src="../assets/images/sekerlemeanagorsel.png" alt="Kampanya ve sezon odaklı ambalaj çözümleri">
+          </div>
+          <div class="sector-gallery__text">
+            <h3>Sezonsal &amp; Kampanya Setleri</h3>
+            <p>Özel gün, sezon ve kampanya dönemlerinde; aynı rafta uyumlu görünen, modüler ambalaj setleri tasarlamanıza yardımcı oluruz.</p>
+          </div>
+        </article>
+
+        <article class="sector-gallery__item">
+          <div class="sector-gallery__image">
+            <img src="../assets/images/sekerlemeanagorsel.png" alt="Tüketici deneyimi odaklı ambalaj kurgusu">
+          </div>
+          <div class="sector-gallery__text">
+            <h3>Tüketici Deneyimi</h3>
+            <p>Açma-kapama kolaylığı, porsiyonlama ve elde tutuş hissi gibi detayları, marka vaadinizi güçlendirecek şekilde ambalaj tasarımına yansıtırız.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. Value Points -->
+    <section class="features features--value-cards">
+      <div class="features-header">
+        <h2>Şekerleme &amp; Çikolata markaları için öne çıkan faydalar</h2>
+      </div>
+      <div class="features-grid features-grid--two">
+        <article class="feature-item">
+          <div class="feature__media">
+            <img
+              src="../assets/images/sekerlemesektor.png"
+              onerror="this.onerror=null; this.src='../assets/images/sekerlemesektor.jpg';"
+              alt="Şekerleme ve çikolata sektörü için örnek ambalaj görseli">
+          </div>
+          <div class="feature__copy">
+            <h3>Raf Etkisi ve Marka Algısı</h3>
+            <p>
+              Ambalajın; premium algı, hediye edilebilirlik ve sezonsallık üzerindeki etkisini
+              birlikte tasarlıyoruz. Grafik dil, baskı teknikleri, yüzey efektleri ve formu
+              raf üzerindeki marka hikâyenizle uyumlu hale getiriyoruz.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <div class="feature__media">
+            <img
+              src="../assets/images/sekerlemesektor.png"
+              onerror="this.onerror=null; this.src='../assets/images/sekerlemesektor.jpg';"
+              alt="Bariyer ve tazelik performansı için örnek ambalaj görseli">
+          </div>
+          <div class="feature__copy">
+            <h3>Bariyer ve Tazelik Performansı</h3>
+            <p>
+              Yağ geçişi, aroma koruma, oksijen ve nem bariyeri gibi teknik ihtiyaçları
+              ürününüzün raf ömrü hedefleriyle birlikte ele alıyoruz. Gerektiğinde kağıt,
+              esnek veya hibrit yapılarda farklı bariyer kombinasyonları öneriyoruz.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <div class="feature__media">
+            <img
+              src="../assets/images/sekerlemesektor.png"
+              onerror="this.onerror=null; this.src='../assets/images/sekerlemesektor.jpg';"
+              alt="Sürdürülebilir malzeme seçimi için örnek ambalaj görseli">
+          </div>
+          <div class="feature__copy">
+            <h3>Sürdürülebilir Malzeme Seçimi</h3>
+            <p>
+              Mono-material, geri dönüştürülebilir ve PPWR uyumlu yapılara geçişte,
+              yalnızca teknik uygunluğu değil; maliyet, tedarik sürekliliği ve marka
+              konumlandırmasını da birlikte değerlendiriyoruz.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <div class="feature__media">
+            <img
+              src="../assets/images/sekerlemesektor.png"
+              onerror="this.onerror=null; this.src='../assets/images/sekerlemesektor.jpg';"
+              alt="Üretime ve operasyona uyum için örnek ambalaj görseli">
+          </div>
+          <div class="feature__copy">
+            <h3>Üretime ve Operasyona Uyum</h3>
+            <p>
+              Otomatik dolum hatlarına uygun, ölçeklenebilir ambalaj çözümleri tasarlıyoruz.
+              Format, malzeme kalınlığı ve sızdırmazlık kurgusunu; üretim hızları ve fire oranları
+              üzerinde pozitif etki yaratacak şekilde optimize etmeyi hedefliyoruz.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Full-width info band (image placeholder on right) -->
+    <section class="info-band">
+      <div class="info-band__content">
+        <h2>Sürdürülebilir Tasarımlar ve Malzemeler</h2>
+        <p>
+          Bu bant alanı; belirli bir tema veya hikâyeyi vurgulamak için
+          kullanılacak. Sol tarafta metin, sağ tarafta ise senin ekleyeceğin
+          görsel yer alacak.
+        </p>
+        <p>
+          Metni daha sonra birlikte revize edebiliriz. Şimdilik yer tutucu
+          olarak kullanabilirsin.
+        </p>
+      </div>
+      <div class="info-band__image">
+        <!-- Buradaki görsel yolunu sen kendi görselinle değiştireceksin -->
+        <img src="../assets/images/sekerlemeanagorsel.png" alt="İçerik bandı görseli için yer tutucu">
+      </div>
+    </section>
+
+    <!-- 6. FAQ: Sıkça Sorulan Sorular -->
+    <section class="features faq-section">
+      <div class="faq faq--in-page">
+        <div class="faq__header">
+          <h2 class="faq__title">Sıkça Sorulan Sorular</h2>
+          <p class="faq__intro">
+            Şekerleme ve çikolata ambalaj projelerinde sık aldığımız soruları aşağıda topladık.
+            Daha fazlası için <a href="../contact.html">bize ulaşın</a>.
+          </p>
+        </div>
+        <div class="faq__inner">
+          <div class="faq__questions-wrap">
+          <div class="faq__questions">
+            <button class="faq__question" data-faq-id="q1" data-active="true">
+              Ambalajımı tamamen markama özel tasarlayabilir miyim?
+            </button>
+            <button class="faq__question" data-faq-id="q2">
+              Minimum adet veya sipariş limiti var mı?
+            </button>
+            <button class="faq__question" data-faq-id="q3">
+              Sürdürülebilir ve gıda ile temasa uygun yapılar konusunda destek veriyor musunuz?
+            </button>
+          </div>
+          </div>
+        <div class="faq__answers">
+          <h3 class="faq__answer-title" data-faq-answer-title="q1">
+            Ambalajımı tamamen markama özel tasarlayabilir miyim?
+          </h3>
+          <p class="faq__answer-body" data-faq-answer-body="q1">
+            Evet. Ambalaj ölçüleriniz, malzeme yapınız ve baskı diliniz markanıza uygun
+            olacak şekilde birlikte kurgulanır. Gerekirse grafik tasarım ekibinizle birlikte
+            çalışarak, baskı için hazır dosyalarınızı teknik gerekliliklere göre optimize ederiz.
+          </p>
+
+          <h3 class="faq__answer-title" data-faq-answer-title="q2" style="display:none;">
+            Minimum adet veya sipariş limiti var mı?
+          </h3>
+          <p class="faq__answer-body" data-faq-answer-body="q2" style="display:none;">
+            Üretim teknolojisine ve seçtiğiniz malzeme yapısına göre minimum adetler değişir.
+            Küçük seriler, lansmanlar veya deneme üretimleri için esnek çözümler; yüksek hacimli
+            işler için ise ölçek ekonomisini gözeten yapılar öneriyoruz.
+          </p>
+
+          <h3 class="faq__answer-title" data-faq-answer-title="q3" style="display:none;">
+            Sürdürülebilir ve gıda ile temasa uygun yapılar konusunda destek veriyor musunuz?
+          </h3>
+          <p class="faq__answer-body" data-faq-answer-body="q3" style="display:none;">
+            Gıda ile temasa uygun, regülasyon uyumlu ve sürdürülebilirlik hedeflerinizi destekleyen
+            ambalaj yapıları konusunda teknik rehberlik sunuyoruz. Mono-material, geri dönüştürülebilir
+            veya azaltılmış plastik içerikli çözümleri; raf ömrü ve maliyet kısıtlarıyla birlikte
+            değerlendirerek öneriyoruz.
+          </p>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p data-i18n="footer-text">
+        Email: info@aunopack.com. For any inquiries or support, please feel free to contact us by email or visit our location.
+      </p>
+      <p data-i18n="address">
+        Adres: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Türkiye.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../i18n.js"></script>
+  <script src="../navigation.js"></script>
+  <script src="../sector-images.js"></script>
+  <script src="../hero-image.js"></script>
+  <script src="../why-aunopack-cards.js"></script>
+  <script>
+    (function () {
+      const questions = document.querySelectorAll('.faq__question');
+      const titles = document.querySelectorAll('[data-faq-answer-title]');
+      const bodies = document.querySelectorAll('[data-faq-answer-body]');
+
+      if (!questions.length) return;
+
+      questions.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-faq-id');
+
+          // active buton durumu
+          questions.forEach(q => q.setAttribute('data-active', q === btn ? 'true' : 'false'));
+
+          // ilgili cevabı göster
+          titles.forEach(t => {
+            t.style.display = t.getAttribute('data-faq-answer-title') === id ? '' : 'none';
+          });
+          bodies.forEach(b => {
+            b.style.display = b.getAttribute('data-faq-answer-body') === id ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
