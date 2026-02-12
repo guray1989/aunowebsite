@@ -910,6 +910,7 @@ img {
 /* Sector hero – image right, no frame */
 .hero--sector .feature {
   align-items: center;
+  justify-content: center;
 }
 
 .hero--sector .feature__copy {
@@ -917,11 +918,17 @@ img {
   color: var(--text-dark);
   box-shadow: none;
   padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero--sector .hero__description {
   color: var(--text-muted);
   max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero--sector .feature__media {
@@ -1007,6 +1014,26 @@ img {
 }
 
 .features--value-cards .feature-item .feature__copy p {
+  color: var(--text-muted);
+}
+
+.features--value-cards .feature-item .feature__copy ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.features--value-cards .feature-item .feature__copy ul li {
+  margin-bottom: 0.35em;
+}
+
+.features--value-cards .feature-item .feature__copy .feature__copy-note {
+  margin: 1rem 0 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: var(--text-muted);
 }
 
@@ -1272,6 +1299,18 @@ img {
   font-size: 1.15rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.sector-gallery__text .sector-gallery__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sector-gallery__text .sector-gallery__list li {
+  margin-bottom: 0.35em;
 }
 
 /* Full-width info band (text left, image right) */
