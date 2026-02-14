@@ -49,9 +49,8 @@
         }
       });
 
-      // Click to pin/unpin (Solutions hariç – ana tıklama sayfaya gider)
+      // Click to pin/unpin
       menuButton?.addEventListener('click', (e) => {
-        if (menuType === 'solutions' && menuButton?.tagName === 'A') return; // Link çalışsın
         if (window.innerWidth >= 1024) {
           e.preventDefault();
           if (pinnedMenu === menuType) {
@@ -118,19 +117,20 @@
       
       mobileContent.innerHTML = '';
 
+      const base = getBasePath();
+
       // Sectors
       const sectorsItem = createMobileMenuItem('nav-sectors', 'products', [
-        { key: 'sector-confectionery', href: 'sectors/confectionery-chocolate.html' },
-        { key: 'sector-meat-dairy', href: 'sectors/meat-dairy.html' },
-        { key: 'sector-ready-meals', href: 'sectors/ready-meals.html' },
-        { key: 'sector-premium', href: 'sectors/dry-foods.html' },
+        { key: 'sector-confectionery', href: base + 'sectors/confectionery-chocolate.html' },
+        { key: 'sector-meat-dairy', href: base + 'sectors/meat-dairy.html' },
+        { key: 'sector-ready-meals', href: base + 'sectors/ready-meals.html' },
+        { key: 'sector-premium', href: base + 'sectors/dry-foods.html' },
       ]);
       mobileContent.appendChild(sectorsItem);
 
-      // Solutions - Tek link
-      const base = getBasePath();
+      // Solutions
       const solutionsLink = document.createElement('a');
-      solutionsLink.href = base + 'solutions/index.html';
+      solutionsLink.href = '/solutions/';
       solutionsLink.className = 'top-bar__mobile-link';
       solutionsLink.setAttribute('data-i18n', 'nav-solutions');
       solutionsLink.textContent = 'Çözümler';
@@ -138,7 +138,7 @@
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');
-      caseStudiesLink.href = 'case-studies.html';
+      caseStudiesLink.href = base + 'case-studies.html';
       caseStudiesLink.className = 'top-bar__mobile-link';
       caseStudiesLink.setAttribute('data-i18n', 'nav-case-studies');
       caseStudiesLink.textContent = 'Başarı Hikayeleri';
@@ -146,17 +146,17 @@
 
       // About
       const aboutItem = createMobileMenuItem('nav-about', 'about', [
-        { key: 'nav-who-we-are', href: 'about.html' },
-        { key: 'nav-how-we-work', href: 'how-we-work.html' },
-        { key: 'nav-sustainability', href: 'sustainability.html' },
-        { key: 'nav-faq', href: 'faq.html' },
-        { key: 'nav-contact', href: 'contact.html' }
+        { key: 'nav-who-we-are', href: base + 'about.html' },
+        { key: 'nav-how-we-work', href: base + 'how-we-work.html' },
+        { key: 'nav-sustainability', href: base + 'sustainability.html' },
+        { key: 'nav-faq', href: base + 'faq.html' },
+        { key: 'nav-contact', href: base + 'contact.html' }
       ]);
       mobileContent.appendChild(aboutItem);
 
       // CTA Button
       const ctaButton = document.createElement('a');
-      ctaButton.href = 'contact.html';
+      ctaButton.href = base + 'contact.html';
       ctaButton.className = 'top-bar__cta';
       ctaButton.style.display = 'block';
       ctaButton.style.marginTop = '24px';
