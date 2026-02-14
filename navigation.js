@@ -6,6 +6,11 @@
   let activeMenu = null;
   let pinnedMenu = null;
 
+  function getBasePath() {
+    const path = (window.location.pathname || '').replace(/^\//, '');
+    return path.split('/').filter(Boolean).length > 1 ? '../' : '';
+  }
+
   // Initialize navigation
   function initNavigation() {
     setupDesktopMenus();
@@ -44,8 +49,9 @@
         }
       });
 
-      // Click to pin/unpin
+      // Click to pin/unpin (Solutions hariç – ana tıklama sayfaya gider)
       menuButton?.addEventListener('click', (e) => {
+        if (menuType === 'solutions' && menuButton?.tagName === 'A') return; // Link çalışsın
         if (window.innerWidth >= 1024) {
           e.preventDefault();
           if (pinnedMenu === menuType) {
@@ -117,18 +123,18 @@
         { key: 'sector-confectionery', href: 'sectors/confectionery-chocolate.html' },
         { key: 'sector-meat-dairy', href: 'sectors/meat-dairy.html' },
         { key: 'sector-ready-meals', href: 'sectors/ready-meals.html' },
-        { key: 'sector-premium', href: 'sectors/premium-products.html' },
+        { key: 'sector-premium', href: 'sectors/dry-foods.html' },
       ]);
       mobileContent.appendChild(sectorsItem);
 
-      // Solutions
-      const solutionsItem = createMobileMenuItem('nav-solutions', 'solutions', [
-        { key: 'solution-shelf-life-title', href: 'solutions/shelf-life.html', desc: 'solution-shelf-life-desc' },
-        { key: 'solution-shelf-performance-title', href: 'solutions/shelf-performance.html', desc: 'solution-shelf-performance-desc' },
-        { key: 'solution-small-batches-title', href: 'solutions/small-batches.html', desc: 'solution-small-batches-desc' },
-        { key: 'solution-aunoai-title', href: 'solutions/data-guided-design.html', desc: 'solution-aunoai-desc' }
-      ]);
-      mobileContent.appendChild(solutionsItem);
+      // Solutions - Tek link
+      const base = getBasePath();
+      const solutionsLink = document.createElement('a');
+      solutionsLink.href = base + 'solutions/index.html';
+      solutionsLink.className = 'top-bar__mobile-link';
+      solutionsLink.setAttribute('data-i18n', 'nav-solutions');
+      solutionsLink.textContent = 'Çözümler';
+      mobileContent.appendChild(solutionsLink);
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');

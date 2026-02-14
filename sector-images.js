@@ -1,10 +1,16 @@
+// Asset base: '' for root, '../' for sectors/ or solutions/
+function getAssetBasePath() {
+  const path = (window.location.pathname || window.location.href || '').replace(/\\/g, '/');
+  if (path.includes('/sectors/') || path.includes('/solutions/')) return '../';
+  return '';
+}
+
 // Sector images configuration
-// Automatic mapping: resimler aşağıdaki isimlerle kaydedilirse otomatik olarak ilgili sektöre bağlanır
 const sectorImageMapping = {
   sector_confectionery: 'sekerlemesektor', // sekerlemesektor.jpeg
   sector_meat_dairy: 'sarkuterisektor', // sarkuterisektor.jpg
   sector_ready_meals: 'haziryemeksektor', // haziryemeksektor.jpeg
-  sector_premium: 'lukssektor', // lukssektor.jpg
+  sector_premium: 'kurugıdasektor', // Kuru Gıdalar - kurugıdasektor.jpg
 };
 
 // Helper function to build image path
@@ -13,8 +19,8 @@ function getSectorImagePath(sectorKey) {
   const imageName = sectorImageMapping[sectorKey];
   if (!imageName) return null;
   
-  // Kök dizinden mutlak yol kullan: tüm sayfalarda çalışsın
-  return `/assets/images/${imageName}.jpg`;
+  const ext = sectorKey === 'sector_premium' ? 'png' : 'jpg';
+  return getAssetBasePath() + `assets/images/${imageName}.${ext}`;
 }
 
 // Sector images configuration
@@ -26,30 +32,26 @@ const sectorImages = {
   sector_premium: getSectorImagePath('sector_premium'), // lukssektor.jpg
 };
 
-// Solution images mapping
-// Automatic mapping: resimler aşağıdaki isimlerle kaydedilirse otomatik olarak ilgili çözüme bağlanır
+// Solution images mapping – mevcut görsellere fallback
 const solutionImageMapping = {
-  solution_shelf_life: 'rafomrucozum', // rafomrucozum.jpg
-  solution_shelf_performance: 'raperformanscozum', // raperformanscozum.jpg
-  solution_small_batches: 'butikcozum', // butikcozum.jpg
-  solution_aunoai: 'aunoai', // aunoai.jpg
+  solution_shelf_life: ['rafomrucozum', 'raperformanscozum', 'kurugıdasektor'],
+  solution_shelf_performance: ['raperformanscozum', 'etsatisarttirma', 'sarkuterisektor'],
+  solution_small_batches: ['butikcozum', 'etdusukadet', 'kurugıdasektor'],
+  solution_aunoai: ['aunoai', 'sekerlemesatinalma', 'kurugıdasektor'],
 };
 
-// Helper function to build solution image path
 function getSolutionImagePath(solutionKey) {
-  const imageName = solutionImageMapping[solutionKey];
-  if (!imageName) return null;
-  // Kök dizinden mutlak yol: tüm sayfalarda tutarlı
-  return `/assets/images/${imageName}.jpg`;
+  const names = solutionImageMapping[solutionKey];
+  if (!names || !Array.isArray(names)) return null;
+  const base = getAssetBasePath();
+  return names.map(n => ({ jpg: base + `assets/images/${n}.jpg`, png: base + `assets/images/${n}.png` }));
 }
 
-// Solution images configuration
-// Images are automatically loaded based on naming convention
 const solutionImages = {
-  solution_shelf_life: getSolutionImagePath('solution_shelf_life'), // rafomrucozum.jpg
-  solution_shelf_performance: getSolutionImagePath('solution_shelf_performance'), // raperformanscozum.jpg
-  solution_small_batches: getSolutionImagePath('solution_small_batches'), // butikcozum.jpg
-  solution_aunoai: getSolutionImagePath('solution_aunoai'), // aunoai.jpg
+  solution_shelf_life: getSolutionImagePath('solution_shelf_life'),
+  solution_shelf_performance: getSolutionImagePath('solution_shelf_performance'),
+  solution_small_batches: getSolutionImagePath('solution_small_batches'),
+  solution_aunoai: getSolutionImagePath('solution_aunoai'),
 };
 
 // Load sector images
@@ -74,21 +76,16 @@ function loadSectorImages() {
           return;
         }
         
-        const path = `/assets/images/${imageName}.${extensions[extIndex]}`;
+        const path = getAssetBasePath() + `assets/images/${imageName}.${extensions[extIndex]}`;
         
         img.onload = function() {
-          this.style.display = 'block'; // Show image when loaded
+          this.style.display = 'block';
           this.classList.add('loaded');
           const placeholder = card.querySelector('.top-bar__sector-placeholder');
-          if (placeholder) {
-            placeholder.style.background = 'none';
-          }
+          if (placeholder) placeholder.style.background = 'none';
         };
         
-        img.onerror = function() {
-          // Try next extension
-          tryLoadImage(extIndex + 1);
-        };
+        img.onerror = function() { tryLoadImage(extIndex + 1); };
         
         img.src = path;
       };
@@ -103,54 +100,38 @@ function loadSectorImages() {
   });
 }
 
-// Load solution images
+// Load solution images – tries multiple fallback images per solution
 function loadSolutionImages() {
   const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image]');
+  const extensions = ['jpg', 'jpeg', 'png', 'webp'];
   
   solutionItems.forEach(item => {
     const imageKey = item.getAttribute('data-image');
     const img = item.querySelector('img[data-solution-img]');
+    const names = solutionImageMapping[imageKey];
     
-    if (solutionImages[imageKey] && img && solutionImages[imageKey] !== null) {
-      const imageName = solutionImageMapping[imageKey];
-      if (!imageName) return;
+    if (!names || !img || !Array.isArray(names)) return;
+    
+    function tryNext(candidateIndex, extIndex) {
+      if (candidateIndex >= names.length) return;
+      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
+      const name = names[candidateIndex];
+      const path = getAssetBasePath() + 'assets/images/' + name + '.' + extensions[extIndex];
       
-      // Try multiple extensions: .jpg, .jpeg, .png, .webp
-      const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-      let extensionIndex = 0;
-      
-      const tryLoadImage = (extIndex) => {
-        if (extIndex >= extensions.length) {
-          console.log(`Image not found for ${imageKey} with any extension`);
-          return;
-        }
-        
-        const path = `/assets/images/${imageName}.${extensions[extIndex]}`;
-        
-        img.onload = function() {
-          this.style.display = 'block'; // Show image when loaded
-          this.classList.add('loaded');
-          const placeholder = item.querySelector('.top-bar__solution-image .top-bar__sector-placeholder');
-          if (placeholder) {
-            placeholder.style.background = 'none';
-          }
-        };
-        
-        img.onerror = function() {
-          // Try next extension
-          tryLoadImage(extIndex + 1);
-        };
-        
-        img.src = path;
+      img.onload = function() {
+        this.style.display = 'block';
+        this.classList.add('loaded');
+        const placeholder = item.querySelector('.top-bar__solution-image .top-bar__sector-placeholder');
+        if (placeholder) placeholder.style.background = 'none';
       };
-      
-      tryLoadImage(0);
-      
-      const titleSpan = item.querySelector('.top-bar__solution-title');
-      if (titleSpan) {
-        img.alt = titleSpan.textContent || titleSpan.getAttribute('data-i18n') || '';
-      }
+      img.onerror = function() { tryNext(candidateIndex, extIndex + 1); };
+      img.src = path;
     }
+    
+    tryNext(0, 0);
+    
+    const titleSpan = item.querySelector('.top-bar__solution-title');
+    if (titleSpan) img.alt = titleSpan.textContent || titleSpan.getAttribute('data-i18n') || '';
   });
 }
 

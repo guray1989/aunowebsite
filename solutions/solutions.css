@@ -1,0 +1,141 @@
+/* Solutions Page – Single long-scroll with anchor navigation */
+
+.page--solutions .solutions-page {
+  padding-top: 0;
+}
+
+/* Hero + Anchor Nav */
+.solutions-hero {
+  background-color: #ffffff;
+  padding: 48px 20px 56px;
+  text-align: center;
+}
+
+.solutions-hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.solutions-hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 8px;
+}
+
+.solutions-hero__subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0 0 40px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.solutions-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.solutions-nav__btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.solutions-nav__btn:hover {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .solutions-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .solutions-nav__btn {
+    text-align: center;
+  }
+}
+
+/* Section base */
+.solutions-section {
+  padding: 64px 20px 80px;
+  scroll-margin-top: 20px;
+}
+
+.solutions-section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.solutions-section__title {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--auno-green);
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.solutions-section__content p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.solutions-section__content p:last-of-type {
+  margin-bottom: 24px;
+}
+
+.solutions-section__cta {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #8bbca6 0%, #6ba68f 100%);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.solutions-section__cta:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* 1. Raf Ömrü – Soft blue / light grey-blue */
+.solutions-section--shelf-life {
+  background-color: #EEF3F8;
+}
+
+/* 2. Raf Performansı – Light cream / warm beige */
+.solutions-section--shelf-performance {
+  background-color: #F6EFE6;
+}
+
+/* 3. Küçük Seriler – Light mint / soft green */
+.solutions-section--small-batches {
+  background-color: #EAF4EF;
+}
+
+/* 4. Veri Odaklı – Light grey / neutral tech */
+.solutions-section--data-guided {
+  background-color: #F2F4F6;
+}
+
+/* Auno yeşili – section başlıkları için (CSS değişkeni styles.css ile uyumlu) */
+:root {
+  --auno-green: #2f4a38;
+}
