@@ -129,12 +129,13 @@
       mobileContent.appendChild(sectorsItem);
 
       // Solutions
-      const solutionsLink = document.createElement('a');
-      solutionsLink.href = '/solutions/';
-      solutionsLink.className = 'top-bar__mobile-link';
-      solutionsLink.setAttribute('data-i18n', 'nav-solutions');
-      solutionsLink.textContent = 'Çözümler';
-      mobileContent.appendChild(solutionsLink);
+      const solutionsItem = createMobileMenuItem('nav-solutions', 'solutions', [
+        { key: 'solution-shelf-life-title', href: '/solutions/#shelf-life' },
+        { key: 'solution-shelf-performance-title', href: '/solutions/#shelf-performance' },
+        { key: 'solution-small-batches-title', href: '/solutions/#small-batches' },
+        { key: 'solution-aunoai-title', href: '/solutions/#data-guided' }
+      ]);
+      mobileContent.appendChild(solutionsItem);
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');
