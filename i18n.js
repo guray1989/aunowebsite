@@ -136,7 +136,7 @@ const translations = {
     'rm-g2-p1': 'Carton sleeves are the most flexible way to move products into the premium segment without changing the primary pack.',
     'rm-g2-p2': 'Update only the sleeve design to follow trends, run special-occasion concepts and trial new products—without renewing the primary pack.',
     'rm-g2-p3': 'This approach is the fastest, most practical way to upgrade segment and develop limited editions without high stock risk.',
-    'rm-g3-title': 'Sustainable Brand Layer',
+    'rm-g3-title': 'Sustainable Structures',
     'rm-g3-p1': 'Functional lid structures are often essential on ready meal packs. Sleeves add a renewable, responsibly sourced paper-based brand layer without changing that structure, strengthening sustainability perception.',
     'rm-g3-p2': 'Less material, optimised weight and paper touch reduce environmental impact and build a more natural, responsible brand image.',
     'rm-f1-title': 'Flexible Packaging and Carton Systems',
@@ -413,7 +413,7 @@ const translations = {
     'rm-g2-p1': "Karton Sleeve'ler mevcut ambalajı değiştirmeden ürünü premium segmente taşımanın en esnek yoludur.",
     'rm-g2-p2': 'Ana ambalajı yenilemeye gerek kalmadan yalnızca sleeve tasarımı değiştirilerek trendlere uyum sağlanabilir, özel gün konseptleri geliştirilebilir ve yeni ürün denemeleri yapılabilir.',
     'rm-g2-p3': 'Bu yaklaşım; yüksek stok riski oluşturmadan segment yükseltme ve sınırlı seri ürün geliştirmenin en hızlı ve pratik yoludur.',
-    'rm-g3-title': 'Sürdürülebilir Marka Katmanı',
+    'rm-g3-title': 'Sürdürülebilir Yapılar',
     'rm-g3-p1': 'Hazır yemek ambalajlarında fonksiyonel kap yapısı çoğu zaman zorunludur. Sleeve çözümleri; bu yapıyı değiştirmeden, yenilenebilir ve sorumlu kaynaklı kağıt bazlı bir marka katmanı ekleyerek sürdürülebilirlik algısını güçlendirir.',
     'rm-g3-p2': 'Daha az malzeme kullanımı, optimize edilmiş gramaj ve kağıt teması sayesinde hem çevresel etki azaltılır hem de tüketici nezdinde daha doğal ve sorumlu bir marka konumu oluşturulur.',
     'rm-f1-title': 'Esnek Ambalaj Sistemleri ve Karton Sistemleri',
@@ -608,32 +608,17 @@ function setLanguage(lang) {
     }
   });
   
-  // Update images with data-i18n-img attribute
+  // Resimler dil bağımsız, sabit yol (assets/images/xxx.png)
+  const getAssetsBase = () => {
+    const path = (window.location.pathname || '').replace(/^\//, '');
+    const segments = path.split('/').filter(Boolean).length;
+    return segments > 1 ? '../'.repeat(segments - 1) : '';
+  };
+  const base = getAssetsBase();
   const imageElements = document.querySelectorAll('[data-i18n-img]');
   imageElements.forEach(img => {
     const baseName = img.getAttribute('data-i18n-img');
-    // Base path (common image for both languages)
-    const basePath = `assets/images/${baseName}.png`;
-    
-    // Language-specific paths
-    let langSpecificPath;
-    if (lang === 'tr') {
-      langSpecificPath = `assets/images/${baseName}-tr.png`;
-    } else {
-      langSpecificPath = `assets/images/${baseName}-en.png`;
-    }
-    
-    // Try to load language-specific image first
-    const testImg = new Image();
-    testImg.onload = () => {
-      // Language-specific image exists, use it
-      img.src = langSpecificPath;
-    };
-    testImg.onerror = () => {
-      // Language-specific image doesn't exist, use common base image
-      img.src = basePath;
-    };
-    testImg.src = langSpecificPath;
+    img.src = `${base}assets/images/${baseName}.png`;
   });
   
   // Update active button state

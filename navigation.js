@@ -78,43 +78,98 @@
 
   // Setup mobile menu drawer
   function setupMobileMenu() {
-    const mobileToggle = document.querySelector('.top-bar__mobile-toggle');
-    const mobileDrawer = document.querySelector('.top-bar__mobile-drawer');
+    const toggle = document.querySelector('.top-bar__mobile-toggle');
+    const drawer = document.querySelector('.top-bar__mobile-drawer');
     const mobileContent = document.querySelector('.top-bar__mobile-content');
-    
-    if (!mobileToggle || !mobileDrawer) return;
 
-    // Create backdrop
-    const backdrop = document.createElement('div');
-    backdrop.className = 'top-bar__mobile-backdrop';
-    backdrop.setAttribute('data-open', 'false');
-    document.body.appendChild(backdrop);
-
-    // Toggle mobile menu
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileToggle.getAttribute('aria-expanded') === 'true';
-      mobileToggle.setAttribute('aria-expanded', !isOpen);
-      mobileDrawer.setAttribute('data-open', !isOpen);
-      backdrop.setAttribute('data-open', !isOpen);
-      document.body.style.overflow = isOpen ? '' : 'hidden';
-      
-      if (!isOpen) {
-        buildMobileMenu();
+    // Backdrop: HTML'de varsa onu kullan, yoksa oluştur (header dışında drawer + backdrop kullanılıyor)
+    let backdrop = null;
+    var menuOpenedAt = 0;
+    function getBackdrop() {
+      if (!backdrop) {
+        backdrop = document.querySelector('.top-bar__mobile-backdrop');
+        if (!backdrop) {
+          backdrop = document.createElement('div');
+          backdrop.className = 'top-bar__mobile-backdrop';
+          backdrop.dataset.open = 'false';
+          document.body.appendChild(backdrop);
+        }
+        backdrop.addEventListener('click', function () {
+          if (Date.now() - menuOpenedAt < 400) {
+            console.log('[Nav] backdrop click yok sayıldı (açılıştan hemen sonra)');
+            return;
+          }
+          console.log('[Nav] backdrop tıklandı, menü kapatılıyor');
+          drawer.classList.remove('open');
+          backdrop.dataset.open = 'false';
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
       }
+      return backdrop;
+    }
+
+    console.log('[Nav] navigation.js loaded');
+    console.log('[Nav] toggle:', toggle);
+    console.log('[Nav] drawer:', drawer);
+    console.log('[Nav] mobileContent:', mobileContent);
+
+    if (!toggle || !drawer) {
+      console.error('[Nav] Mobile menu elements missing!', { toggle: !!toggle, drawer: !!drawer });
+      return;
+    }
+    if (!mobileContent) {
+      console.warn('[Nav] mobileContent yok – menü içeriği oluşturulmayacak');
+    }
+
+    // Accordion: delegated handler on drawer (pointerdown = mouse + touch, capture = run first)
+    function handleAccordion(e) {
+      console.log('[Nav] pointerdown', e.type, 'target:', e.target, 'drawer.open:', drawer.classList.contains('open'));
+      if (!drawer.classList.contains('open')) {
+        console.log('[Nav] accordion: drawer kapalı, çık');
+        return;
+      }
+      const button = e.target.closest('.top-bar__mobile-link');
+      console.log('[Nav] accordion: button=', button, 'tagName=', button ? button.tagName : '-');
+      if (!button || button.tagName !== 'BUTTON') return;
+      const item = button.closest('.top-bar__mobile-item[data-menu]');
+      console.log('[Nav] accordion: item=', item, 'data-menu=', item ? item.getAttribute('data-menu') : '-');
+      if (!item) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = item.getAttribute('data-open') === 'true';
+      console.log('[Nav] accordion: toggle', item.getAttribute('data-menu'), 'isOpen=', isOpen, '->', !isOpen);
+      document.querySelectorAll('.top-bar__mobile-item[data-menu]').forEach(function(other) {
+        other.setAttribute('data-open', other === item ? (!isOpen ? 'true' : 'false') : 'false');
+      });
+    }
+    drawer.addEventListener('pointerdown', handleAccordion, true);
+
+    function openMenu() {
+      drawer.classList.toggle('open');
+      const isOpen = drawer.classList.contains('open');
+      console.log('[Nav] openMenu: drawer.open=', isOpen);
+      if (isOpen) menuOpenedAt = Date.now();
+      var back = getBackdrop();
+      back.dataset.open = isOpen ? 'true' : 'false';
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) buildMobileMenu();
+    }
+
+    toggle.addEventListener('click', function () {
+      console.log('[Nav] toggle CLICK');
+      openMenu();
     });
 
-    // Close on backdrop click
-    backdrop.addEventListener('click', () => {
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileDrawer.setAttribute('data-open', 'false');
-      backdrop.setAttribute('data-open', 'false');
-      document.body.style.overflow = '';
-    });
 
     // Build mobile menu content
     function buildMobileMenu() {
-      if (!mobileContent) return;
-      
+      console.log('[Nav] buildMobileMenu başladı, mobileContent:', !!mobileContent);
+      if (!mobileContent) {
+        console.error('[Nav] buildMobileMenu: mobileContent yok, çık');
+        return;
+      }
       mobileContent.innerHTML = '';
 
       const base = getBasePath();
@@ -165,9 +220,8 @@
 
       // Update texts
       updateNavigationTexts();
-
-      // Setup accordion
-      setupMobileAccordion();
+      const accordionItems = mobileContent.querySelectorAll('.top-bar__mobile-item[data-menu]');
+      console.log('[Nav] buildMobileMenu bitti, accordion item sayısı:', accordionItems.length);
     }
 
     function createMobileMenuItem(titleKey, menuId, subItems) {
@@ -176,6 +230,7 @@
       item.setAttribute('data-menu', menuId);
 
       const button = document.createElement('button');
+      button.type = 'button';
       button.className = 'top-bar__mobile-link';
       button.setAttribute('data-i18n', titleKey);
       button.innerHTML = '<span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>';
@@ -205,32 +260,11 @@
         }
       });
 
-      button.addEventListener('click', () => {
-        const isOpen = item.getAttribute('data-open') === 'true';
-        item.setAttribute('data-open', !isOpen);
-      });
-
       item.appendChild(button);
       item.appendChild(submenu);
       return item;
     }
 
-    function setupMobileAccordion() {
-      const mobileItems = document.querySelectorAll('.top-bar__mobile-item[data-menu]');
-      mobileItems.forEach(item => {
-        const button = item.querySelector('.top-bar__mobile-link');
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = item.getAttribute('data-open') === 'true';
-          mobileItems.forEach(otherItem => {
-            if (otherItem !== item) {
-              otherItem.setAttribute('data-open', 'false');
-            }
-          });
-          item.setAttribute('data-open', !isOpen);
-        });
-      });
-    }
   }
 
   // Setup keyboard navigation

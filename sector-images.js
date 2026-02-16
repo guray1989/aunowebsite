@@ -5,12 +5,27 @@ function getAssetBasePath() {
   return '';
 }
 
+// Hangi dosya hangi uzantıda (404 önlemek için doğru uzantı önce denensin)
+const imageExtensionHint = {
+  sekerlemesektor: 'jpg',
+  sarkuterisektor: 'jpg',
+  haziryemeksektor: 'jpg',
+  kurugidasektor: 'png',
+  raperformanscozum: 'jpg',
+  rafomrucozum: 'jpg',
+  butikcozum: 'png',
+  aunoai: 'png',
+  etsatisarttirma: 'jpg',
+  sekerlemesatinalma: 'png',
+  etdusukadet: 'jpg',
+};
+
 // Sector images configuration
 const sectorImageMapping = {
-  sector_confectionery: 'sekerlemesektor', // sekerlemesektor.jpeg
-  sector_meat_dairy: 'sarkuterisektor', // sarkuterisektor.jpg
-  sector_ready_meals: 'haziryemeksektor', // haziryemeksektor.jpeg
-  sector_premium: 'kurugıdasektor', // Kuru Gıdalar - kurugıdasektor.jpg
+  sector_confectionery: 'sekerlemesektor',
+  sector_meat_dairy: 'sarkuterisektor',
+  sector_ready_meals: 'haziryemeksektor',
+  sector_premium: 'kurugidasektor',
 };
 
 // Helper function to build image path
@@ -34,10 +49,10 @@ const sectorImages = {
 
 // Solution images mapping – mevcut görsellere fallback
 const solutionImageMapping = {
-  solution_shelf_life: ['rafomrucozum', 'raperformanscozum', 'kurugıdasektor'],
+  solution_shelf_life: ['rafomrucozum', 'raperformanscozum', 'kurugidasektor'],
   solution_shelf_performance: ['raperformanscozum', 'etsatisarttirma', 'sarkuterisektor'],
-  solution_small_batches: ['butikcozum', 'etdusukadet', 'kurugıdasektor'],
-  solution_aunoai: ['aunoai', 'sekerlemesatinalma', 'kurugıdasektor'],
+  solution_small_batches: ['butikcozum', 'etdusukadet', 'kurugidasektor'],
+  solution_aunoai: ['aunoai', 'sekerlemesatinalma', 'kurugidasektor'],
 };
 
 function getSolutionImagePath(solutionKey) {
@@ -66,9 +81,9 @@ function loadSectorImages() {
       const imageName = sectorImageMapping[imageKey];
       if (!imageName) return;
       
-      // Try multiple extensions: .jpg, .jpeg, .png, .webp
-      const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-      let extensionIndex = 0;
+      const preferred = imageExtensionHint[imageName];
+      const rest = ['png', 'jpg', 'jpeg', 'webp'].filter(e => e !== preferred);
+      const extensions = preferred ? [preferred, ...rest] : ['png', 'jpg', 'jpeg', 'webp'];
       
       const tryLoadImage = (extIndex) => {
         if (extIndex >= extensions.length) {
@@ -103,7 +118,7 @@ function loadSectorImages() {
 // Load solution images – tries multiple fallback images per solution
 function loadSolutionImages() {
   const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image]');
-  const extensions = ['jpg', 'jpeg', 'png', 'webp'];
+  const allExt = ['png', 'jpg', 'jpeg', 'webp'];
   
   solutionItems.forEach(item => {
     const imageKey = item.getAttribute('data-image');
@@ -112,10 +127,17 @@ function loadSolutionImages() {
     
     if (!names || !img || !Array.isArray(names)) return;
     
+    function getExtensionsFor(name) {
+      const preferred = imageExtensionHint[name];
+      if (!preferred) return allExt;
+      return [preferred, ...allExt.filter(e => e !== preferred)];
+    }
+    
     function tryNext(candidateIndex, extIndex) {
       if (candidateIndex >= names.length) return;
-      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
       const name = names[candidateIndex];
+      const extensions = getExtensionsFor(name);
+      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
       const path = getAssetBasePath() + 'assets/images/' + name + '.' + extensions[extIndex];
       
       img.onload = function() {
@@ -138,7 +160,7 @@ function loadSolutionImages() {
 // Load solution section images (solutions page – image left of each section)
 function loadSolutionSectionImages() {
   const sectionImgs = document.querySelectorAll('.solutions-section__media img[data-solution-img]');
-  const extensions = ['jpg', 'jpeg', 'png', 'webp'];
+  const allExt = ['png', 'jpg', 'jpeg', 'webp'];
 
   sectionImgs.forEach(img => {
     const imageKey = img.getAttribute('data-solution-img');
@@ -146,10 +168,17 @@ function loadSolutionSectionImages() {
 
     if (!names || !Array.isArray(names)) return;
 
+    function getExtensionsFor(name) {
+      const preferred = imageExtensionHint[name];
+      if (!preferred) return allExt;
+      return [preferred, ...allExt.filter(e => e !== preferred)];
+    }
+
     function tryNext(candidateIndex, extIndex) {
       if (candidateIndex >= names.length) return;
-      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
       const name = names[candidateIndex];
+      const extensions = getExtensionsFor(name);
+      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
       const path = getAssetBasePath() + 'assets/images/' + name + '.' + extensions[extIndex];
 
       img.onload = function() {

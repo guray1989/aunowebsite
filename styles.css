@@ -48,6 +48,7 @@ img {
 .top-bar {
   position: relative;
   z-index: 100;
+  overflow: visible; /* mobil drawer kesilmesin */
   background-color: var(--bg-dark);
   color: var(--text-light);
   margin-top: 0;
@@ -534,6 +535,8 @@ img {
 }
 
 .top-bar__mobile-toggle {
+  position: relative;
+  z-index: 10001;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -562,7 +565,7 @@ img {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile Drawer */
+/* Mobile Drawer – viewport’a göre sabit, her şeyin üstünde */
 .top-bar__mobile-drawer {
   position: fixed;
   top: 0;
@@ -573,10 +576,11 @@ img {
   background: white;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
   transition: right 0.3s ease;
-  z-index: 200;
+  z-index: 9999;
   overflow-y: auto;
 }
 
+.top-bar__mobile-drawer.open,
 .top-bar__mobile-drawer[data-open="true"] {
   right: 0;
 }
@@ -592,12 +596,14 @@ img {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 199;
+  z-index: 9998;
+  pointer-events: none; /* kapalıyken tıklamalar alttaki öğelere gitsin (hamburger vb.) */
 }
 
 .top-bar__mobile-backdrop[data-open="true"] {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .top-bar__mobile-item {
@@ -1534,7 +1540,7 @@ img {
 }
 
 .footer {
-  background: var(--bg-dark) url("assets/images/footer.png") center/cover no-repeat;
+  background: var(--bg-dark);
   color: rgba(255, 255, 255, 0.85);
   padding: 48px 32px 32px;
   border-radius: 0;
