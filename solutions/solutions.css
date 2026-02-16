@@ -76,8 +76,72 @@
 }
 
 .solutions-section__inner {
-  max-width: 720px;
+  max-width: var(--max-width, 1200px);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.solutions-section__media {
+  position: sticky;
+  top: 24px;
+}
+
+.solutions-section__img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  min-height: 220px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.solutions-section__img[src=""],
+.solutions-section__img:not([src]) {
+  min-height: 220px;
+}
+
+.solutions-section__main {
+  min-width: 0;
+}
+
+/* İlk 3 bölüm: görsel küçük; Veri Odaklı aynı kalır */
+.solutions-section--shelf-life .solutions-section__inner,
+.solutions-section--shelf-performance .solutions-section__inner,
+.solutions-section--small-batches .solutions-section__inner {
+  grid-template-columns: minmax(140px, 180px) 1fr;
+}
+
+.solutions-section--shelf-life .solutions-section__img,
+.solutions-section--shelf-performance .solutions-section__img,
+.solutions-section--small-batches .solutions-section__img {
+  min-height: 140px;
+}
+
+@media (max-width: 900px) {
+  .solutions-section__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .solutions-section__media {
+    position: static;
+    max-width: 400px;
+    margin: 0 auto 0 0;
+  }
+  .solutions-section--shelf-life .solutions-section__media,
+  .solutions-section--shelf-performance .solutions-section__media,
+  .solutions-section--small-batches .solutions-section__media {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .solutions-section__media {
+    max-width: 100%;
+  }
 }
 
 .solutions-section__title {
@@ -130,9 +194,206 @@
   background-color: #EAF4EF;
 }
 
-/* 4. Veri Odaklı – Light grey / neutral tech */
+/* 4. Veri Odaklı – Dark section + dark cards */
 .solutions-section--data-guided {
-  background-color: #F2F4F6;
+  background: linear-gradient(180deg, #1A2A3D 0%, #243447 100%);
+}
+
+.solutions-section--data-guided .solutions-section__title {
+  color: #ffffff;
+}
+
+.solutions-section--data-guided .solutions-section__content p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.solutions-section--data-guided .decision-arch__title {
+  color: #ffffff;
+}
+
+.solutions-section--data-guided .decision-arch__intro {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Karar Sistemi kartları – dark theme (sadece Veri Odaklı bölümünde) */
+.solutions-section--data-guided .decision-arch__step {
+  background: #1A2A3F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.solutions-section--data-guided .decision-arch__step:has(.decision-arch__panel.is-open) {
+  border-left: 4px solid #4DA3FF;
+}
+
+.solutions-section--data-guided .decision-arch__trigger {
+  background: transparent;
+  color: #ffffff;
+}
+
+.solutions-section--data-guided .decision-arch__trigger:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.solutions-section--data-guided .decision-arch__trigger[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.solutions-section--data-guided .decision-arch__trigger:focus-visible {
+  outline: 2px solid #4DA3FF;
+  outline-offset: 2px;
+}
+
+.solutions-section--data-guided .decision-arch__num,
+.solutions-section--data-guided .decision-arch__label,
+.solutions-section--data-guided .decision-arch__arrow {
+  color: #ffffff;
+}
+
+.solutions-section--data-guided .decision-arch__arrow svg {
+  stroke: #ffffff;
+}
+
+.solutions-section--data-guided .decision-arch__panel.is-open {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.solutions-section--data-guided .decision-arch__body {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Karar Sistemi – modern AI-style workflow (no accordion/FAQ look) */
+.decision-arch {
+  margin-top: 48px;
+  margin-bottom: 40px;
+}
+
+.decision-arch__title {
+  font-family: var(--font-sans, 'Manrope', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.decision-arch__intro {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-muted, #5a5a5a);
+}
+
+.decision-arch__workflow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.decision-arch__step {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.5) 0%, rgba(219, 234, 254, 0.45) 100%);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.decision-arch__trigger {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 18px 20px;
+  text-align: left;
+  font-family: var(--font-sans, 'Manrope', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e40af;
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.55) 0%, rgba(219, 234, 254, 0.5) 100%);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.decision-arch__trigger:hover {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.75) 0%, rgba(219, 234, 254, 0.7) 100%);
+}
+
+.decision-arch__trigger:focus-visible {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
+
+.decision-arch__trigger[aria-expanded="true"] {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.75) 0%, rgba(219, 234, 254, 0.7) 100%);
+}
+
+.decision-arch__num {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e40af;
+  min-width: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.decision-arch__label {
+  flex: 1;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.decision-arch__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e40af;
+  transition: transform 0.25s ease;
+}
+
+.decision-arch__trigger[aria-expanded="true"] .decision-arch__arrow {
+  transform: rotate(90deg);
+}
+
+.decision-arch__panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+
+.decision-arch__panel.is-open {
+  max-height: 220px;
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.35) 0%, rgba(219, 234, 254, 0.3) 100%);
+}
+
+.decision-arch__body {
+  margin: 0;
+  padding: 0 20px 20px 4.5rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-weight: 400;
+  color: #1e3a5f;
+}
+
+@media (max-width: 600px) {
+  .decision-arch__trigger {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+  .decision-arch__num {
+    min-width: 2.2rem;
+    font-size: 1rem;
+  }
+  .decision-arch__body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* Auno yeşili – section başlıkları için (CSS değişkeni styles.css ile uyumlu) */

@@ -1524,7 +1524,7 @@ img {
   background: var(--bg-dark) url("assets/images/footer.png") center/cover no-repeat;
   color: rgba(255, 255, 255, 0.85);
   padding: 48px 32px 32px;
-  border-radius: 24px 24px 0 0;
+  border-radius: 0;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -1684,7 +1684,6 @@ img {
   .top-bar__hero-description {
     font-size: 0.9rem;
   }
-}
 
   .top-bar__social {
     flex-wrap: wrap;
@@ -1725,4 +1724,3 @@ img {
     padding: 32px;
   }
 }
-

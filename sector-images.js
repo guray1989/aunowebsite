@@ -135,13 +135,44 @@ function loadSolutionImages() {
   });
 }
 
+// Load solution section images (solutions page – image left of each section)
+function loadSolutionSectionImages() {
+  const sectionImgs = document.querySelectorAll('.solutions-section__media img[data-solution-img]');
+  const extensions = ['jpg', 'jpeg', 'png', 'webp'];
+
+  sectionImgs.forEach(img => {
+    const imageKey = img.getAttribute('data-solution-img');
+    const names = solutionImageMapping[imageKey];
+
+    if (!names || !Array.isArray(names)) return;
+
+    function tryNext(candidateIndex, extIndex) {
+      if (candidateIndex >= names.length) return;
+      if (extIndex >= extensions.length) { tryNext(candidateIndex + 1, 0); return; }
+      const name = names[candidateIndex];
+      const path = getAssetBasePath() + 'assets/images/' + name + '.' + extensions[extIndex];
+
+      img.onload = function() {
+        this.style.display = 'block';
+        this.classList.add('loaded');
+      };
+      img.onerror = function() { tryNext(candidateIndex, extIndex + 1); };
+      img.src = path;
+    }
+
+    tryNext(0, 0);
+  });
+}
+
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     loadSectorImages();
     loadSolutionImages();
+    loadSolutionSectionImages();
   });
 } else {
   loadSectorImages();
   loadSolutionImages();
+  loadSolutionSectionImages();
 }
