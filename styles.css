@@ -1332,6 +1332,45 @@ img {
   margin-bottom: 0.35em;
 }
 
+/* Mobil: yatay slayt yerine dikey kart listesi – kaydırma yok, sayfa akışında hepsi görünür */
+@media (max-width: 900px) {
+  .sector-gallery {
+    padding: 32px 20px;
+  }
+  .sector-gallery__track {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    gap: 40px;
+    padding-bottom: 0;
+  }
+  .sector-gallery__item {
+    flex: none;
+    width: 100%;
+    flex-direction: column;
+    scroll-snap-align: none;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .sector-gallery__image {
+    order: 1;
+  }
+  .sector-gallery__image img {
+    max-width: 100%;
+    width: 100%;
+  }
+  .sector-gallery__text {
+    order: 2;
+  }
+  .sector-gallery__text h3 {
+    font-size: 1.35rem;
+  }
+  .sector-gallery__text p,
+  .sector-gallery__text .sector-gallery__list {
+    font-size: 1rem;
+  }
+}
+
 /* Full-width info band (text left, image right) */
 .info-band {
   display: grid;
