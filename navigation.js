@@ -139,21 +139,19 @@
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');
-      caseStudiesLink.href = base + 'case-studies.html';
+      caseStudiesLink.href = base + 'blog.html';
       caseStudiesLink.className = 'top-bar__mobile-link';
       caseStudiesLink.setAttribute('data-i18n', 'nav-case-studies');
-      caseStudiesLink.textContent = 'Başarı Hikayeleri';
+      caseStudiesLink.textContent = 'Blog';
       mobileContent.appendChild(caseStudiesLink);
 
-      // About
-      const aboutItem = createMobileMenuItem('nav-about', 'about', [
-        { key: 'nav-who-we-are', href: base + 'about.html' },
-        { key: 'nav-how-we-work', href: base + 'how-we-work.html' },
-        { key: 'nav-sustainability', href: base + 'sustainability.html' },
-        { key: 'nav-faq', href: base + 'faq.html' },
-        { key: 'nav-contact', href: base + 'contact.html' }
-      ]);
-      mobileContent.appendChild(aboutItem);
+      // About (single link)
+      const aboutLink = document.createElement('a');
+      aboutLink.href = base + 'about.html';
+      aboutLink.className = 'top-bar__mobile-link';
+      aboutLink.setAttribute('data-i18n', 'nav-about');
+      aboutLink.textContent = 'Hakkımızda';
+      mobileContent.appendChild(aboutLink);
 
       // CTA Button
       const ctaButton = document.createElement('a');
