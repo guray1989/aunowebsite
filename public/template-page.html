@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://aunopack.com/template-page.html">
+  <title>AUNO Pack - Page Title</title>
+  <meta name="description" content="AunoPack template page. Update title and description for your content.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="top-bar">
+      <p class="top-bar__headline" data-i18n="welcome">Welcome to AUNO Pack</p>
+      <nav class="top-bar__social">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
+        <a href="#" aria-label="Instagram" class="social-link">IG</a>
+        <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+        <a href="#" aria-label="X" class="social-link">X</a>
+      </nav>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar__container">
+        <a href="../index.html" class="navbar__logo" data-i18n="logo">AUNO</a>
+        <div class="navbar__menu">
+          <!-- Menu items will be populated by navigation.js -->
+        </div>
+        <a href="../contact.html" class="navbar__cta" data-i18n="nav-cta">Start Your Enquiry</a>
+        <button class="navbar__mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="navbar__mobile-drawer">
+        <div class="navbar__mobile-content"></div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1 class="hero__title" data-i18n="page-title">Page Title</h1>
+      <p class="hero__description" data-i18n="page-description">Page description goes here.</p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <span data-i18n="address">Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.</span><br>
+        <span data-i18n="footer-text">Email: info@aunopack.com. For any inquiries or support, please feel free to contact us by email or visit our location.</span>
+      </p>
+    </footer>
+  </main>
+  <script src="../i18n.js"></script>
+  <script src="../navigation.js"></script>
+</body>
+</html>
