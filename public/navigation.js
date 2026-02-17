@@ -173,13 +173,14 @@
       mobileContent.innerHTML = '';
 
       const base = getBasePath();
+      const origin = typeof window !== 'undefined' ? window.location.origin : '';
 
-      // Sectors - absolute paths to avoid 404 from /solutions/
+      // Sectors - full URLs to avoid 404 from /solutions/ (base path issues on live)
       const sectorsItem = createMobileMenuItem('nav-sectors', 'products', [
-        { key: 'sector-confectionery', href: '/sectors/confectionery-chocolate.html' },
-        { key: 'sector-meat-dairy', href: '/sectors/meat-dairy.html' },
-        { key: 'sector-ready-meals', href: '/sectors/ready-meals.html' },
-        { key: 'sector-premium', href: '/sectors/dry-foods.html' },
+        { key: 'sector-confectionery', href: origin + '/sectors/confectionery-chocolate.html' },
+        { key: 'sector-meat-dairy', href: origin + '/sectors/meat-dairy.html' },
+        { key: 'sector-ready-meals', href: origin + '/sectors/ready-meals.html' },
+        { key: 'sector-premium', href: origin + '/sectors/dry-foods.html' },
       ]);
       mobileContent.appendChild(sectorsItem);
 
@@ -194,7 +195,7 @@
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');
-      caseStudiesLink.href = '/blog.html';
+      caseStudiesLink.href = origin + '/blog.html';
       caseStudiesLink.className = 'top-bar__mobile-link';
       caseStudiesLink.setAttribute('data-i18n', 'nav-case-studies');
       caseStudiesLink.textContent = 'Blog';
@@ -202,7 +203,7 @@
 
       // About (single link)
       const aboutLink = document.createElement('a');
-      aboutLink.href = '/about.html';
+      aboutLink.href = origin + '/about.html';
       aboutLink.className = 'top-bar__mobile-link';
       aboutLink.setAttribute('data-i18n', 'nav-about');
       aboutLink.textContent = 'Hakkımızda';
@@ -210,7 +211,7 @@
 
       // CTA Button
       const ctaButton = document.createElement('a');
-      ctaButton.href = '/contact.html';
+      ctaButton.href = origin + '/contact.html';
       ctaButton.className = 'top-bar__cta';
       ctaButton.style.display = 'block';
       ctaButton.style.marginTop = '24px';
