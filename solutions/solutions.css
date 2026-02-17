@@ -2,6 +2,12 @@
 
 .page--solutions .solutions-page {
   padding-top: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.page--solutions {
+  overflow-x: hidden;
 }
 
 /* Hero + Anchor Nav */
@@ -126,15 +132,29 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .solutions-section__media {
-    position: static;
-    max-width: 400px;
-    margin: 0 auto 0 0;
+  /* İlk 3 çözümde de mobilde tek sütun: resim üstte, yazı altta */
+  .solutions-section--shelf-life .solutions-section__inner,
+  .solutions-section--shelf-performance .solutions-section__inner,
+  .solutions-section--small-batches .solutions-section__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "media" "main";
   }
   .solutions-section--shelf-life .solutions-section__media,
   .solutions-section--shelf-performance .solutions-section__media,
   .solutions-section--small-batches .solutions-section__media {
-    max-width: 220px;
+    grid-area: media;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .solutions-section--shelf-life .solutions-section__main,
+  .solutions-section--shelf-performance .solutions-section__main,
+  .solutions-section--small-batches .solutions-section__main {
+    grid-area: main;
+  }
+  .solutions-section__media {
+    position: static;
+    max-width: 400px;
+    margin: 0 auto 0 0;
   }
 }
 
