@@ -306,6 +306,16 @@
   <script src="../navigation.js"></script>
   <script src="../sector-images.js"></script>
   <script>
+    // Sector links: use full URL to avoid 404 when navigating from /solutions/#anchor (routing/base issues on live)
+    (function() {
+      var o = window.location.origin || '';
+      document.querySelectorAll('a[href^="/sectors/"]').forEach(function(a) {
+        var p = a.getAttribute('href');
+        if (p && p.startsWith('/sectors/')) a.setAttribute('href', o + p);
+      });
+    })();
+  </script>
+  <script>
     document.querySelectorAll('.solutions-nav__btn, a[href^="#"]').forEach(link => {
       if (link.getAttribute('href').startsWith('#')) {
         link.addEventListener('click', function(e) {
