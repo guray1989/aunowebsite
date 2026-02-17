@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/sectors/meat-dairy", "destination": "/sectors/meat-dairy.html" },
+    { "source": "/sectors/confectionery-chocolate", "destination": "/sectors/confectionery-chocolate.html" },
+    { "source": "/sectors/ready-meals", "destination": "/sectors/ready-meals.html" },
+    { "source": "/sectors/dry-foods", "destination": "/sectors/dry-foods.html" },
+    { "source": "/blog", "destination": "/blog.html" }
+  ]
+}
