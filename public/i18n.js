@@ -53,6 +53,8 @@ const translations = {
     'nav-contact-form': 'Contact Form',
     'sr-only-menu': 'Open/Close menu',
     'solutions-link': 'Solutions',
+    'intro-title': 'AunoPack – Data-Driven Packaging Decisions',
+    'intro-text': 'Do you really know the right packaging structure for your product? AunoPack is an AI-powered packaging decision engine that analyzes technical requirements, sustainability criteria and consumer trends together. The platform gives brands a cost advantage, regulatory compliance and strong shelf performance with its data-driven approach and low minimum order premium packaging solutions.',
     'contact-hero-title': 'Get in Touch',
     'contact-hero-desc': 'Fill out the form for your questions or quote requests. We will get back to you as soon as possible at info@aunopack.com.',
     'contact-label-name': 'Full Name',
@@ -330,6 +332,8 @@ const translations = {
     'nav-contact-form': 'İletişim Formu',
     'sr-only-menu': 'Menüyü Aç/Kapat',
     'solutions-link': 'Çözümler',
+    'intro-title': 'AunoPack – Ambalaj Kararlarında Veri Gücü',
+    'intro-text': 'Ürününüz için gerçekten en doğru ambalaj yapısını biliyor musunuz? AunoPack; teknik gereklilikleri, sürdürülebilirlik kriterlerini ve tüketici trendlerini birlikte analiz eden yapay zekâ destekli bir ambalaj karar motorudur. Platform, veri odaklı yaklaşımı ve düşük minimum siparişli premium ambalaj çözümleriyle markalara maliyet avantajı, regülasyon uyumu ve güçlü raf performansı kazandırır.',
     'contact-hero-title': 'Bize Ulaşın',
     'contact-hero-desc': 'Sorularınız veya teklif talepleriniz için formu doldurun. En kısa sürede info@aunopack.com üzerinden size dönüş yapacağız.',
     'contact-label-name': 'Ad Soyad',
@@ -634,16 +638,22 @@ function setLanguage(lang) {
 }
 
 // Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
+function initLanguage() {
   const initialLang = getInitialLanguage();
   setLanguage(initialLang);
-  
-  // Add click handlers to language buttons
+
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const lang = e.target.getAttribute('data-lang');
-      setLanguage(lang);
+      const button = e.currentTarget || e.target.closest('.lang-btn');
+      const lang = button ? button.getAttribute('data-lang') : null;
+      if (lang === 'en' || lang === 'tr') setLanguage(lang);
     });
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+  initLanguage();
+}
 
