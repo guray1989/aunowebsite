@@ -110,6 +110,7 @@
   <div class="top-bar__mobile-backdrop" data-open="false"></div>
 
   <main class="solutions-page">
+    <!-- Hero + Anchor Nav -->
     <section class="solutions-hero">
       <div class="solutions-hero__inner">
         <h1 class="solutions-hero__title" data-i18n="solutions-hero-title">Çözümler</h1>
@@ -123,6 +124,7 @@
       </div>
     </section>
 
+    <!-- 1. Raf Ömrü Odaklı -->
     <section id="shelf-life" class="solutions-section solutions-section--shelf-life">
       <div class="solutions-section__inner">
         <div class="solutions-section__media">
@@ -139,6 +141,7 @@
       </div>
     </section>
 
+    <!-- 2. Raf Performansı Odaklı -->
     <section id="shelf-performance" class="solutions-section solutions-section--shelf-performance">
       <div class="solutions-section__inner">
         <div class="solutions-section__media">
@@ -155,6 +158,7 @@
       </div>
     </section>
 
+    <!-- 3. Küçük Seriler -->
     <section id="small-batches" class="solutions-section solutions-section--small-batches">
       <div class="solutions-section__inner">
         <div class="solutions-section__media">
@@ -171,6 +175,7 @@
       </div>
     </section>
 
+    <!-- 4. Veri Odaklı Tasarım -->
     <section id="data-guided" class="solutions-section solutions-section--data-guided">
       <div class="solutions-section__inner">
         <div class="solutions-section__media">
@@ -182,6 +187,7 @@
           <p data-i18n="solutions-data-guided-p1">AunoAI ile malzeme, form ve görsel kararlarınızı veri destekli analiz ediyoruz. Raf tercih olasılığı, sürdürülebilirlik kriterleri ve teknik performans birlikte değerlendiriyoruz.</p>
           <p data-i18n="solutions-data-guided-p2">Sonuç; hızlandırılmış karar süreci ve maliyet–performans dengesi gözetilerek üretilen ölçülebilir alternatiflerdir.</p>
 
+          <!-- Karar Sistemi -->
           <div class="decision-arch" id="karar-sistemi">
             <h3 class="decision-arch__title" data-i18n="solutions-decision-title">Karar Sistemi</h3>
             <p class="decision-arch__intro" data-i18n="solutions-decision-intro">AUNO AI; ambalaj kararlarını teknik, ticari ve sürdürülebilirlik parametreleri üzerinden analiz eden veri destekli bir karar altyapısıdır.</p>
@@ -296,9 +302,20 @@
     </div>
   </footer>
 
+  <script src="../canonical.js"></script>
   <script src="../i18n.js"></script>
   <script src="../navigation.js"></script>
   <script src="../sector-images.js"></script>
+  <script>
+    // Sector links: use full URL to avoid 404 when navigating from /solutions/#anchor (routing/base issues on live)
+    (function() {
+      var o = window.location.origin || '';
+      document.querySelectorAll('a[href^="/sectors/"]').forEach(function(a) {
+        var p = a.getAttribute('href');
+        if (p && p.startsWith('/sectors/')) a.setAttribute('href', o + p);
+      });
+    })();
+  </script>
   <script>
     document.querySelectorAll('.solutions-nav__btn, a[href^="#"]').forEach(link => {
       if (link.getAttribute('href').startsWith('#')) {

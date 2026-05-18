@@ -85,6 +85,8 @@ const translations = {
     'nav-contact-form': 'Contact Form',
     'sr-only-menu': 'Open/Close menu',
     'solutions-link': 'Solutions',
+    'intro-title': 'AunoPack – Data-Driven Packaging Decisions',
+    'intro-text': 'Do you really know the right packaging structure for your product? AunoPack is an AI-powered packaging decision engine that analyzes technical requirements, sustainability criteria and consumer trends together. The platform gives brands a cost advantage, regulatory compliance and strong shelf performance with its data-driven approach and low minimum order premium packaging solutions.',
     'contact-hero-title': 'Get in Touch',
     'contact-hero-desc': 'Fill out the form for your questions or quote requests. We will get back to you as soon as possible at info@aunopack.com.',
     'contact-label-name': 'Full Name',
@@ -107,9 +109,6 @@ const translations = {
     'about-p3': 'The system identifies and compares optimal packaging structure alternatives that align with company goals. The visual decision process is also managed in a data-driven way via the AI-supported design portal.',
     'about-p4': 'The chosen structure is not only recommended; it is supplied and implemented.',
     'about-p5': 'We connect brands with innovative, alternative and sustainable packaging solutions.',
-    'blog-hero-title': 'Blog',
-    'blog-coming-soon': 'Coming soon. We are preparing content about packaging innovations, case studies and industry insights.',
-    'blog-back-home': 'Back to Home',
     'sector-cta': 'Discover the Solution',
     'sector-featured-products': 'Featured Products',
     'sector-faq-title': 'Frequently Asked Questions',
@@ -397,6 +396,8 @@ const translations = {
     'nav-contact-form': 'İletişim Formu',
     'sr-only-menu': 'Menüyü Aç/Kapat',
     'solutions-link': 'Çözümler',
+    'intro-title': 'AunoPack – Ambalaj Kararlarında Veri Gücü',
+    'intro-text': 'Ürününüz için gerçekten en doğru ambalaj yapısını biliyor musunuz? AunoPack; teknik gereklilikleri, sürdürülebilirlik kriterlerini ve tüketici trendlerini birlikte analiz eden yapay zekâ destekli bir ambalaj karar motorudur. Platform, veri odaklı yaklaşımı ve düşük minimum siparişli premium ambalaj çözümleriyle markalara maliyet avantajı, regülasyon uyumu ve güçlü raf performansı kazandırır.',
     'contact-hero-title': 'Bize Ulaşın',
     'contact-hero-desc': 'Sorularınız veya teklif talepleriniz için formu doldurun. En kısa sürede info@aunopack.com üzerinden size dönüş yapacağız.',
     'contact-label-name': 'Ad Soyad',
@@ -419,9 +420,6 @@ const translations = {
     'about-p3': 'Sistem; firma hedefleri ile örtüşen optimum ambalaj yapı alternatiflerini belirler ve karşılaştırır. Yapay zeka destekli tasarım portalı ile görsel karar süreci de veri temelli olarak yönetilir.',
     'about-p4': 'Seçilen yapı yalnızca önerilmez; tedarik edilerek uygulanır.',
     'about-p5': 'Markaları yenilikçi, alternatif ve sürdürülebilir ambalaj çözümleri ile buluştururuz.',
-    'blog-hero-title': 'Blog',
-    'blog-coming-soon': 'Yakında. Ambalaj yenilikleri, vaka çalışmaları ve sektör içgörüleri hakkında içerikler hazırlıyoruz.',
-    'blog-back-home': 'Ana Sayfaya Dön',
     'sector-cta': 'Çözümünü Keşfet',
     'sector-featured-products': 'Öne çıkan ürünler',
     'sector-faq-title': 'Sıkça Sorulan Sorular',
@@ -626,8 +624,61 @@ const translations = {
   }
 };
 
+function getLanguageFromPath() {
+  const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+  const first = parts[0];
+  return first === 'tr' || first === 'en' ? first : null;
+}
+
+function getPathWithoutLangPrefix(pathname) {
+  return pathname.replace(/^\/(tr|en)(?=\/|$)/, '') || '/';
+}
+
+function withLanguagePrefix(pathname, lang) {
+  const clean = getPathWithoutLangPrefix(pathname);
+  if (clean === '/' || clean === '/index.html') return '/';
+  return '/' + lang + (clean.startsWith('/') ? clean : '/' + clean);
+}
+
+function updateLocalizedLinks(lang) {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const raw = a.getAttribute('href');
+    if (!raw) return;
+    if (
+      raw.startsWith('#') ||
+      raw.startsWith('mailto:') ||
+      raw.startsWith('tel:') ||
+      raw.startsWith('javascript:')
+    ) {
+      return;
+    }
+
+    let url;
+    try {
+      url = new URL(raw, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+    const newPath = withLanguagePrefix(url.pathname, lang);
+    a.setAttribute('href', newPath + url.search + url.hash);
+  });
+}
+
+function updateUrlForLanguage(lang) {
+  const target = withLanguagePrefix(window.location.pathname, lang) + window.location.search + window.location.hash;
+  const current = window.location.pathname + window.location.search + window.location.hash;
+  if (target !== current) {
+    window.history.replaceState({}, '', target);
+  }
+}
+
 // Get saved language preference or detect browser language
 function getInitialLanguage() {
+  const pathLang = getLanguageFromPath();
+  if (pathLang) return pathLang;
+
   // Check localStorage first
   const savedLang = localStorage.getItem('preferred-language');
   if (savedLang && (savedLang === 'en' || savedLang === 'tr')) {
@@ -701,19 +752,30 @@ function setLanguage(lang) {
   
   // Save preference
   localStorage.setItem('preferred-language', lang);
+  updateLocalizedLinks(lang);
+  updateUrlForLanguage(lang);
+  if (typeof window.updateCanonicalLink === 'function') {
+    window.updateCanonicalLink();
+  }
 }
 
 // Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
+function initLanguage() {
   const initialLang = getInitialLanguage();
   setLanguage(initialLang);
-  
-  // Add click handlers to language buttons
+
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const lang = e.target.getAttribute('data-lang');
-      setLanguage(lang);
+      const button = e.currentTarget || e.target.closest('.lang-btn');
+      const lang = button ? button.getAttribute('data-lang') : null;
+      if (lang === 'en' || lang === 'tr') setLanguage(lang);
     });
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+  initLanguage();
+}
 

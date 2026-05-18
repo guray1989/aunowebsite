@@ -624,8 +624,61 @@ const translations = {
   }
 };
 
+function getLanguageFromPath() {
+  const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+  const first = parts[0];
+  return first === 'tr' || first === 'en' ? first : null;
+}
+
+function getPathWithoutLangPrefix(pathname) {
+  return pathname.replace(/^\/(tr|en)(?=\/|$)/, '') || '/';
+}
+
+function withLanguagePrefix(pathname, lang) {
+  const clean = getPathWithoutLangPrefix(pathname);
+  if (clean === '/' || clean === '/index.html') return '/';
+  return '/' + lang + (clean.startsWith('/') ? clean : '/' + clean);
+}
+
+function updateLocalizedLinks(lang) {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const raw = a.getAttribute('href');
+    if (!raw) return;
+    if (
+      raw.startsWith('#') ||
+      raw.startsWith('mailto:') ||
+      raw.startsWith('tel:') ||
+      raw.startsWith('javascript:')
+    ) {
+      return;
+    }
+
+    let url;
+    try {
+      url = new URL(raw, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+    const newPath = withLanguagePrefix(url.pathname, lang);
+    a.setAttribute('href', newPath + url.search + url.hash);
+  });
+}
+
+function updateUrlForLanguage(lang) {
+  const target = withLanguagePrefix(window.location.pathname, lang) + window.location.search + window.location.hash;
+  const current = window.location.pathname + window.location.search + window.location.hash;
+  if (target !== current) {
+    window.history.replaceState({}, '', target);
+  }
+}
+
 // Get saved language preference or detect browser language
 function getInitialLanguage() {
+  const pathLang = getLanguageFromPath();
+  if (pathLang) return pathLang;
+
   // Check localStorage first
   const savedLang = localStorage.getItem('preferred-language');
   if (savedLang && (savedLang === 'en' || savedLang === 'tr')) {
@@ -699,6 +752,11 @@ function setLanguage(lang) {
   
   // Save preference
   localStorage.setItem('preferred-language', lang);
+  updateLocalizedLinks(lang);
+  updateUrlForLanguage(lang);
+  if (typeof window.updateCanonicalLink === 'function') {
+    window.updateCanonicalLink();
+  }
 }
 
 // Initialize language on page load
