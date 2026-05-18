@@ -1,8 +1,8 @@
-/**
- * Ensures each page has one canonical URL on https://aunopack.com (no www, no /tr|/en prefix).
+﻿/**
+ * Ensures each page has one canonical URL on https://www.aunopack.com (no /tr|/en prefix).
  */
 (function () {
-  var SITE_ORIGIN = 'https://aunopack.com';
+  var SITE_ORIGIN = 'https://www.aunopack.com';
 
   function getPathWithoutLangPrefix(pathname) {
     var path = pathname || '/';

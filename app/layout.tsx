@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aunopack.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aunopack.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
