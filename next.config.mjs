@@ -2,12 +2,6 @@
 const nextConfig = {
   async redirects() {
     return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.aunopack.com' }],
-        destination: 'https://aunopack.com/:path*',
-        permanent: true,
-      },
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/about.html', destination: '/about', permanent: true },
       { source: '/contact.html', destination: '/contact', permanent: true },
