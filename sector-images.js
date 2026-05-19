@@ -8,8 +8,7 @@ function getPathDepth() {
 }
 
 function getAssetBasePath() {
-  const depth = getPathDepth();
-  return depth > 0 ? '../'.repeat(depth) : '';
+  return '/';
 }
 
 // Hangi dosya hangi uzantıda (404 önlemek için doğru uzantı önce denensin)
