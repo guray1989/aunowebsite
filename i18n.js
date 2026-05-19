@@ -778,9 +778,11 @@ function setLanguage(lang) {
   
   // Resimler dil bağımsız, sabit yol (assets/images/xxx.png)
   const getAssetsBase = () => {
-    const path = (window.location.pathname || '').replace(/^\//, '');
-    const segments = path.split('/').filter(Boolean).length;
-    return segments > 1 ? '../'.repeat(segments - 1) : '';
+    const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+    if (parts.length === 0) return '';
+    const last = parts[parts.length - 1];
+    const depth = last.includes('.') ? parts.length - 1 : parts.length;
+    return depth > 0 ? '../'.repeat(depth) : '';
   };
   const base = getAssetsBase();
   const imageElements = document.querySelectorAll('[data-i18n-img]');

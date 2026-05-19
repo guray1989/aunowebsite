@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:static": "serve . -l 3000",
+    "dev:static": "serve . -c serve.json -l 3000",
+    "sync:lang": "node scripts/sync-lang-routes.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

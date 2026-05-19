@@ -1,8 +1,15 @@
-// Asset base: '' for root, '../' for sectors/ or solutions/
+// Asset base from URL path depth (supports /tr/solutions/, /en/sectors/, etc.)
+function getPathDepth() {
+  const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+  if (parts.length === 0) return 0;
+  const last = parts[parts.length - 1];
+  if (last.includes('.')) return parts.length - 1;
+  return parts.length;
+}
+
 function getAssetBasePath() {
-  const path = (window.location.pathname || window.location.href || '').replace(/\\/g, '/');
-  if (path.includes('/sectors/') || path.includes('/solutions/')) return '../';
-  return '';
+  const depth = getPathDepth();
+  return depth > 0 ? '../'.repeat(depth) : '';
 }
 
 // Hangi dosya hangi uzantıda (404 önlemek için doğru uzantı önce denensin)
