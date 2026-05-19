@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:static": "serve . -l 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
