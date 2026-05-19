@@ -15,6 +15,8 @@ const nextConfig = {
         { source: '/about', destination: '/about.html' },
         { source: '/contact', destination: '/contact.html' },
         { source: '/blog', destination: '/blog.html' },
+        { source: '/raf-omru-ambalaj-cozumleri', destination: '/raf-omru-ambalaj-cozumleri.html' },
+        { source: '/:lang(tr|en)/raf-omru-ambalaj-cozumleri', destination: '/raf-omru-ambalaj-cozumleri.html' },
         { source: '/:lang(tr|en)', destination: '/index.html' },
         { source: '/:lang(tr|en)/', destination: '/index.html' },
         { source: '/:lang(tr|en)/about', destination: '/about.html' },

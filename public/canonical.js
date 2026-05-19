@@ -18,6 +18,7 @@
     if (path === '/about.html') return '/about';
     if (path === '/contact.html') return '/contact';
     if (path === '/blog.html') return '/blog';
+    if (path === '/raf-omru-ambalaj-cozumleri.html') return '/raf-omru-ambalaj-cozumleri';
 
     var sectorMatch = path.match(/^\/sectors\/([^/]+)$/);
     if (sectorMatch) return '/sectors/' + sectorMatch[1] + '.html';

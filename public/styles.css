@@ -1915,3 +1915,72 @@ img {
   color: var(--accent-yellow, #eab308);
   text-decoration: underline;
 }
+
+/* Article / solution detail pages */
+.article-page__body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.article-page__section {
+  margin-bottom: 2.5rem;
+}
+
+.article-page__section h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary, #163550);
+  margin: 0 0 1rem;
+  line-height: 1.35;
+}
+
+.article-page__section p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary, #475569);
+  margin: 0 0 1rem;
+}
+
+.article-page__list {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+  list-style: disc;
+}
+
+.article-page__list li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary, #475569);
+  margin-bottom: 0.35rem;
+}
+
+.article-page__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(22, 53, 80, 0.1);
+}
+
+.article-page__back {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary, #163550);
+  text-decoration: none;
+}
+
+.article-page__back:hover {
+  text-decoration: underline;
+}
+
+.hero__eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero__eyebrow a:hover {
+  text-decoration: underline;
+}
