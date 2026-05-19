@@ -16,8 +16,8 @@ function writeLangSolutions(lang) {
   console.log('wrote', path.join(lang, 'solutions', 'index.html'));
 }
 
-function writeLangRafOmru(lang) {
-  const src = path.join(root, 'raf-omru-ambalaj-cozumleri.html');
+function writeLangArticle(lang, fileName) {
+  const src = path.join(root, fileName);
   let html = fs.readFileSync(src, 'utf8');
   html = html
     .replace(/href="styles\.css"/g, 'href="../styles.css"')
@@ -32,11 +32,13 @@ function writeLangRafOmru(lang) {
     .replace(/href="sectors\//g, 'href="../sectors/');
   const dir = path.join(root, lang);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'raf-omru-ambalaj-cozumleri.html'), html, 'utf8');
-  console.log('wrote', path.join(lang, 'raf-omru-ambalaj-cozumleri.html'));
+  fs.writeFileSync(path.join(dir, fileName), html, 'utf8');
+  console.log('wrote', path.join(lang, fileName));
 }
 
 writeLangSolutions('tr');
 writeLangSolutions('en');
-writeLangRafOmru('tr');
-writeLangRafOmru('en');
+writeLangArticle('tr', 'raf-omru-ambalaj-cozumleri.html');
+writeLangArticle('en', 'raf-omru-ambalaj-cozumleri.html');
+writeLangArticle('tr', 'raf-performansi-ambalaj-cozumleri.html');
+writeLangArticle('en', 'raf-performansi-ambalaj-cozumleri.html');

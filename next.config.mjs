@@ -17,6 +17,8 @@ const nextConfig = {
         { source: '/blog', destination: '/blog.html' },
         { source: '/raf-omru-ambalaj-cozumleri', destination: '/raf-omru-ambalaj-cozumleri.html' },
         { source: '/:lang(tr|en)/raf-omru-ambalaj-cozumleri', destination: '/raf-omru-ambalaj-cozumleri.html' },
+        { source: '/raf-performansi-ambalaj-cozumleri', destination: '/raf-performansi-ambalaj-cozumleri.html' },
+        { source: '/:lang(tr|en)/raf-performansi-ambalaj-cozumleri', destination: '/raf-performansi-ambalaj-cozumleri.html' },
         { source: '/:lang(tr|en)', destination: '/index.html' },
         { source: '/:lang(tr|en)/', destination: '/index.html' },
         { source: '/:lang(tr|en)/about', destination: '/about.html' },
