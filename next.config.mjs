@@ -6,6 +6,7 @@ const nextConfig = {
       { source: '/about.html', destination: '/about', permanent: true },
       { source: '/contact.html', destination: '/contact', permanent: true },
       { source: '/blog.html', destination: '/blog', permanent: true },
+      { source: '/sectors/:slug.html', destination: '/sectors/:slug', permanent: true },
     ];
   },
   // Ana sayfa ve statik HTML'ler public/ üzerinden sunulsun (mobil sector sayfaları dahil)

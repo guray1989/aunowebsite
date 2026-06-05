@@ -3,7 +3,8 @@
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/blog.html", "destination": "/blog", "permanent": true }
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/sectors/:slug.html", "destination": "/sectors/:slug", "permanent": true }
   ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },

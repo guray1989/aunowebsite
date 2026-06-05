@@ -54,6 +54,7 @@
     { "source": "/index.html", "destination": "/", "type": 301 },
     { "source": "/about.html", "destination": "/about", "type": 301 },
     { "source": "/contact.html", "destination": "/contact", "type": 301 },
-    { "source": "/blog.html", "destination": "/blog", "type": 301 }
+    { "source": "/blog.html", "destination": "/blog", "type": 301 },
+    { "source": "/sectors/:slug.html", "destination": "/sectors/:slug", "type": 301 }
   ]
 }

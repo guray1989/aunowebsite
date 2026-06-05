@@ -20,8 +20,16 @@
     if (path === '/blog.html') return '/blog';
     if (path === '/raf-omru-ambalaj-cozumleri.html') return '/raf-omru-ambalaj-cozumleri';
 
+    var sectorHtmlMatch = path.match(/^\/sectors\/([^/]+)\.html$/);
+    if (sectorHtmlMatch) return '/sectors/' + sectorHtmlMatch[1];
+
     var sectorMatch = path.match(/^\/sectors\/([^/]+)$/);
-    if (sectorMatch) return '/sectors/' + sectorMatch[1] + '.html';
+    if (sectorMatch) return '/sectors/' + sectorMatch[1];
+
+    if (path === '/raf-performansi-ambalaj-cozumleri.html') return '/raf-performansi-ambalaj-cozumleri';
+    if (path === '/solutions/shelf-life' || path === '/solutions/shelf-performance' || path === '/solutions/small-batches' || path === '/solutions/data-guided') {
+      return path;
+    }
 
     return path;
   }
