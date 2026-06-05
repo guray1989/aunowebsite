@@ -57,28 +57,28 @@
               <div class="top-bar__mega-column" style="grid-column: 1 / -1;">
                 <h3 class="top-bar__mega-title" data-i18n="mega-solutions-title">Çözümler</h3>
                 <div class="top-bar__solutions-list" role="list">
-                  <a href="#shelf-life" class="top-bar__solution-item" data-image="solution_shelf_life" role="menuitem">
+                  <a href="/raf-omru-ambalaj-cozumleri" class="top-bar__solution-item" data-image="solution_shelf_life" role="menuitem">
                     <div class="top-bar__solution-image"><div class="top-bar__sector-placeholder"><img src="" alt="" data-solution-img="solution_shelf_life" style="display: none;"></div></div>
                     <div class="top-bar__solution-text">
                       <span class="top-bar__solution-title" data-i18n="solution-shelf-life-title">Raf Ömrü Odaklı Ambalaj Çözümleri</span>
                       <span class="top-bar__solution-desc" data-i18n="solution-shelf-life-desc">Uzun raf ömrü sağlayan ambalaj yapıları.</span>
                     </div>
                   </a>
-                  <a href="#shelf-performance" class="top-bar__solution-item" data-image="solution_shelf_performance" role="menuitem">
+                  <a href="/raf-performansi-ambalaj-cozumleri" class="top-bar__solution-item" data-image="solution_shelf_performance" role="menuitem">
                     <div class="top-bar__solution-image"><div class="top-bar__sector-placeholder"><img src="" alt="" data-solution-img="solution_shelf_performance" style="display: none;"></div></div>
                     <div class="top-bar__solution-text">
                       <span class="top-bar__solution-title" data-i18n="solution-shelf-performance-title">Raf Performansı Odaklı Ambalaj Çözümleri</span>
                       <span class="top-bar__solution-desc" data-i18n="solution-shelf-performance-desc">Rafta stabil duran, düzgün dizilebilen satış odaklı yapılar.</span>
                     </div>
                   </a>
-                  <a href="#small-batches" class="top-bar__solution-item" data-image="solution_small_batches" role="menuitem">
+                  <a href="/solutions/small-batches" class="top-bar__solution-item" data-image="solution_small_batches" role="menuitem">
                     <div class="top-bar__solution-image"><div class="top-bar__sector-placeholder"><img src="" alt="" data-solution-img="solution_small_batches" style="display: none;"></div></div>
                     <div class="top-bar__solution-text">
                       <span class="top-bar__solution-title" data-i18n="solution-small-batches-title">Küçük Seriler için Ambalaj Çözümleri</span>
                       <span class="top-bar__solution-desc" data-i18n="solution-small-batches-desc">Butik ve özel seri ürünler için profesyonel ambalaj yapıları.</span>
                     </div>
                   </a>
-                  <a href="#data-guided" class="top-bar__solution-item" data-image="solution_aunoai" role="menuitem">
+                  <a href="/solutions/data-guided" class="top-bar__solution-item" data-image="solution_aunoai" role="menuitem">
                     <div class="top-bar__solution-image"><div class="top-bar__sector-placeholder"><img src="" alt="" data-solution-img="solution_aunoai" style="display: none;"></div></div>
                     <div class="top-bar__solution-text">
                       <span class="top-bar__solution-title" data-i18n="solution-aunoai-title">Veri Odaklı Ambalaj Tasarımı ve Malzeme Seçimi</span>
@@ -116,10 +116,10 @@
         <h1 class="solutions-hero__title" data-i18n="solutions-hero-title">Çözümler</h1>
         <p class="solutions-hero__subtitle" data-i18n="solutions-hero-subtitle">Veri odaklı ambalaj kararlarınız için stratejik çözüm çerçevesi.</p>
         <nav class="solutions-nav" aria-label="Çözüm bölümlerine git">
-          <a href="#shelf-life" class="solutions-nav__btn" data-i18n="solutions-nav-shelf-life">Raf Ömrü Odaklı Çözümler</a>
-          <a href="#shelf-performance" class="solutions-nav__btn" data-i18n="solutions-nav-shelf-performance">Raf Performansı Odaklı Çözümler</a>
-          <a href="#small-batches" class="solutions-nav__btn" data-i18n="solutions-nav-small-batches">Küçük Seriler için Ambalaj</a>
-          <a href="#data-guided" class="solutions-nav__btn" data-i18n="solutions-nav-data-guided">Veri Odaklı Tasarım ve Malzeme Seçimi</a>
+          <a href="/raf-omru-ambalaj-cozumleri" class="solutions-nav__btn" data-i18n="solutions-nav-shelf-life">Raf Ömrü Odaklı Çözümler</a>
+          <a href="/raf-performansi-ambalaj-cozumleri" class="solutions-nav__btn" data-i18n="solutions-nav-shelf-performance">Raf Performansı Odaklı Çözümler</a>
+          <a href="/solutions/small-batches" class="solutions-nav__btn" data-i18n="solutions-nav-small-batches">Küçük Seriler için Ambalaj</a>
+          <a href="/solutions/data-guided" class="solutions-nav__btn" data-i18n="solutions-nav-data-guided">Veri Odaklı Tasarım ve Malzeme Seçimi</a>
         </nav>
       </div>
     </section>
@@ -317,20 +317,18 @@
     })();
   </script>
   <script>
-    document.querySelectorAll('.solutions-nav__btn, a[href^="#"]').forEach(link => {
-      if (link.getAttribute('href').startsWith('#')) {
-        link.addEventListener('click', function(e) {
-          const id = this.getAttribute('href');
-          if (id && id.length > 1) {
-            const target = document.querySelector(id);
-            if (target) {
-              e.preventDefault();
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }
+    (function() {
+      var sectionSlugs = ['shelf-life', 'shelf-performance', 'small-batches', 'data-guided'];
+      var path = window.location.pathname.replace(/\/$/, '');
+      var slug = sectionSlugs.find(function(s) { return path.endsWith('/' + s); });
+      if (!slug) return;
+      var target = document.getElementById(slug);
+      if (target) {
+        requestAnimationFrame(function() {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
-    });
+    })();
   </script>
   <script>
     (function() {

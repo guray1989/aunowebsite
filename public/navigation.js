@@ -186,10 +186,10 @@
 
       // Solutions
       const solutionsItem = createMobileMenuItem('nav-solutions', 'solutions', [
-        { key: 'solution-shelf-life-title', href: '/solutions/#shelf-life' },
-        { key: 'solution-shelf-performance-title', href: '/solutions/#shelf-performance' },
-        { key: 'solution-small-batches-title', href: '/solutions/#small-batches' },
-        { key: 'solution-aunoai-title', href: '/solutions/#data-guided' }
+        { key: 'solution-shelf-life-title', href: '/raf-omru-ambalaj-cozumleri' },
+        { key: 'solution-shelf-performance-title', href: '/raf-performansi-ambalaj-cozumleri' },
+        { key: 'solution-small-batches-title', href: '/solutions/small-batches' },
+        { key: 'solution-aunoai-title', href: '/solutions/data-guided' }
       ]);
       mobileContent.appendChild(solutionsItem);
 
