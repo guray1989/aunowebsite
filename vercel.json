@@ -1,5 +1,8 @@
 {
   "redirects": [
+    { "source": "/admin", "destination": "/", "permanent": false },
+    { "source": "/admin/:path*", "destination": "/", "permanent": false },
+    { "source": "/__seo-admin/:path*", "destination": "/", "permanent": false },
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/about.html", "destination": "/tr/about", "permanent": true },
     { "source": "/contact.html", "destination": "/tr/contact", "permanent": true },

@@ -4,10 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:static": "serve . -c serve.json -l 3000",
+    "dev:static": "node scripts/local-dev-server.mjs",
+    "dev:static:serve-only": "npx serve . -c serve.json -l 3000",
     "sync:lang": "node scripts/sync-lang-routes.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "seo:inject": "node scripts/inject-seo-urls.mjs",
+    "seo:generate-urls": "node scripts/generate-seo-urls.mjs",
+    "seo:inject-meta": "node scripts/inject-seo-metadata.mjs",
+    "seo:inject-scripts": "node scripts/inject-seo-urls.mjs",
+    "seo:build": "npm run seo:generate-urls && npm run seo:inject-meta && npm run sitemap && npm run sync:lang && npm run seo:inject-scripts",
+    "prebuild": "npm run seo:build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +26,8 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "express": "^4.21.2",
+    "serve-handler": "^6.1.6",
     "typescript": "^5.0.0"
   }
 }

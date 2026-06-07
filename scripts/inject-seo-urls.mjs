@@ -25,19 +25,9 @@ function scriptSrc(filePath, fileName) {
 }
 
 function removeSeoScripts(html) {
-  return html.replace(/<script src="[^"]*seo-urls\.js"><\/script>\s*/g, '');
-}
-
-function injectBefore(html, targetFile, insertTag) {
-  const pattern = new RegExp(`<script src="[^"]*${targetFile.replace('.', '\\.')}"><\\/script>`);
-  if (!pattern.test(html) || html.includes('seo-urls.js')) return html;
-  return html.replace(pattern, `${insertTag}\n  <script src="${scriptSrc('', targetFile)}"></script>`.replace(`src="${scriptSrc('', targetFile)}"`, (match) => {
-    const filePathMatch = html.match(pattern);
-    if (!filePathMatch) return match;
-    const original = filePathMatch[0];
-    const src = original.match(/src="([^"]+)"/)[1];
-    return insertTag.includes('seo-urls') ? insertTag : match;
-  }));
+  return html
+    .replace(/<script src="[^"]*seo-urls\.js"><\/script>\s*/g, '')
+    .replace(/<script src="[^"]*seo-meta\.js"><\/script>\s*/g, '');
 }
 
 let changed = 0;
@@ -46,19 +36,22 @@ for (const file of walk(root)) {
   const original = html;
   html = removeSeoScripts(html);
 
-  const seoTag = `<script src="${scriptSrc(file, 'seo-urls.js')}"></script>`;
+  const seoUrlsTag = `<script src="${scriptSrc(file, 'seo-urls.js')}"></script>`;
+  const seoMetaTag = `<script src="${scriptSrc(file, 'seo-meta.js')}"></script>`;
+  const seoTags = `${seoUrlsTag}\n  ${seoMetaTag}`;
+
   const canonicalPattern = /<script src="[^"]*canonical\.js"><\/script>/;
   const i18nPattern = /<script src="[^"]*i18n\.js"><\/script>/;
 
   if (canonicalPattern.test(html)) {
     html = html.replace(
       canonicalPattern,
-      `${seoTag}\n  <script src="${scriptSrc(file, 'canonical.js')}"></script>`
+      `${seoTags}\n  <script src="${scriptSrc(file, 'canonical.js')}"></script>`
     );
   } else if (i18nPattern.test(html)) {
     html = html.replace(
       i18nPattern,
-      `${seoTag}\n  <script src="${scriptSrc(file, 'i18n.js')}"></script>`
+      `${seoTags}\n  <script src="${scriptSrc(file, 'i18n.js')}"></script>`
     );
   }
 

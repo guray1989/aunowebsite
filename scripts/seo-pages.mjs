@@ -1,136 +1,19 @@
-/** Shared TR/EN URL pairs for sitemap, hreflang, and language switching. */
-export const SITE_ORIGIN = 'https://www.aunopack.com';
+/** Single source of truth loader: URLs, sitemap, and SEO metadata (TR/EN). */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-export const SEO_PAGES = [
-  {
-    id: 'home',
-    tr: '/tr/',
-    en: '/en/',
-    paths: ['/', '/index.html'],
-    priority: '1.0',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'solutions',
-    tr: '/tr/solutions/',
-    en: '/en/solutions/',
-    paths: ['/solutions', '/solutions/', '/solutions/index.html'],
-    priority: '0.9',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'solutions-shelf-life',
-    tr: '/tr/solutions/shelf-life',
-    en: '/en/solutions/shelf-life',
-    paths: ['/solutions/shelf-life'],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'solutions-shelf-performance',
-    tr: '/tr/solutions/shelf-performance',
-    en: '/en/solutions/shelf-performance',
-    paths: ['/solutions/shelf-performance'],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'solutions-small-batches',
-    tr: '/tr/solutions/small-batches',
-    en: '/en/solutions/small-batches',
-    paths: ['/solutions/small-batches'],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'solutions-data-guided',
-    tr: '/tr/solutions/data-guided',
-    en: '/en/solutions/data-guided',
-    paths: ['/solutions/data-guided'],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'article-shelf-life',
-    tr: '/tr/raf-omru-ambalaj-cozumleri',
-    en: '/en/shelf-life-packaging-solutions',
-    paths: [
-      '/raf-omru-ambalaj-cozumleri',
-      '/raf-omru-ambalaj-cozumleri.html',
-      '/shelf-life-packaging-solutions',
-    ],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'article-shelf-performance',
-    tr: '/tr/raf-performansi-ambalaj-cozumleri',
-    en: '/en/shelf-performance-packaging-solutions',
-    paths: [
-      '/raf-performansi-ambalaj-cozumleri',
-      '/raf-performansi-ambalaj-cozumleri.html',
-      '/shelf-performance-packaging-solutions',
-    ],
-    priority: '0.85',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'sector-confectionery',
-    tr: '/tr/sectors/confectionery-chocolate',
-    en: '/en/sectors/confectionery-chocolate',
-    paths: ['/sectors/confectionery-chocolate', '/sectors/confectionery-chocolate.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'sector-meat-dairy',
-    tr: '/tr/sectors/meat-dairy',
-    en: '/en/sectors/meat-dairy',
-    paths: ['/sectors/meat-dairy', '/sectors/meat-dairy.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'sector-ready-meals',
-    tr: '/tr/sectors/ready-meals',
-    en: '/en/sectors/ready-meals',
-    paths: ['/sectors/ready-meals', '/sectors/ready-meals.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'sector-dry-foods',
-    tr: '/tr/sectors/dry-foods',
-    en: '/en/sectors/dry-foods',
-    paths: ['/sectors/dry-foods', '/sectors/dry-foods.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'about',
-    tr: '/tr/about',
-    en: '/en/about',
-    paths: ['/about', '/about.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'contact',
-    tr: '/tr/contact',
-    en: '/en/contact',
-    paths: ['/contact', '/contact.html'],
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    id: 'blog',
-    tr: '/tr/blog',
-    en: '/en/blog',
-    paths: ['/blog', '/blog.html'],
-    priority: '0.7',
-    changefreq: 'weekly',
-  },
-];
+const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const dataPath = path.join(root, 'scripts', 'seo-pages.json');
+const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+export const SITE_ORIGIN = data.siteOrigin;
+
+/** @typedef {{ title: string, description: string, ogTitle?: string, ogDescription?: string }} SeoMetaLang */
+/** @typedef {{ id: string, tr: string, en: string, paths: string[], meta: { tr: SeoMetaLang, en: SeoMetaLang }, htmlFiles?: string[], priority?: string, changefreq?: string }} SeoPage */
+
+/** @type {SeoPage[]} */
+export const SEO_PAGES = data.pages;
 
 export function normalizePath(pathname) {
   let path = (pathname || '/').split('?')[0];
@@ -159,3 +42,28 @@ export function getLocalizedUrl(pathname, lang) {
   }
   return lang === 'tr' ? page.tr : page.en;
 }
+
+export function resolveMeta(page, lang) {
+  const bundle = page.meta?.[lang];
+  if (!bundle) return null;
+  return {
+    title: bundle.title,
+    description: bundle.description,
+    ogTitle: bundle.ogTitle || bundle.title,
+    ogDescription: bundle.ogDescription || bundle.description,
+  };
+}
+
+export function getPageById(id) {
+  return SEO_PAGES.find((page) => page.id === id);
+}
+
+export function loadSeoData() {
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+}
+
+export function saveSeoData(nextData) {
+  fs.writeFileSync(dataPath, JSON.stringify(nextData, null, 2) + '\n', 'utf8');
+}
+
+export { dataPath as SEO_PAGES_DATA_PATH };

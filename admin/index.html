@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SEO Admin | AunoPack (Local)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <h1>SEO Admin</h1>
+        <p class="sidebar__badge">Local only</p>
+      </div>
+      <button type="button" class="btn btn--primary btn--block" id="btn-add-page">+ Yeni sayfa</button>
+      <nav class="sidebar__nav" id="page-list" aria-label="Sayfalar"></nav>
+      <div class="sidebar__foot">
+        <button type="button" class="btn btn--ghost btn--block" id="btn-rebuild-all">Tümünü derle (seo:build)</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="empty" id="empty-state">
+        <p>Sol menüden bir sayfa seçin veya yeni sayfa ekleyin.</p>
+      </div>
+
+      <form class="editor hidden" id="editor" autocomplete="off">
+        <header class="editor__head">
+          <div>
+            <h2 id="editor-title">—</h2>
+            <p class="editor__id" id="editor-id"></p>
+          </div>
+          <div class="editor__actions">
+            <a class="btn btn--ghost" id="preview-tr" href="#" target="_blank" rel="noopener">Önizle TR</a>
+            <a class="btn btn--ghost" id="preview-en" href="#" target="_blank" rel="noopener">Önizle EN</a>
+            <button type="button" class="btn btn--danger" id="btn-delete">Sil</button>
+            <button type="submit" class="btn btn--primary" id="btn-save">Kaydet &amp; Derle</button>
+          </div>
+        </header>
+
+        <section class="panel">
+          <h3>Sayfa bilgileri</h3>
+          <div class="grid grid--2">
+            <label>ID <input type="text" name="id" id="field-id" required pattern="[a-z0-9-]+"></label>
+            <label>Öncelik (sitemap)
+              <input type="text" name="priority" id="field-priority" placeholder="0.8">
+            </label>
+            <label>TR URL <input type="text" name="tr" id="field-tr" required placeholder="/tr/about"></label>
+            <label>EN URL <input type="text" name="en" id="field-en" required placeholder="/en/about"></label>
+            <label class="grid__full">Paths (virgülle)
+              <input type="text" name="paths" id="field-paths" placeholder="/about, /about.html">
+            </label>
+            <label class="grid__full">HTML dosyaları (virgülle, opsiyonel)
+              <input type="text" name="htmlFiles" id="field-htmlFiles" placeholder="about.html, public/about.html">
+            </label>
+            <label>changefreq
+              <select name="changefreq" id="field-changefreq">
+                <option value="weekly">weekly</option>
+                <option value="monthly">monthly</option>
+                <option value="yearly">yearly</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <div class="lang-tabs" role="tablist">
+          <button type="button" class="lang-tabs__btn active" data-lang="tr" role="tab" aria-selected="true">Türkçe</button>
+          <button type="button" class="lang-tabs__btn" data-lang="en" role="tab" aria-selected="false">English</button>
+        </div>
+
+        <section class="panel lang-panel" data-lang-panel="tr">
+          <h3>Türkçe meta</h3>
+          <label>Title
+            <input type="text" data-meta="tr-title" maxlength="120">
+            <span class="counter" data-counter="tr-title">0 / 60 önerilen</span>
+          </label>
+          <label>Meta description
+            <textarea data-meta="tr-description" rows="3" maxlength="320"></textarea>
+            <span class="counter" data-counter="tr-description">0 / 155 önerilen</span>
+          </label>
+          <label>og:title
+            <input type="text" data-meta="tr-ogTitle" maxlength="120">
+          </label>
+          <label>og:description
+            <textarea data-meta="tr-ogDescription" rows="2" maxlength="320"></textarea>
+          </label>
+          <div class="serp-preview">
+            <p class="serp-preview__title" id="serp-tr-title"></p>
+            <p class="serp-preview__url" id="serp-tr-url"></p>
+            <p class="serp-preview__desc" id="serp-tr-desc"></p>
+          </div>
+        </section>
+
+        <section class="panel lang-panel hidden" data-lang-panel="en">
+          <h3>English meta</h3>
+          <label>Title
+            <input type="text" data-meta="en-title" maxlength="120">
+            <span class="counter" data-counter="en-title">0 / 60 recommended</span>
+          </label>
+          <label>Meta description
+            <textarea data-meta="en-description" rows="3" maxlength="320"></textarea>
+            <span class="counter" data-counter="en-description">0 / 155 recommended</span>
+          </label>
+          <label>og:title
+            <input type="text" data-meta="en-ogTitle" maxlength="120">
+          </label>
+          <label>og:description
+            <textarea data-meta="en-ogDescription" rows="2" maxlength="320"></textarea>
+          </label>
+          <div class="serp-preview">
+            <p class="serp-preview__title" id="serp-en-title"></p>
+            <p class="serp-preview__url" id="serp-en-url"></p>
+            <p class="serp-preview__desc" id="serp-en-desc"></p>
+          </div>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+
+  <dialog id="dialog-add">
+    <form method="dialog" id="form-add">
+      <h2>Yeni sayfa</h2>
+      <label>ID (ör. sector-beverages)
+        <input type="text" name="newId" required pattern="[a-z0-9-]+" placeholder="sector-beverages">
+      </label>
+      <label>TR URL
+        <input type="text" name="newTr" required placeholder="/tr/sectors/beverages">
+      </label>
+      <label>EN URL
+        <input type="text" name="newEn" required placeholder="/en/sectors/beverages">
+      </label>
+      <label>Paths (virgülle)
+        <input type="text" name="newPaths" placeholder="/sectors/beverages">
+      </label>
+      <menu>
+        <button type="button" class="btn btn--ghost" id="dialog-add-cancel">İptal</button>
+        <button type="submit" class="btn btn--primary">Oluştur</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="admin.js"></script>
+</body>
+</html>

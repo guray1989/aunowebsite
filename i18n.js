@@ -2,10 +2,8 @@
 const translations = {
   en: {
     welcome: 'Welcome to AUNO Pack',
-    'page-seo-title': 'AI-Powered Smart Packaging Solutions',
-    'page-seo-description': 'AunoPack delivers AI-powered smart packaging solutions and sustainable packaging materials. Optimize shelf life, cost and sustainability with data-driven packaging decisions.',
     subtitle: 'AI-Powered Innovative<br>Packaging Material Design',
-    description: 'Contact us for packaging recommendations tailored to your company and products.',
+    description: 'AI-Powered Packaging Material Selection & Sustainable Packaging Solutions',
     'tagline-prefix': 'Why Aunopack',
     tagline: 'Grow your sales targets<br>with the right packaging decisions.',
     'paper-title': 'Paper Packaging',
@@ -15,7 +13,7 @@ const translations = {
     'sustainable-title': 'Sustainable Packaging',
     'sustainable-desc': 'Different sustainable packaging structures come with their own advantages and disadvantages.<br><br>When selecting the right solution, technical requirements, cost, and ease of manufacturing must be carefully evaluated.<br><br>When a fully recyclable option is not feasible, materials and structures that support sustainability can be preferred.',
     'ai-title': 'AI Packaging Solutions',
-    'ai-desc': 'We develop smart and responsible solutions with AI.',
+    'ai-desc': 'AI-powered and data-driven packaging recommendations, material selection and sourcing tailored to your products, markets and business goals.',
     'print-title': 'Print',
     'print-desc': 'Custom printing solutions for your packaging needs.',
     address: 'Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.',
@@ -383,10 +381,8 @@ const translations = {
   },
   tr: {
     welcome: 'AUNO Pack\'e Hoş Geldiniz',
-    'page-seo-title': 'Sürdürülebilir Ambalaj Malzemeleri ve Ambalaj Çözümleri | AunoPack',
-    'page-seo-description': 'AunoPack; sürdürülebilir ambalaj malzemeleri ve veri odaklı ambalaj çözümleri sunar. Yapay zekâ destekli ambalaj karar motoru ile raf ömrü, maliyet ve sürdürülebilirlik dengesini optimize edin.',
     subtitle: 'Yenilikçi Ambalaj<br>Malzemeleri',
-    description: 'Firmanıza ve ürününüze özel geliştirilmiş ambalaj önerileri için iletişime geçin.',
+    description: 'Yenilikçi ambalaj malzemelerini keşfedin, yapay zeka desteğiyle ürününüze en uygun çözümleri belirleyin.',
     'tagline-prefix': 'Neden Aunopack',
     tagline: 'Doğru ambalaj kararlarıyla<br>satış hedeflerinizi büyütün.',
     'paper-title': 'Kağıt Ambalaj',
@@ -797,32 +793,6 @@ function getInitialLanguage() {
   return 'en';
 }
 
-function updateMetaTag(attr, name, content) {
-  if (!content) return;
-  let el = document.querySelector(`meta[${attr}="${name}"]`);
-  if (!el) {
-    el = document.createElement('meta');
-    el.setAttribute(attr, name);
-    document.head.appendChild(el);
-  }
-  el.setAttribute('content', content);
-}
-
-function updatePageSeoMeta(lang) {
-  const seoKey = document.body && document.body.getAttribute('data-seo-title-key');
-  if (!seoKey || !translations[lang] || !translations[lang][seoKey]) return;
-
-  const title = translations[lang][seoKey];
-  const description = translations[lang]['page-seo-description'];
-  document.title = title;
-  updateMetaTag('name', 'description', description);
-  updateMetaTag('property', 'og:title', title);
-  updateMetaTag('property', 'og:description', description);
-  updateMetaTag('property', 'og:locale', lang === 'tr' ? 'tr_TR' : 'en_US');
-  updateMetaTag('name', 'twitter:title', title);
-  updateMetaTag('name', 'twitter:description', description);
-}
-
 // Set language
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'tr') return;
@@ -882,7 +852,7 @@ function setLanguage(lang) {
   
   // Save preference
   localStorage.setItem('preferred-language', lang);
-  updatePageSeoMeta(lang);
+  if (typeof window.applySeoMeta === 'function') window.applySeoMeta(lang);
   if (typeof window.loadHeroImage === 'function') window.loadHeroImage();
   updateLocalizedLinks(lang);
   updateUrlForLanguage(lang);
