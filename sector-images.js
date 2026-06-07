@@ -123,7 +123,7 @@ function loadSectorImages() {
 
 // Load solution images – tries multiple fallback images per solution
 function loadSolutionImages() {
-  const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image]');
+  const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image], .feature__solution-link[data-image]');
   const allExt = ['png', 'jpg', 'jpeg', 'webp'];
   
   solutionItems.forEach(item => {
@@ -158,7 +158,7 @@ function loadSolutionImages() {
     
     tryNext(0, 0);
     
-    const titleSpan = item.querySelector('.top-bar__solution-title');
+    const titleSpan = item.querySelector('.top-bar__solution-title, .feature__solution-title');
     if (titleSpan) img.alt = titleSpan.textContent || titleSpan.getAttribute('data-i18n') || '';
   });
 }

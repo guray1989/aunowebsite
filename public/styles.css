@@ -1089,6 +1089,61 @@ img {
   color: var(--text-muted);
 }
 
+.feature__solutions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 16px 16px;
+  margin-top: auto;
+  background: #f8fafb;
+  border-top: 1px solid rgba(22, 53, 80, 0.08);
+}
+
+.feature__solution-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(22, 53, 80, 0.12);
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feature__solution-link:hover {
+  border-color: rgba(22, 53, 80, 0.28);
+  box-shadow: 0 4px 12px rgba(22, 53, 80, 0.08);
+}
+
+.feature__solution-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #e8eef2;
+}
+
+.feature__solution-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.feature__solution-icon img.loaded {
+  display: block;
+}
+
+.feature__solution-title {
+  color: var(--text-dark);
+}
+
 /* FAQ section – üst/alt beyaz boşluk kalmayacak şekilde */
 .faq-section {
   margin-top: -64px;
