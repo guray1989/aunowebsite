@@ -730,8 +730,11 @@ function getPathWithoutLangPrefix(pathname) {
 }
 
 function withLanguagePrefix(pathname, lang) {
+  if (typeof window.getLocalizedSeoPath === 'function') {
+    return window.getLocalizedSeoPath(pathname, lang);
+  }
   const clean = getPathWithoutLangPrefix(pathname);
-  if (clean === '/' || clean === '/index.html') return '/';
+  if (clean === '/' || clean === '/index.html') return lang === 'tr' ? '/tr/' : '/en/';
   return '/' + lang + (clean.startsWith('/') ? clean : '/' + clean);
 }
 

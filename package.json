@@ -6,6 +6,8 @@
     "dev": "next dev",
     "dev:static": "serve . -c serve.json -l 3000",
     "sync:lang": "node scripts/sync-lang-routes.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "seo:inject": "node scripts/inject-seo-urls.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -1,18 +1,274 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.aunopack.com/</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.aunopack.com/solutions/</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.aunopack.com/solutions/shelf-life</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/solutions/shelf-performance</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/solutions/small-batches</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/solutions/data-guided</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/raf-omru-ambalaj-cozumleri</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/raf-performansi-ambalaj-cozumleri</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.aunopack.com/sectors/confectionery-chocolate</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/sectors/meat-dairy</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/sectors/ready-meals</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/sectors/dry-foods</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/about</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/contact</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aunopack.com/blog</loc><lastmod>2026-06-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.aunopack.com/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/solutions/shelf-life</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/shelf-life"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/shelf-life"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/shelf-life"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/solutions/shelf-life</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/shelf-life"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/shelf-life"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/shelf-life"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/solutions/shelf-performance</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/shelf-performance"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/shelf-performance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/shelf-performance"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/solutions/shelf-performance</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/shelf-performance"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/shelf-performance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/shelf-performance"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/solutions/small-batches</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/small-batches"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/small-batches"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/small-batches"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/solutions/small-batches</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/small-batches"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/small-batches"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/small-batches"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/solutions/data-guided</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/data-guided"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/data-guided"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/data-guided"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/solutions/data-guided</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/solutions/data-guided"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/solutions/data-guided"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/solutions/data-guided"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/raf-omru-ambalaj-cozumleri</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/raf-omru-ambalaj-cozumleri"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/shelf-life-packaging-solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/raf-omru-ambalaj-cozumleri"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/shelf-life-packaging-solutions</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/raf-omru-ambalaj-cozumleri"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/shelf-life-packaging-solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/raf-omru-ambalaj-cozumleri"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/raf-performansi-ambalaj-cozumleri</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/raf-performansi-ambalaj-cozumleri"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/shelf-performance-packaging-solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/raf-performansi-ambalaj-cozumleri"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/shelf-performance-packaging-solutions</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/raf-performansi-ambalaj-cozumleri"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/shelf-performance-packaging-solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/raf-performansi-ambalaj-cozumleri"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/sectors/confectionery-chocolate</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/confectionery-chocolate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/confectionery-chocolate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/confectionery-chocolate"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/sectors/confectionery-chocolate</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/confectionery-chocolate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/confectionery-chocolate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/confectionery-chocolate"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/sectors/meat-dairy</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/meat-dairy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/meat-dairy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/meat-dairy"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/sectors/meat-dairy</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/meat-dairy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/meat-dairy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/meat-dairy"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/sectors/ready-meals</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/ready-meals"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/ready-meals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/ready-meals"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/sectors/ready-meals</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/ready-meals"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/ready-meals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/ready-meals"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/sectors/dry-foods</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/dry-foods"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/dry-foods"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/dry-foods"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/sectors/dry-foods</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/sectors/dry-foods"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/sectors/dry-foods"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/sectors/dry-foods"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/about</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/about"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/about"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/contact"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/contact"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/tr/blog</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/blog"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aunopack.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aunopack.com/tr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aunopack.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aunopack.com/tr/blog"/>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
