@@ -883,6 +883,7 @@ function setLanguage(lang) {
   // Save preference
   localStorage.setItem('preferred-language', lang);
   updatePageSeoMeta(lang);
+  if (typeof window.loadHeroImage === 'function') window.loadHeroImage();
   updateLocalizedLinks(lang);
   updateUrlForLanguage(lang);
   if (typeof window.updateCanonicalLink === 'function') {
