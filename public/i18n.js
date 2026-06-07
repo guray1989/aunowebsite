@@ -16,7 +16,7 @@ const translations = {
     'ai-desc': 'AI-powered and data-driven packaging recommendations, material selection and sourcing tailored to your products, markets and business goals.',
     'print-title': 'Print',
     'print-desc': 'Custom printing solutions for your packaging needs.',
-    address: 'Address: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Turkey.',
+    address: 'İnkılap Mahallesi, Sokullu Caddesi No:5 Ümraniye/İstanbul',
     'footer-text': 'Email: info@aunopack.com. For any inquiries or support, please feel free to contact us by email or visit our location.',
     // Navigation
     logo: 'AUNOPACK',
@@ -395,7 +395,7 @@ const translations = {
     'ai-desc': 'Firmanıza ve ürününüze özel geliştirilmiş ambalaj önerileri için iletişime geçin.',
     'print-title': 'Baskı',
     'print-desc': 'Ambalaj ihtiyaçlarınız için özel baskı çözümleri.',
-    address: 'Adres: Seyrantepe Mah. İbrahim Karaoğlanoğlu Cad. 85 Kağıthane, İstanbul, Türkiye.',
+    address: 'İnkılap Mahallesi, Sokullu Caddesi No:5 Ümraniye/İstanbul',
     'footer-text': 'E-posta: info@aunopack.com. Herhangi bir soru veya destek için bizimle e-posta yoluyla iletişime geçebilir veya firmamızı ziyaret edebilirsiniz.',
     // Navigation
     logo: 'AUNOPACK',
@@ -738,16 +738,53 @@ function withLanguagePrefix(pathname, lang) {
   return '/' + lang + (clean.startsWith('/') ? clean : '/' + clean);
 }
 
+function sanitizeLinkHash(hash) {
+  if (hash === '#sss') return '#faq';
+  return hash;
+}
+
+function stripLegacyFaqHashFromUrl() {
+  if (window.location.hash === '#sss') {
+    window.history.replaceState({}, '', window.location.pathname + window.location.search + '#faq');
+  }
+}
+
+function scrollToFaqSection() {
+  const hash = window.location.hash;
+  if (hash !== '#faq' && hash !== '#sss') return;
+  const target = document.getElementById('faq') || document.querySelector('.faq-section');
+  if (!target) return;
+  if (hash === '#sss') {
+    window.history.replaceState({}, '', window.location.pathname + window.location.search + '#faq');
+  }
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 function updateLocalizedLinks(lang) {
   document.querySelectorAll('a[href]').forEach((a) => {
     const raw = a.getAttribute('href');
     if (!raw) return;
     if (
-      raw.startsWith('#') ||
       raw.startsWith('mailto:') ||
       raw.startsWith('tel:') ||
       raw.startsWith('javascript:')
     ) {
+      return;
+    }
+
+    if (raw === '#sss' || raw.startsWith('#sss')) {
+      a.setAttribute('href', withLanguagePrefix(window.location.pathname, lang) + '#faq');
+      return;
+    }
+
+    if (raw === '#faq') {
+      a.setAttribute('href', withLanguagePrefix(window.location.pathname, lang) + '#faq');
+      return;
+    }
+
+    if (raw.startsWith('#')) {
       return;
     }
 
@@ -760,12 +797,13 @@ function updateLocalizedLinks(lang) {
 
     if (url.origin !== window.location.origin) return;
     const newPath = withLanguagePrefix(url.pathname, lang);
-    a.setAttribute('href', newPath + url.search + url.hash);
+    a.setAttribute('href', newPath + url.search + sanitizeLinkHash(url.hash));
   });
 }
 
 function updateUrlForLanguage(lang) {
-  const target = withLanguagePrefix(window.location.pathname, lang) + window.location.search + window.location.hash;
+  const hash = sanitizeLinkHash(window.location.hash);
+  const target = withLanguagePrefix(window.location.pathname, lang) + window.location.search + hash;
   const current = window.location.pathname + window.location.search + window.location.hash;
   if (target !== current) {
     window.history.replaceState({}, '', target);
@@ -863,8 +901,11 @@ function setLanguage(lang) {
 
 // Initialize language on page load
 function initLanguage() {
+  stripLegacyFaqHashFromUrl();
   const initialLang = getInitialLanguage();
   setLanguage(initialLang);
+  scrollToFaqSection();
+  window.addEventListener('hashchange', scrollToFaqSection);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {

@@ -1144,6 +1144,11 @@ img {
 }
 
 /* FAQ section – üst/alt beyaz boşluk kalmayacak şekilde */
+.faq-section,
+#faq {
+  scroll-margin-top: 24px;
+}
+
 .faq-section {
   margin-top: -64px;
   margin-bottom: -64px;
@@ -1678,7 +1683,7 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 32px;
   margin-bottom: 40px;
 }
@@ -1750,6 +1755,24 @@ img {
 
 .footer__contact a:hover {
   color: var(--accent-yellow);
+}
+
+.footer__address {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.footer__teknopark-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
