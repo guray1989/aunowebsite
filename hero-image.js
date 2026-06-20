@@ -1,7 +1,7 @@
 // Hero image configuration
 // Add your hero image URL here when ready
 const heroImage = {
-  url: '/assets/images/hero-main.png',
+  url: '/assets/images/hero-main1.png',
   alt: {
     en: 'AUNO Pack - Innovative Packaging Solutions',
     tr: 'AUNO Pack - Yenilikçi Ambalaj Çözümleri'
