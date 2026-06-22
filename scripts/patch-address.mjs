@@ -8,7 +8,7 @@ const NEW_ADDRESS = 'İnkılap Mahallesi, Sokullu Caddesi No:5 Ümraniye/İstanb
 const addressBlock = (indent) =>
   `${indent}<div class="footer__address">\n` +
   `${indent}  <span data-i18n="address">${NEW_ADDRESS}</span>\n` +
-  `${indent}  <img src="/assets/images/teknopark-istanbul.png" alt="Teknopark İstanbul" class="footer__teknopark-logo" width="86" height="76" loading="lazy">\n` +
+  `${indent}  <img src="/assets/images/teknopark-istanbul.png" alt="Teknopark İstanbul" class="footer__teknopark-logo" loading="lazy">\n` +
   `${indent}</div>`;
 
 function walk(dir, files = []) {
