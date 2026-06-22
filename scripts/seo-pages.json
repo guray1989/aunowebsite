@@ -133,25 +133,32 @@
       }
     },
     {
-      "id": "solutions-data-guided",
-      "tr": "/tr/solutions/data-guided",
-      "en": "/en/solutions/data-guided",
+      "id": "platform-data-guided",
+      "tr": "/tr/platform/veri-destekli-tasarim",
+      "en": "/en/platform/data-guided-design",
       "paths": [
-        "/solutions/data-guided"
+        "/solutions/data-guided",
+        "/platform/veri-destekli-tasarim",
+        "/platform/veri-destekli-tasarim.html",
+        "/platform/data-guided-design"
       ],
       "priority": "0.85",
       "changefreq": "monthly",
+      "htmlFiles": [
+        "platform/veri-destekli-tasarim.html",
+        "public/platform/veri-destekli-tasarim.html"
+      ],
       "meta": {
         "tr": {
-          "title": "Veri Odaklı Ambalaj Tasarımı | AUNOPACK",
+          "title": "Veri Destekli Tasarım | AUNOPACK",
           "description": "AunoAI ile ambalaj malzemesi, form ve görsel kararlarınızı analiz edin. Sürdürülebilirlik ve raf performansını birlikte değerlendirin.",
-          "ogTitle": "Veri Odaklı Ambalaj Tasarımı | AUNOPACK",
+          "ogTitle": "Veri Destekli Tasarım | AUNOPACK",
           "ogDescription": "AunoAI ile ambalaj malzemesi, form ve görsel kararlarınızı analiz edin. Sürdürülebilirlik ve raf performansını birlikte değerlendirin."
         },
         "en": {
-          "title": "Data-Guided Packaging Design | AUNOPACK",
+          "title": "Data-Guided Design | AUNOPACK",
           "description": "Analyze packaging material, form and visual decisions with AunoAI. Evaluate sustainability and shelf performance together.",
-          "ogTitle": "Data-Guided Packaging Design | AUNOPACK",
+          "ogTitle": "Data-Guided Design | AUNOPACK",
           "ogDescription": "Analyze packaging material, form and visual decisions with AunoAI. Evaluate sustainability and shelf performance together."
         }
       }
@@ -387,6 +394,95 @@
           "description": "Get in touch with AunoPack for packaging projects and quotes. Fill out the form and our team will respond.",
           "ogTitle": "Contact | AUNOPACK",
           "ogDescription": "Get in touch with AunoPack for packaging projects and quotes. Fill out the form and our team will respond."
+        }
+      }
+    },
+    {
+      "id": "platform-auno-ai",
+      "tr": "/tr/platform/auno-ai",
+      "en": "/en/platform/auno-ai",
+      "paths": [
+        "/platform/auno-ai",
+        "/platform/auno-ai.html"
+      ],
+      "priority": "0.85",
+      "changefreq": "monthly",
+      "htmlFiles": [
+        "platform/auno-ai.html",
+        "public/platform/auno-ai.html"
+      ],
+      "meta": {
+        "tr": {
+          "title": "Auno AI | AUNOPACK",
+          "description": "Yapay zeka destekli ambalaj seçim asistanı ile ürününüze uygun ambalaj alternatiflerini keşfedin.",
+          "ogTitle": "Auno AI | AUNOPACK",
+          "ogDescription": "Yapay zeka destekli ambalaj seçim asistanı ile ürününüze uygun ambalaj alternatiflerini keşfedin."
+        },
+        "en": {
+          "title": "Auno AI | AUNOPACK",
+          "description": "Discover packaging alternatives for your product with the AI-powered packaging selection assistant.",
+          "ogTitle": "Auno AI | AUNOPACK",
+          "ogDescription": "Discover packaging alternatives for your product with the AI-powered packaging selection assistant."
+        }
+      }
+    },
+    {
+      "id": "platform-database",
+      "tr": "/tr/platform/ambalaj-veritabani",
+      "en": "/en/platform/packaging-database",
+      "paths": [
+        "/platform/ambalaj-veritabani",
+        "/platform/ambalaj-veritabani.html",
+        "/platform/packaging-database"
+      ],
+      "priority": "0.85",
+      "changefreq": "monthly",
+      "htmlFiles": [
+        "platform/ambalaj-veritabani.html",
+        "public/platform/ambalaj-veritabani.html"
+      ],
+      "meta": {
+        "tr": {
+          "title": "Ambalaj Veritabanı | AUNOPACK",
+          "description": "Ambalaj tipleri, malzeme yapıları, kullanım örnekleri ve pazar uygulamalarından oluşan ambalaj bilgi tabanı.",
+          "ogTitle": "Ambalaj Veritabanı | AUNOPACK",
+          "ogDescription": "Ambalaj tipleri, malzeme yapıları, kullanım örnekleri ve pazar uygulamalarından oluşan ambalaj bilgi tabanı."
+        },
+        "en": {
+          "title": "Packaging Database | AUNOPACK",
+          "description": "A knowledge base of packaging types, material structures, use cases and market applications.",
+          "ogTitle": "Packaging Database | AUNOPACK",
+          "ogDescription": "A knowledge base of packaging types, material structures, use cases and market applications."
+        }
+      }
+    },
+    {
+      "id": "platform-market",
+      "tr": "/tr/platform/ambalaj-analizleri",
+      "en": "/en/platform/packaging-analysis",
+      "paths": [
+        "/platform/ambalaj-analizleri",
+        "/platform/ambalaj-analizleri.html",
+        "/platform/packaging-analysis"
+      ],
+      "priority": "0.85",
+      "changefreq": "monthly",
+      "htmlFiles": [
+        "platform/ambalaj-analizleri.html",
+        "public/platform/ambalaj-analizleri.html"
+      ],
+      "meta": {
+        "tr": {
+          "title": "Ambalaj Analizleri | AUNOPACK",
+          "description": "Şirketlere özel ambalaj değerlendirmeleri, fırsat alanları ve çözüm raporları.",
+          "ogTitle": "Ambalaj Analizleri | AUNOPACK",
+          "ogDescription": "Şirketlere özel ambalaj değerlendirmeleri, fırsat alanları ve çözüm raporları."
+        },
+        "en": {
+          "title": "Packaging Analysis | AUNOPACK",
+          "description": "Company-specific packaging assessments, opportunity areas and solution reports.",
+          "ogTitle": "Packaging Analysis | AUNOPACK",
+          "ogDescription": "Company-specific packaging assessments, opportunity areas and solution reports."
         }
       }
     },

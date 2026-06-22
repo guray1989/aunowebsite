@@ -20,6 +20,7 @@ const imageExtensionHint = {
   raperformanscozum: 'jpg',
   rafomrucozum: 'jpg',
   butikcozum: 'png',
+  lojistikverimlilik: 'png',
   aunoai: 'png',
   etsatisarttirma: 'jpg',
   sekerlemesatinalma: 'png',
@@ -58,6 +59,7 @@ const solutionImageMapping = {
   solution_shelf_life: ['rafomrucozum', 'raperformanscozum', 'kurugidasektor'],
   solution_shelf_performance: ['raperformanscozum', 'etsatisarttirma', 'sarkuterisektor'],
   solution_small_batches: ['butikcozum', 'etdusukadet', 'kurugidasektor'],
+  solution_logistics_efficiency: ['lojistikverimlilik'],
   solution_aunoai: ['aunoai', 'sekerlemesatinalma', 'kurugidasektor'],
 };
 
@@ -72,6 +74,7 @@ const solutionImages = {
   solution_shelf_life: getSolutionImagePath('solution_shelf_life'),
   solution_shelf_performance: getSolutionImagePath('solution_shelf_performance'),
   solution_small_batches: getSolutionImagePath('solution_small_batches'),
+  solution_logistics_efficiency: getSolutionImagePath('solution_logistics_efficiency'),
   solution_aunoai: getSolutionImagePath('solution_aunoai'),
 };
 
@@ -123,7 +126,7 @@ function loadSectorImages() {
 
 // Load solution images – tries multiple fallback images per solution
 function loadSolutionImages() {
-  const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image], .feature__solution-link[data-image]');
+  const solutionItems = document.querySelectorAll('.top-bar__solution-item[data-image], .feature__solution-link[data-image], .top-bar__sector-card[data-image], .home-solutions__card[data-image]');
   const allExt = ['png', 'jpg', 'jpeg', 'webp'];
   
   solutionItems.forEach(item => {
@@ -149,7 +152,7 @@ function loadSolutionImages() {
       img.onload = function() {
         this.style.display = 'block';
         this.classList.add('loaded');
-        const placeholder = item.querySelector('.top-bar__solution-image .top-bar__sector-placeholder');
+        const placeholder = item.querySelector('.top-bar__sector-placeholder, .home-solutions__placeholder');
         if (placeholder) placeholder.style.background = 'none';
       };
       img.onerror = function() { tryNext(candidateIndex, extIndex + 1); };
@@ -158,7 +161,7 @@ function loadSolutionImages() {
     
     tryNext(0, 0);
     
-    const titleSpan = item.querySelector('.top-bar__solution-title, .feature__solution-title');
+    const titleSpan = item.querySelector('.top-bar__solution-title, .feature__solution-title, .top-bar__sector-overlay span, .home-solutions__card-title');
     if (titleSpan) img.alt = titleSpan.textContent || titleSpan.getAttribute('data-i18n') || '';
   });
 }

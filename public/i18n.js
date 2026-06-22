@@ -6,6 +6,17 @@ const translations = {
     description: 'AI-Powered Packaging Material Selection & Sustainable Packaging Solutions',
     'tagline-prefix': 'Why Aunopack',
     tagline: 'Grow your sales targets<br>with the right packaging decisions.',
+    'packaging-process-title': 'How Does Packaging Selection Work with Auno AI?',
+    'packaging-process-1-title': 'Sign In',
+    'packaging-process-1-desc': 'Start using the Auno AI Packaging Assistant.<br><a class="packaging-process__link" href="https://ai.aunopack.com" target="_blank" rel="noopener noreferrer">ai.aunopack.com</a>',
+    'packaging-process-2-title': 'Define Your Product',
+    'packaging-process-2-desc': 'For food and non-food products, specify your product, use case and priorities.',
+    'packaging-process-3-title': 'Explore Packaging Alternatives',
+    'packaging-process-3-desc': 'Review different packaging options that may suit your product.',
+    'packaging-process-4-title': 'Compare and Evaluate',
+    'packaging-process-4-desc': 'Compare different packaging alternatives and chat about product specifications.<ul class="packaging-process__list"><li>Cost</li><li>Sustainability</li><li>Performance</li><li>Operational fit</li></ul>',
+    'packaging-process-5-title': 'Request a Sample and Start Ordering',
+    'packaging-process-5-desc': 'After deciding on the right packaging, get in touch and start the sample and order process with the appropriate material structure.',
     'paper-title': 'Paper Packaging',
     'paper-desc': 'High-quality, sustainable paper packaging with <span class="highlight-yellow">customizable</span> <span class="highlight-yellow">printing options</span>, designed to preserve food freshness and safety.',
     'flexible-title': 'Flexible Packaging',
@@ -21,15 +32,53 @@ const translations = {
     // Navigation
     logo: 'AUNOPACK',
     'nav-products': 'Products',
-    'nav-sectors': 'Sectors',
+    'nav-platform': 'Platform',
+    'nav-platform-entry': 'ai.aunopack.com',
+    'platform-aunoai-title': 'Auno AI',
+    'platform-aunoai-desc': 'AI-powered packaging selection assistant.',
+    'platform-aunoai-body': 'The Auno AI Packaging Assistant helps you discover, compare and evaluate packaging alternatives suited to your product, priorities and goals.',
+    'platform-aunoai-cta': 'Open Assistant',
+    'platform-database-title': 'Packaging Database',
+    'platform-database-desc': 'Packaging types, materials and applications',
+    'platform-database-body': 'Discover a continuously expanding knowledge base of packaging types, material structures, use cases, market applications and packaging innovations.',
+    'platform-database-cta': 'Explore the Database',
+    'platform-market-title': 'Packaging Analysis',
+    'platform-market-desc': 'Company-specific packaging assessments and solution reports',
+    'platform-market-body': 'We prepare company-specific packaging assessments, opportunity areas and solution reports by analyzing packaging data, product examples and market applications.',
+    'platform-market-cta': 'Request an Analysis',
+    'platform-data-guided-title': 'Data-Guided Design',
+    'platform-data-guided-desc': 'Data and AI support for design decisions',
+    'platform-data-guided-body': 'Support design processes with insights from the analysis of thousands of packaging examples. Get data-driven design guidance or create new packaging design alternatives with AI. With AunoAI, material, form and visual decisions are analyzed with data support; shelf preference probability, sustainability criteria and technical performance are evaluated together.',
+    'nav-how-aunoai': 'How to Use Auno AI',
+    'nav-how-aunoai-entry': 'Packaging selection steps',
+    'nav-sectors': 'Use Case',
     'nav-solutions': 'Solutions',
     'nav-case-studies': 'Blog',
     'nav-about': 'About',
     'nav-cta': 'Start Your Enquiry',
     'mega-products-title': 'Products',
-    'mega-sectors-title': 'Sectors',
+    'product-bib': 'BIB Packaging',
+    'product-flexible': 'Flexible Packaging',
+    'product-paper-carton': 'Paper & Carton Packaging',
+    'product-hybrid': 'Hybrid Paper & Carton Structures',
+    'product-compostable': 'Compostable Packaging',
+    'mega-sectors-title': 'Example Solutions',
     'mega-solutions-title': 'Solutions',
     'nav-pouches': 'Pouches & Bags',
+    'menu-tile-confectionery': 'Confectionery & Snacks',
+    'menu-tile-meat-dairy': 'Meat & Dairy',
+    'menu-tile-ready-meals': 'Ready Meals',
+    'menu-tile-dry-foods': 'Dry Foods',
+    'menu-tile-shelf-life': 'Shelf Life',
+    'menu-tile-shelf-performance': 'Shelf Performance',
+    'menu-tile-small-batches': 'Small Batches',
+    'menu-tile-logistics-efficiency': 'Logistics Efficiency',
+    'menu-tile-data-guided': 'Data-Guided Design',
+    'home-solutions-title': 'Aunopack Solution Areas',
+    'home-solution-shelf-life-desc': 'Packaging structures that can help preserve your product\'s freshness.',
+    'home-solution-shelf-performance-desc': 'Packaging approaches that affect product visibility, brand perception and on-shelf commercial performance.',
+    'home-solution-small-batches-desc': 'Packaging alternatives and flexible production options suited to low-volume runs.',
+    'home-solution-logistics-efficiency-desc': 'Packaging solutions that deliver cost savings and operational efficiency in storage, transport and distribution.',
     'nav-sleeves': 'Paperboard Sleeves',
     'nav-envelope-cartons': 'Envelope-Style Cartons',
     'nav-paperboard': 'Paperboard Packaging',
@@ -151,6 +200,7 @@ const translations = {
     'nav-faq': 'FAQ',
     'nav-contact': 'Contact',
     'nav-contact-form': 'Contact Form',
+    'footer-company-title': 'Company',
     'sr-only-menu': 'Open/Close menu',
     'solutions-link': 'Solutions',
     'intro-title': 'AunoPack – Data-Driven Packaging Decisions',
@@ -175,7 +225,7 @@ const translations = {
     'about-p1': 'For companies, packaging decisions are a multi-dimensional process that depends on product properties, target market, segment position, production infrastructure, and the evaluation of sustainable packaging types. Yet these decisions are often made with limited alternatives and fragmented assessments.',
     'about-p2': 'AUNO AI analyses packaging decisions in a multi-parameter way across technical performance, cost, sustainability, machine infrastructure, usage volume, logistics conditions, and supply availability.',
     'about-p3': 'The system identifies and compares optimal packaging structure alternatives that align with company goals. The visual decision process is also managed in a data-driven way via the AI-supported design portal.',
-    'about-p4': 'The chosen structure is not only recommended; it is supplied and implemented.',
+    'about-p4': 'Recommended packaging is supplied; AunoPack works through an ecosystem of R&D partners, strategic partners and solution partners. Sample delivery and order processes for recommended packaging solutions are managed end to end.',
     'about-p5': 'We connect brands with innovative, alternative and sustainable packaging solutions.',
     'sector-cta': 'Discover the Solution',
     'sector-featured-products': 'Featured Products',
@@ -381,10 +431,21 @@ const translations = {
   },
   tr: {
     welcome: 'AUNO Pack\'e Hoş Geldiniz',
-    subtitle: 'Yenilikçi Ambalaj<br>Malzemeleri',
-    description: 'Yenilikçi ambalaj malzemelerini keşfedin, yapay zeka desteğiyle ürününüze en uygun çözümleri belirleyin.',
+    subtitle: 'Ürününüz için<br>en uygun ambalaj<br>alternatiflerini <span class="top-bar__hero-subtitle-accent">keşfedin.</span>',
+    description: 'Yapay zeka ve veri desteğiyle maliyet, sürdürülebilirlik, operasyonel uygunluk ve marka hedeflerinize uygun ambalaj alternatiflerini değerlendirin.',
     'tagline-prefix': 'Neden Aunopack',
     tagline: 'Doğru ambalaj kararlarıyla<br>satış hedeflerinizi büyütün.',
+    'packaging-process-title': 'Auno AI ile Ambalaj Seçimi Nasıl Yapılır?',
+    'packaging-process-1-title': 'Sisteme Girin',
+    'packaging-process-1-desc': 'Auno AI Ambalaj Asistanı\'nı kullanmaya başlayın.<br><a class="packaging-process__link" href="https://ai.aunopack.com" target="_blank" rel="noopener noreferrer">ai.aunopack.com</a>',
+    'packaging-process-2-title': 'Ürününüzü Tanımlayın',
+    'packaging-process-2-desc': 'Gıda ve gıda dışı ürünler için ürününüzü, kullanım alanını ve önceliklerinizi belirtin.',
+    'packaging-process-3-title': 'Ambalaj Alternatiflerini Keşfedin',
+    'packaging-process-3-desc': 'Ürününüz için uygun olabilecek farklı ambalaj alternatiflerini inceleyin.',
+    'packaging-process-4-title': 'Karşılaştırın ve Değerlendirin',
+    'packaging-process-4-desc': 'Farklı ambalaj alternatiflerini karşılaştırın ve ürün özellikleri hakkında sohbet edin.<ul class="packaging-process__list"><li>Maliyet</li><li>Sürdürülebilirlik</li><li>Performans</li><li>Operasyonel uygunluk</li></ul>',
+    'packaging-process-5-title': 'Numune Talep Edin ve Sipariş Sürecini Başlatın',
+    'packaging-process-5-desc': 'Uygun ambalaja karar verdikten sonra iletişime geçin, uygun malzeme yapısı ile numune ve sipariş sürecini başlatın.',
     'paper-title': 'Kağıt Ambalaj',
     'paper-desc': 'Gıda tazeliğini ve güvenliğini korumak için tasarlanmış yüksek kaliteli, <span class="highlight-yellow">firmanıza özel baskılı</span>, sürdürülebilir kağıt ve karton ambalajlar',
     'flexible-title': 'Esnek Ambalaj',
@@ -400,15 +461,53 @@ const translations = {
     // Navigation
     logo: 'AUNOPACK',
     'nav-products': 'Ürünler',
-    'nav-sectors': 'Sektörler',
+    'nav-platform': 'Platform',
+    'nav-platform-entry': 'ai.aunopack.com',
+    'platform-aunoai-title': 'Auno AI',
+    'platform-aunoai-desc': 'Yapay zeka destekli ambalaj seçim asistanı',
+    'platform-aunoai-body': 'Auno AI Ambalaj Asistanı; ürününüzü, önceliklerinizi ve hedeflerinizi tanımlayarak size uygun ambalaj alternatiflerini keşfetmenize, karşılaştırmanıza ve değerlendirmenize yardımcı olur.',
+    'platform-aunoai-cta': 'Asistanı Kullan',
+    'platform-database-title': 'Ambalaj Veritabanı',
+    'platform-database-desc': 'Ambalaj tipleri, malzemeler ve uygulamalar',
+    'platform-database-body': 'Ambalaj tipleri, malzeme yapıları, kullanım örnekleri, pazar uygulamaları ve ambalaj inovasyonlarından oluşan, sürekli genişleyen ambalaj bilgi tabanını keşfedin.',
+    'platform-database-cta': 'Veritabanını Keşfedin',
+    'platform-market-title': 'Ambalaj Analizleri',
+    'platform-market-desc': 'Şirketlere özel ambalaj değerlendirmeleri ve çözüm raporları',
+    'platform-market-body': 'Ambalaj verileri, ürün örnekleri ve pazar uygulamalarını analiz ederek şirketlere özel ambalaj değerlendirmeleri, fırsat alanları ve çözüm raporları hazırlıyoruz.',
+    'platform-market-cta': 'Analiz Talep Edin',
+    'platform-data-guided-title': 'Veri Destekli Tasarım',
+    'platform-data-guided-desc': 'Tasarım kararları için veri ve AI desteği',
+    'platform-data-guided-body': 'Binlerce ambalaj örneğinin analizinden elde edilen içgörülerle tasarım süreçlerini destekleyin. Veri temelli tasarım yönlendirmeleri alın veya yapay zeka ile yeni ambalaj tasarım alternatifleri oluşturun. AunoAI ile malzeme, form ve görsel kararlarınızı veri destekli analiz ediyoruz; raf tercih olasılığı, sürdürülebilirlik kriterleri ve teknik performans birlikte değerlendiriliyor.',
+    'nav-how-aunoai': 'Auno AI Nasıl Kullanılır?',
+    'nav-how-aunoai-entry': 'Ambalaj seçimi adımları',
+    'nav-sectors': 'Örnek Çözümler',
     'nav-solutions': 'Çözümler',
     'nav-case-studies': 'Blog',
     'nav-about': 'Hakkımızda',
     'nav-cta': 'Teklif Al',
     'mega-products-title': 'Ürünler',
-    'mega-sectors-title': 'Sektörler',
+    'product-bib': 'BIB Ambalajlar',
+    'product-flexible': 'Flexible Ambalajlar',
+    'product-paper-carton': 'Kağıt Ve Karton Ambalajlar',
+    'product-hybrid': 'Hibrit - Kağıt ve Karton Yapılar',
+    'product-compostable': 'Kompostlanabilir Ambalajlar',
+    'mega-sectors-title': 'Örnek Çözümler',
     'mega-solutions-title': 'Çözümler',
     'nav-pouches': 'Torbalar',
+    'menu-tile-confectionery': 'Şekerleme & Atıştırmalıklar',
+    'menu-tile-meat-dairy': 'Et & Süt',
+    'menu-tile-ready-meals': 'Hazır Yemek',
+    'menu-tile-dry-foods': 'Kuru Gıdalar',
+    'menu-tile-shelf-life': 'Raf Ömrü',
+    'menu-tile-shelf-performance': 'Raf Performansı',
+    'menu-tile-small-batches': 'Küçük Seriler',
+    'menu-tile-logistics-efficiency': 'Lojistik Verimlilik',
+    'menu-tile-data-guided': 'Veri Destekli Tasarım',
+    'home-solutions-title': 'Aunopack Çözüm Alanları',
+    'home-solution-shelf-life-desc': 'Ürününüzün tazeliğini korumaya yardımcı olabilecek ambalaj yapıları',
+    'home-solution-shelf-performance-desc': 'Ürün görünürlüğünü, marka algısını ve raf üzerindeki ticari performansı etkileyen ambalaj yaklaşımları',
+    'home-solution-small-batches-desc': 'Düşük adetli üretimler için uygun ambalaj alternatifleri ve esnek üretim seçenekleri',
+    'home-solution-logistics-efficiency-desc': 'Depolama, taşıma ve dağıtım süreçlerinde maliyet ve operasyonel verimlilik sağlayan ambalaj çözümleri.',
     'nav-sleeves': 'Sleeveler',
     'nav-envelope-cartons': 'Zarf Tipi Kutular',
     'nav-paperboard': 'Karton Ambalajlar',
@@ -489,6 +588,7 @@ const translations = {
     'nav-faq': 'SSS',
     'nav-contact': 'İletişim',
     'nav-contact-form': 'İletişim Formu',
+    'footer-company-title': 'Kurumsal',
     'sr-only-menu': 'Menüyü Aç/Kapat',
     'solutions-link': 'Çözümler',
     'intro-title': 'AunoPack – Ambalaj Kararlarında Veri Gücü',
@@ -513,7 +613,7 @@ const translations = {
     'about-p1': 'Firmalar için ambalaj kararı; ürün özellikleri, hedef pazar, segment konumu ve üretim altyapısı ve sürdürülebilir ambalaj tiplerinin değerlendirilmesine bağlı olarak çok boyutlu bir süreçtir. Ancak bu kararlar çoğu zaman sınırlı alternatifler üzerinden ve parçalı değerlendirmelerle alınır.',
     'about-p2': 'AUNO AI; ambalaj kararlarını teknik performans, maliyet, sürdürülebilirlik, makine altyapısı, kullanım miktarı, lojistik koşullar ve tedarik edilebilirlik kriterleri üzerinden çok parametreli olarak analiz eder.',
     'about-p3': 'Sistem; firma hedefleri ile örtüşen optimum ambalaj yapı alternatiflerini belirler ve karşılaştırır. Yapay zeka destekli tasarım portalı ile görsel karar süreci de veri temelli olarak yönetilir.',
-    'about-p4': 'Seçilen yapı yalnızca önerilmez; tedarik edilerek uygulanır.',
+    'about-p4': 'Önerilen ambalajlar tedarik edilir; AunoPack, Ar-Ge partnerleri, stratejik partnerler ve çözüm partnerlerinden oluşan bir ekosistem ile çalışmaktadır. Önerilen ambalaj çözümlerinde numune gönderimi ve sipariş süreçleri yönetilmektedir.',
     'about-p5': 'Markaları yenilikçi, alternatif ve sürdürülebilir ambalaj çözümleri ile buluştururuz.',
     'sector-cta': 'Çözümünü Keşfet',
     'sector-featured-products': 'Öne çıkan ürünler',
@@ -865,7 +965,7 @@ function setLanguage(lang) {
     }
   });
   
-  // Resimler dil bağımsız, sabit yol (assets/images/xxx.png)
+  // Resimler: data-i18n-img-localized ile EN sürümü (-en) kullanılabilir
   const getAssetsBase = () => {
     const parts = (window.location.pathname || '/').split('/').filter(Boolean);
     if (parts.length === 0) return '';
@@ -877,7 +977,18 @@ function setLanguage(lang) {
   const imageElements = document.querySelectorAll('[data-i18n-img]');
   imageElements.forEach(img => {
     const baseName = img.getAttribute('data-i18n-img');
-    img.src = `${base}assets/images/${baseName}.png`;
+    const trName = img.getAttribute('data-i18n-img-tr');
+    const enName = img.getAttribute('data-i18n-img-en');
+    const localized = img.hasAttribute('data-i18n-img-localized');
+    let fileName = baseName;
+    if (lang === 'en' && enName) {
+      fileName = enName;
+    } else if (lang === 'tr' && trName) {
+      fileName = trName;
+    } else if (localized && lang === 'en') {
+      fileName = `${baseName}-en`;
+    }
+    img.src = `${base}assets/images/${fileName}.png`;
   });
   
   // Update active button state
@@ -892,6 +1003,7 @@ function setLanguage(lang) {
   localStorage.setItem('preferred-language', lang);
   if (typeof window.applySeoMeta === 'function') window.applySeoMeta(lang);
   if (typeof window.loadHeroImage === 'function') window.loadHeroImage();
+  if (typeof window.refreshPlatformMenuPreview === 'function') window.refreshPlatformMenuPreview();
   updateLocalizedLinks(lang);
   updateUrlForLanguage(lang);
   if (typeof window.updateCanonicalLink === 'function') {

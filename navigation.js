@@ -11,6 +11,59 @@
     return path.split('/').filter(Boolean).length > 1 ? '../' : '';
   }
 
+  function getCurrentLanguage() {
+    if (typeof getLanguageFromPath === 'function') {
+      const pathLang = getLanguageFromPath();
+      if (pathLang) return pathLang;
+    }
+
+    const saved = localStorage.getItem('preferred-language');
+    if (saved === 'en' || saved === 'tr') return saved;
+
+    return document.documentElement.lang === 'tr' ? 'tr' : 'en';
+  }
+
+  function getAunoAiUrl(lang) {
+    return lang === 'en' ? 'https://ai.aunopack.com/en' : 'https://ai.aunopack.com';
+  }
+
+  function getLocalizedHref(path) {
+    const lang = getCurrentLanguage();
+    if (typeof window.getLocalizedSeoPath === 'function') {
+      return window.getLocalizedSeoPath(path, lang);
+    }
+    const clean = (path || '/').replace(/^\/(tr|en)(?=\/|$)/, '') || '/';
+    if (clean === '/' || clean === '/index.html') return lang === 'tr' ? '/tr/' : '/en/';
+    return '/' + lang + (clean.startsWith('/') ? clean : '/' + clean);
+  }
+
+  function localizeMobileMenuLinks() {
+    const container = document.querySelector('.top-bar__mobile-content');
+    if (!container) return;
+    container.querySelectorAll('a[href]').forEach((link) => {
+      const raw = link.getAttribute('href');
+      if (!raw || raw.startsWith('http') || raw.startsWith('mailto:') || raw.startsWith('tel:') || raw.startsWith('#')) {
+        return;
+      }
+      try {
+        const url = new URL(raw, window.location.origin);
+        if (url.origin !== window.location.origin) return;
+        link.setAttribute('href', getLocalizedHref(url.pathname) + url.search + url.hash);
+      } catch {
+        // ignore invalid URLs
+      }
+    });
+  }
+
+  function updateAunoAiLinks() {
+    const url = getAunoAiUrl(getCurrentLanguage());
+    document.querySelectorAll('[data-auno-ai-link]').forEach((link) => {
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    });
+  }
+
   // Initialize navigation
   function initNavigation() {
     setupDesktopMenus();
@@ -18,6 +71,7 @@
     setupKeyboardNavigation();
     setupOutsideClick();
     updateNavigationTexts();
+    updateAunoAiLinks();
   }
 
   // Setup desktop menu hover/click behavior
@@ -174,23 +228,33 @@
 
       const base = getBasePath();
 
-      // Sectors - absolute paths to avoid 404 from /solutions/
-      const sectorsItem = createMobileMenuItem('nav-sectors', 'products', [
-        { key: 'sector-confectionery', href: '/sectors/confectionery-chocolate.html' },
-        { key: 'sector-meat-dairy', href: '/sectors/meat-dairy.html' },
-        { key: 'sector-ready-meals', href: '/sectors/ready-meals.html' },
-        { key: 'sector-premium', href: '/sectors/dry-foods.html' },
+      // Products
+      const productsItem = createMobileMenuItem('nav-products', 'catalog', [
+        { key: 'product-bib', href: '/contact.html' },
+        { key: 'product-flexible', href: '/contact.html' },
+        { key: 'product-paper-carton', href: '/contact.html' },
+        { key: 'product-hybrid', href: '/contact.html' },
+        { key: 'product-compostable', href: '/contact.html' },
       ]);
-      mobileContent.appendChild(sectorsItem);
+      mobileContent.appendChild(productsItem);
 
-      // Solutions
-      const solutionsItem = createMobileMenuItem('nav-solutions', 'solutions', [
-        { key: 'solution-shelf-life-title', href: '/raf-omru-ambalaj-cozumleri' },
-        { key: 'solution-shelf-performance-title', href: '/raf-performansi-ambalaj-cozumleri' },
-        { key: 'solution-small-batches-title', href: '/solutions/small-batches' },
-        { key: 'solution-aunoai-title', href: '/solutions/data-guided' }
+      // Platform
+      const platformItem = createMobileMenuItem('nav-platform', 'platform', [
+        { key: 'platform-aunoai-title', href: getAunoAiUrl(getCurrentLanguage()), aunoAi: true },
+        { key: 'platform-database-title', href: '/platform/ambalaj-veritabani' },
+        { key: 'platform-market-title', href: '/platform/ambalaj-analizleri' },
+        { key: 'platform-data-guided-title', href: '/platform/veri-destekli-tasarim' },
       ]);
-      mobileContent.appendChild(solutionsItem);
+      mobileContent.appendChild(platformItem);
+
+      // Example use cases
+      const examplesItem = createMobileMenuItem('nav-sectors', 'examples', [
+        { key: 'menu-tile-confectionery', href: '/sectors/confectionery-chocolate.html' },
+        { key: 'menu-tile-meat-dairy', href: '/sectors/meat-dairy.html' },
+        { key: 'menu-tile-ready-meals', href: '/sectors/ready-meals.html' },
+        { key: 'menu-tile-dry-foods', href: '/sectors/dry-foods.html' },
+      ]);
+      mobileContent.appendChild(examplesItem);
 
       // Case Studies
       const caseStudiesLink = document.createElement('a');
@@ -220,6 +284,7 @@
 
       // Update texts
       updateNavigationTexts();
+      localizeMobileMenuLinks();
       const accordionItems = mobileContent.querySelectorAll('.top-bar__mobile-item[data-menu]');
       console.log('[Nav] buildMobileMenu bitti, accordion item sayısı:', accordionItems.length);
     }
@@ -251,6 +316,11 @@
           link.href = subItem.href;
           link.className = 'top-bar__mobile-submenu-item';
           link.setAttribute('data-i18n', subItem.key);
+          if (subItem.aunoAi) {
+            link.setAttribute('data-auno-ai-link', '');
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+          }
           if (subItem.desc) {
             link.innerHTML = `<div style="font-weight: 500;"></div><div style="font-size: 0.75rem; color: #6b7280; margin-top: 4px;"></div>`;
             link.querySelector('div:first-child').setAttribute('data-i18n', subItem.key);
@@ -376,7 +446,107 @@
     window.setLanguage = function(lang) {
       originalSetLanguage(lang);
       updateNavigationTexts();
+      updateAunoAiLinks();
     };
+  }
+
+  function swapPreviewImage(img, src) {
+    if (!img || !src) return;
+    const current = img.getAttribute('src') || '';
+    if (current.endsWith(src) || current === src) return;
+
+    img.classList.add('is-swapping');
+    const next = new Image();
+    next.onload = () => {
+      img.src = src;
+      img.classList.remove('is-swapping');
+    };
+    next.onerror = () => {
+      img.src = src;
+      img.classList.remove('is-swapping');
+    };
+    next.src = src;
+  }
+
+  function initProductsMenuPreview() {
+    const catalogMenu = document.querySelector('.top-bar__item[data-menu="catalog"]');
+    if (!catalogMenu) return;
+
+    const previewImg = catalogMenu.querySelector('[data-product-preview-img]');
+    const links = catalogMenu.querySelectorAll('[data-product-preview]');
+    if (!previewImg || !links.length) return;
+
+    const images = {
+      bib: '/assets/images/bib-ambalaj.png',
+      flexible: '/assets/images/flexible-ambalaj.png',
+      'paper-carton': '/assets/images/paperpackaging.png',
+      hybrid: '/assets/images/sustainability-tr.png',
+      compostable: '/assets/images/sustainability.png',
+    };
+
+    function setPreview(key) {
+      const src = images[key];
+      if (src) swapPreviewImage(previewImg, src);
+    }
+
+    links.forEach((link) => {
+      const key = link.getAttribute('data-product-preview');
+      link.addEventListener('mouseenter', () => setPreview(key));
+      link.addEventListener('focus', () => setPreview(key));
+    });
+
+    setPreview(links[0].getAttribute('data-product-preview'));
+  }
+
+  function initPlatformMenuPreview() {
+    const platformMenu = document.querySelector('.top-bar__item[data-menu="platform"]');
+    if (!platformMenu) return;
+
+    const previewImg = platformMenu.querySelector('[data-platform-preview-img]');
+    const links = platformMenu.querySelectorAll('[data-platform-preview]');
+    if (!previewImg || !links.length) return;
+
+    let activePreviewKey = links[0].getAttribute('data-platform-preview');
+
+    function getPlatformPreviewImages() {
+      const lang = getCurrentLanguage();
+      return {
+        'auno-ai': lang === 'en' ? '/assets/images/aunoai-en.png' : '/assets/images/aunoai.png',
+        database: '/assets/images/ambalaj-veritabani.png',
+        analytics: lang === 'en'
+          ? '/assets/images/ambalaj-analizleri-en.png'
+          : '/assets/images/ambalaj-analizleri.png',
+        design: lang === 'en'
+          ? '/assets/images/aunoai-tasarim.en.png'
+          : '/assets/images/print.png',
+      };
+    }
+
+    function setPreview(key) {
+      if (key) activePreviewKey = key;
+      const src = getPlatformPreviewImages()[activePreviewKey];
+      if (src) swapPreviewImage(previewImg, src);
+    }
+
+    links.forEach((link) => {
+      const key = link.getAttribute('data-platform-preview');
+      link.addEventListener('mouseenter', () => setPreview(key));
+      link.addEventListener('focus', () => setPreview(key));
+    });
+
+    setPreview(activePreviewKey);
+
+    window.refreshPlatformMenuPreview = () => setPreview(activePreviewKey);
+
+    const langObserver = new MutationObserver(() => setPreview(activePreviewKey));
+    langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+    const menuObserver = new MutationObserver(() => {
+      if (platformMenu.getAttribute('data-menu-open') === 'true') {
+        setPreview(activePreviewKey);
+      }
+    });
+    menuObserver.observe(platformMenu, { attributes: true, attributeFilter: ['data-menu-open'] });
   }
 
   // Initialize on DOM ready
@@ -385,6 +555,11 @@
   } else {
     initNavigation();
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initProductsMenuPreview();
+    initPlatformMenuPreview();
+  });
 
   // Reinitialize on resize (for mobile/desktop switch)
   let resizeTimer;
