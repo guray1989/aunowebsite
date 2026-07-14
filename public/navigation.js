@@ -241,6 +241,7 @@
       // Platform
       const platformItem = createMobileMenuItem('nav-platform', 'platform', [
         { key: 'platform-aunoai-title', href: getAunoAiUrl(getCurrentLanguage()), aunoAi: true },
+        { key: 'platform-pallet-title', href: 'https://system.aunopack.com/pallet-optimizer', external: true },
         { key: 'platform-database-title', href: '/platform/ambalaj-veritabani' },
         { key: 'platform-market-title', href: '/platform/ambalaj-analizleri' },
         { key: 'platform-data-guided-title', href: '/platform/veri-destekli-tasarim' },
@@ -318,6 +319,10 @@
           link.setAttribute('data-i18n', subItem.key);
           if (subItem.aunoAi) {
             link.setAttribute('data-auno-ai-link', '');
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+          }
+          if (subItem.external) {
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
           }
@@ -512,6 +517,7 @@
       const lang = getCurrentLanguage();
       return {
         'auno-ai': lang === 'en' ? '/assets/images/aunoai-en.png' : '/assets/images/aunoai.png',
+        pallet: '/assets/images/paletoptimizasyon.png',
         database: '/assets/images/ambalaj-veritabani.png',
         analytics: lang === 'en'
           ? '/assets/images/ambalaj-analizleri-en.png'
