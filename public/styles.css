@@ -1418,6 +1418,98 @@ body[data-seo-page-id="home"] .top-bar__hero-content {
   }
 }
 
+/* Auno AI promo strip above/below home hero */
+.auno-ai-banner {
+  background:
+    linear-gradient(135deg, rgba(22, 53, 80, 0.96) 0%, rgba(22, 53, 80, 0.88) 55%, rgba(243, 194, 68, 0.18) 100%),
+    var(--bg-dark);
+  color: var(--text-light);
+  padding: 28px 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auno-ai-banner__inner {
+  max-width: min(1440px, 94vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 36px 48px;
+  align-items: center;
+}
+
+.auno-ai-banner__eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-yellow);
+}
+
+.auno-ai-banner__copy h2 {
+  margin: 0 0 22px;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--text-light);
+  max-width: 18ch;
+}
+
+.auno-ai-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  background: var(--accent-yellow);
+  color: var(--bg-dark);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auno-ai-banner__cta:hover {
+  background: #ffd56a;
+  transform: translateY(-1px);
+}
+
+.auno-ai-banner__visual {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+}
+
+.auno-ai-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .auno-ai-banner {
+    padding: 24px 20px 16px;
+  }
+
+  .auno-ai-banner__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .auno-ai-banner__copy h2 {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .auno-ai-banner__visual {
+    justify-self: center;
+    max-width: 320px;
+  }
+}
+
 /* Packaging selection process */
 .packaging-process {
   background-color: var(--bg-light);
