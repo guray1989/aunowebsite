@@ -32,6 +32,8 @@
     { "source": "/en/solutions/data-guided", "destination": "/en/platform/data-guided-design", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/rapor/:reportNo", "destination": "https://rapor-aunopack.vercel.app/rapor/:reportNo" },
+    { "source": "/_next/:path*", "destination": "https://rapor-aunopack.vercel.app/_next/:path*" },
     { "source": "/:lang(tr)/raf-omru-ambalaj-cozumleri", "destination": "/raf-omru-ambalaj-cozumleri.html" },
     { "source": "/en/shelf-life-packaging-solutions", "destination": "/raf-omru-ambalaj-cozumleri.html" },
     { "source": "/:lang(tr)/raf-performansi-ambalaj-cozumleri", "destination": "/raf-performansi-ambalaj-cozumleri.html" },
