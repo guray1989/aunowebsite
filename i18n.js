@@ -16,7 +16,7 @@ const translations = {
     'packaging-process-3-title': 'Explore Packaging Alternatives',
     'packaging-process-3-desc': 'Review different packaging options that may suit your product.',
     'packaging-process-4-title': 'Compare and Evaluate',
-    'packaging-process-4-desc': 'Compare different packaging alternatives and chat about product specifications.<ul class="packaging-process__list"><li>Cost</li><li>Sustainability</li><li>Performance</li><li>Operational fit</li></ul>',
+    'packaging-process-4-desc': 'Compare packaging alternatives in terms of cost, sustainability, technical performance, and filling and packaging machine infrastructure.<ul class="packaging-process__list"><li>Cost</li><li>Sustainability</li><li>Technical performance</li><li>Current machine and line compatibility</li></ul>',
     'packaging-process-5-title': 'Request a Sample and Start Ordering',
     'packaging-process-5-desc': 'After deciding on the right packaging, get in touch and start the sample and order process with the appropriate material structure.',
     'paper-title': 'Paper Packaging',
@@ -31,6 +31,9 @@ const translations = {
     'print-desc': 'Custom printing solutions for your packaging needs.',
     address: 'İnkılap Mahallesi, Sokullu Caddesi No:5 Ümraniye/İstanbul',
     'footer-text': 'Email: info@aunopack.com. For any inquiries or support, please feel free to contact us by email or visit our location.',
+    'wa-title': 'AunoPack WhatsApp Support Line',
+    'wa-text': 'You can message us on WhatsApp about your Auno AI results, packaging options, pricing, samples and supply requests. Our team will review your needs and help you.',
+    'wa-cta': 'Message on WhatsApp',
     // Navigation
     logo: 'AUNOPACK',
     'nav-products': 'Products',
@@ -247,6 +250,8 @@ const translations = {
     'why-4-desc': 'We turn trial-and-error, fragmented and long decision processes into a faster, clearer structure supported by data and AI.',
     'why-5-title': 'Innovation at Material and System Level',
     'why-5-desc': 'We support your R&D processes with our AI-supported packaging development platform.',
+    'why-6-title': 'Alternative Pricing and Supply',
+    'why-6-desc': 'Based on the packaging you choose, you can order from AunoPack stock, request quotes from our partners to compare with your current supplier, or proceed with your own suppliers using the technical information provided in the system.',
     // Confectionery & Chocolate
     'cc-hero-title': 'Innovative Packaging Solutions for<br>Confectionery & Chocolate',
     'cc-hero-desc': 'In the confectionery and snacking segment, packaging is more than protection—it drives shelf differentiation and purchase decisions.<br><br>Sales-focused packaging is a strategic choice: data-informed, differentiated from competitors, and balanced for sustainability.',
@@ -449,7 +454,7 @@ const translations = {
     'packaging-process-3-title': 'Ambalaj Alternatiflerini Keşfedin',
     'packaging-process-3-desc': 'Ürününüz için uygun olabilecek farklı ambalaj alternatiflerini inceleyin.',
     'packaging-process-4-title': 'Karşılaştırın ve Değerlendirin',
-    'packaging-process-4-desc': 'Farklı ambalaj alternatiflerini karşılaştırın ve ürün özellikleri hakkında sohbet edin.<ul class="packaging-process__list"><li>Maliyet</li><li>Sürdürülebilirlik</li><li>Performans</li><li>Operasyonel uygunluk</li></ul>',
+    'packaging-process-4-desc': 'Farklı ambalaj alternatiflerini maliyet, sürdürülebilirlik, teknik performans, dolum ve paketleme makinesi altyapısı açısından karşılaştırın.<ul class="packaging-process__list"><li>Maliyet</li><li>Sürdürülebilirlik</li><li>Teknik performans</li><li>Mevcut makine ve hat uyumluluğu</li></ul>',
     'packaging-process-5-title': 'Numune Talep Edin ve Sipariş Sürecini Başlatın',
     'packaging-process-5-desc': 'Uygun ambalaja karar verdikten sonra iletişime geçin, uygun malzeme yapısı ile numune ve sipariş sürecini başlatın.',
     'paper-title': 'Kağıt Ambalaj',
@@ -464,6 +469,9 @@ const translations = {
     'print-desc': 'Ambalaj ihtiyaçlarınız için özel baskı çözümleri.',
     address: 'İnkılap Mahallesi, Sokullu Caddesi No:5 Ümraniye/İstanbul',
     'footer-text': 'E-posta: info@aunopack.com. Herhangi bir soru veya destek için bizimle e-posta yoluyla iletişime geçebilir veya firmamızı ziyaret edebilirsiniz.',
+    'wa-title': 'AunoPack WhatsApp Destek Hattı',
+    'wa-text': 'Auno AI sonuçlarınız, ambalaj seçenekleri, fiyat, numune ve tedarik talepleriniz için bize WhatsApp üzerinden yazabilirsiniz. Ekibimiz ihtiyacınızı inceleyerek size yardımcı olsun.',
+    'wa-cta': 'WhatsApp\'tan Yazın',
     // Navigation
     logo: 'AUNOPACK',
     'nav-products': 'Ürünler',
@@ -639,6 +647,8 @@ const translations = {
     'why-4-desc': 'Deneme yanılmaya dayalı, parçalı ve uzun karar süreçlerini; veri ve yapay zekâ destekli daha hızlı ve net bir yapıya dönüştürüyoruz.',
     'why-5-title': 'Malzeme ve Sistem Düzeyinde İnovasyon',
     'why-5-desc': 'Yapay Zeka Destekli Ambalaj Geliştirme Platformumuzla Ar-ge Süreçlerinizi Destekliyoruz.',
+    'why-6-title': 'Alternatif Fiyatlar ve Tedarik',
+    'why-6-desc': 'Seçtiğiniz ambalaja göre AunoPack stoklarından sipariş verebilir, iş ortaklarımızdan teklif alarak mevcut tedarikçinizle karşılaştırabilir veya sistemde sunulan teknik bilgilerle kendi tedarikçileriniz üzerinden ilerleyebilirsiniz.',
     // Confectionery & Chocolate
     'cc-hero-title': 'Şekerleme & Çikolata İçin<br>Yenilikçi Ambalaj Çözümleri',
     'cc-hero-desc': 'Şekerleme ve atıştırmalık segmentinde ambalaj; ürünü korumanın ötesinde, rafta ayrışma ve satın alma kararını yönlendiren bir araçtır.<br><br>Bu nedenle satışı destekleyen ambalaj; veriyle kurgulanmış, rakiplerden ayrışan ve sürdürülebilirlik dengesini gözeten stratejik bir karardır.',
@@ -1017,6 +1027,7 @@ function setLanguage(lang) {
   if (typeof window.updateCanonicalLink === 'function') {
     window.updateCanonicalLink();
   }
+  document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }
 
 // Initialize language on page load
