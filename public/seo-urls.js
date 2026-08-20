@@ -37,15 +37,15 @@
     "meta": {
       "tr": {
         "title": "Ambalaj Çözümleri | AUNOPACK",
-        "description": "Raf ömrü, raf performansı, küçük seri üretim ve veri odaklı ambalaj tasarımı. Gıda üreticileri için uçtan uca ambalaj çözümleri.",
+        "description": "Raf ömrü, raf performansı ve küçük seri üretim için ambalaj çözümleri. Gıda üreticileri için uçtan uca ambalaj çözümleri.",
         "ogTitle": "Ambalaj Çözümleri | AUNOPACK",
-        "ogDescription": "Raf ömrü, raf performansı, küçük seri üretim ve veri odaklı ambalaj tasarımı. Gıda üreticileri için uçtan uca ambalaj çözümleri."
+        "ogDescription": "Raf ömrü, raf performansı ve küçük seri üretim için ambalaj çözümleri. Gıda üreticileri için uçtan uca ambalaj çözümleri."
       },
       "en": {
         "title": "Packaging Solutions | AUNOPACK",
-        "description": "Shelf life, shelf performance, small batches and data-guided packaging design. End-to-end packaging solutions for food manufacturers.",
+        "description": "Shelf life, shelf performance and small-batch packaging solutions. End-to-end packaging solutions for food manufacturers.",
         "ogTitle": "Packaging Solutions | AUNOPACK",
-        "ogDescription": "Shelf life, shelf performance, small batches and data-guided packaging design. End-to-end packaging solutions for food manufacturers."
+        "ogDescription": "Shelf life, shelf performance and small-batch packaging solutions. End-to-end packaging solutions for food manufacturers."
       }
     }
   },
@@ -112,31 +112,6 @@
         "description": "Sleeves, carton overwrap and flexible print for campaigns, limited runs and low-volume food production.",
         "ogTitle": "Small-Batch Packaging Solutions | AUNOPACK",
         "ogDescription": "Sleeves, carton overwrap and flexible print for campaigns, limited runs and low-volume food production."
-      }
-    }
-  },
-  {
-    "id": "platform-data-guided",
-    "tr": "/tr/platform/veri-destekli-tasarim",
-    "en": "/en/platform/data-guided-design",
-    "paths": [
-      "/solutions/data-guided",
-      "/platform/veri-destekli-tasarim",
-      "/platform/veri-destekli-tasarim.html",
-      "/platform/data-guided-design"
-    ],
-    "meta": {
-      "tr": {
-        "title": "Veri Destekli Tasarım | AUNOPACK",
-        "description": "AunoAI ile ambalaj malzemesi, form ve görsel kararlarınızı analiz edin. Sürdürülebilirlik ve raf performansını birlikte değerlendirin.",
-        "ogTitle": "Veri Destekli Tasarım | AUNOPACK",
-        "ogDescription": "AunoAI ile ambalaj malzemesi, form ve görsel kararlarınızı analiz edin. Sürdürülebilirlik ve raf performansını birlikte değerlendirin."
-      },
-      "en": {
-        "title": "Data-Guided Design | AUNOPACK",
-        "description": "Analyze packaging material, form and visual decisions with AunoAI. Evaluate sustainability and shelf performance together.",
-        "ogTitle": "Data-Guided Design | AUNOPACK",
-        "ogDescription": "Analyze packaging material, form and visual decisions with AunoAI. Evaluate sustainability and shelf performance together."
       }
     }
   },
@@ -408,15 +383,62 @@
     "meta": {
       "tr": {
         "title": "Ambalaj Blogu | AUNOPACK",
-        "description": "Gıda ambalajı, sürdürülebilirlik ve sektör trendleri hakkında AunoPack blog yazıları ve vaka çalışmaları.",
+        "description": "AunoPack blog yazıları ve ambalaj tipi analizleri. Gıda ambalajı, sürdürülebilirlik ve sektör içgörüleri.",
         "ogTitle": "Ambalaj Blogu | AUNOPACK",
-        "ogDescription": "Gıda ambalajı, sürdürülebilirlik ve sektör trendleri hakkında AunoPack blog yazıları ve vaka çalışmaları."
+        "ogDescription": "AunoPack blog yazıları ve ambalaj tipi analizleri. Gıda ambalajı, sürdürülebilirlik ve sektör içgörüleri."
       },
       "en": {
         "title": "Packaging Blog | AUNOPACK",
-        "description": "AunoPack blog on food packaging, sustainability and industry trends. Case studies and expert insights.",
+        "description": "AunoPack blog posts and packaging-type analyses. Food packaging, sustainability and industry insights.",
         "ogTitle": "Packaging Blog | AUNOPACK",
-        "ogDescription": "AunoPack blog on food packaging, sustainability and industry trends. Case studies and expert insights."
+        "ogDescription": "AunoPack blog posts and packaging-type analyses. Food packaging, sustainability and industry insights."
+      }
+    }
+  },
+  {
+    "id": "blog-ambalaj-analizi",
+    "tr": "/tr/blog/ambalaj-analizi-ve-verinin-onemi",
+    "en": "/en/blog/packaging-analysis-and-the-importance-of-data",
+    "paths": [
+      "/blog/ambalaj-analizi-ve-verinin-onemi",
+      "/blog/ambalaj-analizi-ve-verinin-onemi.html",
+      "/en/blog/ambalaj-analizi-ve-verinin-onemi"
+    ],
+    "meta": {
+      "tr": {
+        "title": "Ambalaj Analizi | AUNOPACK",
+        "description": "Ambalaj kararlarında veri ve yapay zekânın rolü. Hayal gücünü besleyen, seçenekleri karşılaştıran bir çıpa.",
+        "ogTitle": "Ambalaj Analizi | AUNOPACK",
+        "ogDescription": "Ambalaj kararlarında veri ve yapay zekânın rolü. Hayal gücünü besleyen, seçenekleri karşılaştıran bir çıpa."
+      },
+      "en": {
+        "title": "Packaging Analysis | AUNOPACK",
+        "description": "The role of data and AI in packaging decisions — an anchor that fuels imagination and helps compare options.",
+        "ogTitle": "Packaging Analysis | AUNOPACK",
+        "ogDescription": "The role of data and AI in packaging decisions — an anchor that fuels imagination and helps compare options."
+      }
+    }
+  },
+  {
+    "id": "blog-analysis-doypack",
+    "tr": "/tr/blog/ambalajtipi/analizleri/doypackformlukartonkutu",
+    "en": "/en/blog/packaging-type/analyses/doypack-form-carton-box",
+    "paths": [
+      "/blog/ambalajtipi/analizleri/doypackformlukartonkutu",
+      "/blog/ambalajtipi/analizleri/doypackformlukartonkutu.html"
+    ],
+    "meta": {
+      "tr": {
+        "title": "Pencereli Doypack Karton Kutu: Gıda Korumasını Premium Raf Görünümüyle Birleştiren Ambalaj | AUNOPACK",
+        "description": "Pencereli doypack formlu karton kutu ambalaj analizi. Gıda koruması, premium raf görünümü, taneli çikolata, granola ve hediyelik gıda kullanım alanları.",
+        "ogTitle": "Pencereli Doypack Karton Kutu: Gıda Korumasını Premium Raf Görünümüyle Birleştiren Ambalaj | AUNOPACK",
+        "ogDescription": "Pencereli doypack formlu karton kutu ambalaj analizi. Gıda koruması, premium raf görünümü, taneli çikolata, granola ve hediyelik gıda kullanım alanları."
+      },
+      "en": {
+        "title": "Windowed Doypack Carton Box: Packaging That Combines Food Protection with Premium Shelf Presence | AUNOPACK",
+        "description": "Windowed doypack-form carton box analysis. Food protection, premium shelf presence and use cases for chocolate, granola and gift foods.",
+        "ogTitle": "Windowed Doypack Carton Box: Packaging That Combines Food Protection with Premium Shelf Presence | AUNOPACK",
+        "ogDescription": "Windowed doypack-form carton box analysis. Food protection, premium shelf presence and use cases for chocolate, granola and gift foods."
       }
     }
   },

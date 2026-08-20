@@ -244,7 +244,6 @@
         { key: 'platform-pallet-title', href: 'https://system.aunopack.com/pallet-optimizer', external: true },
         { key: 'platform-database-title', href: '/platform/ambalaj-veritabani' },
         { key: 'platform-market-title', href: '/platform/ambalaj-analizleri' },
-        { key: 'platform-data-guided-title', href: '/platform/veri-destekli-tasarim' },
       ]);
       mobileContent.appendChild(platformItem);
 
@@ -522,9 +521,6 @@
         analytics: lang === 'en'
           ? '/assets/images/ambalaj-analizleri-en.png'
           : '/assets/images/ambalaj-analizleri.png',
-        design: lang === 'en'
-          ? '/assets/images/aunoai-tasarim.en.png'
-          : '/assets/images/print.png',
       };
     }
 
